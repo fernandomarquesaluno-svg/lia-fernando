@@ -1,30 +1,56 @@
-# Portal acadêmico — Laboratório de Inteligência Artificial
+# Portal Acadêmico — Laboratório de Inteligência Artificial
 
-Portal multipágina estático, responsivo e animado, inspirado na identidade visual do Atlas de Evidências.
+Site acadêmico multipágina sobre **indicadores textuais de depressão, ansiedade e estresse**, desenvolvido para acompanhar a pesquisa ao longo do semestre e apoiar a apresentação final.
+
+**Site publicado:** https://fernandomarquesaluno-svg.github.io/lia-fernando/
 
 ## Páginas
-- `index.html`: capa e navegação
-- `contexto.html`: contexto, problema e objetivos
-- `metodologia.html`: percurso metodológico
-- `atlas.html`: integração do Atlas original via iframe + links de acesso
-- `kallstenius.html`: apresentação interativa de nove quadros e gráfico de resultados
-- `experimentos.html`: proposta experimental ainda em planejamento
-- `evolucao.html`: linha do tempo filtrável
 
-## Execução local
-Basta abrir `index.html` em um navegador. Também é possível executar `python -m http.server 8000` na pasta para testar as rotas. Não há dependências de build. A fonte do Google Fonts é opcional e requer internet.
+| Arquivo | Finalidade |
+| --- | --- |
+| `index.html` | Página inicial, destaques do Atlas e do artigo, roteiro da pesquisa |
+| `contexto.html` | Contexto, problema, pergunta e objetivos |
+| `metodologia.html` | Percurso metodológico e critérios de qualidade |
+| `atlas.html` | Integração do Atlas científico original, com acesso alternativo |
+| `kallstenius.html` | Análise e apresentação interativa de nove quadros do artigo de 2026 |
+| `experimentos.html` | Proposta de experimento com LLMs, ainda em planejamento |
+| `evolucao.html` | Linha do tempo das entregas, decisões e refinamentos |
 
-## Publicação no GitHub Pages
-1. Crie um repositório público com o nome desejado (ex.: `-lia-fernando`).
-2. Faça upload de **todos** os arquivos da pasta, preservando o diretório `assets`.
-3. Em **Settings → Pages → Build and deployment**, selecione `Deploy from a branch`, `main`, `/ (root)`.
-4. O endereço será `https://fernandomarquesaluno-svg.github.io/-lia-fernando/`. O formato `lia-fernando.github.io` só funciona se esse for o nome da conta ou organização no GitHub (ou com domínio próprio).
+## Funcionalidades
 
-## Dependência do Atlas
-A página `atlas.html` incorpora a versão **publicada** em `https://fernandomarquesaluno-svg.github.io/depression_poject/tabelas/comparativo/`. Esta integração não copia os arquivos, e a disponibilidade depende do projeto original e da política de incorporação do navegador. O link externo é oferecido como alternativa. Para independência total, exporte o código e os ativos do Atlas para uma pasta local `atlas/` e altere o `src` do iframe para esse caminho.
+- Layout responsivo inspirado no Atlas, com fundo azul-escuro e acentos ciano/violeta.
+- Animações de entrada, visualizações e barra de progresso de leitura, respeitando redução de movimento no navegador.
+- Menu acessível para computador, tablet e celular.
+- Navegação na apresentação técnica por botões ou setas do teclado quando o painel está em foco.
+- **Modo apresentação em tela cheia** no artigo de Kallstenius: botão para abrir/fechar e tecla Esc para sair.
+- Filtros na linha do tempo, indicação de estados e links para fontes.
+- Site estático em HTML/CSS/JavaScript sem etapa de build.
 
-## Integridade acadêmica
-O material distingue evidências da literatura e propostas ainda não executadas. Os valores de Kallstenius foram extraídos da apresentação técnica do repositório original. Referências: https://doi.org/10.2196/98925 e https://github.com/fernandomarquesaluno-svg/depression_poject.
-## Repositório publicado
+## Fontes científicas e limites
 
-Código hospedado em [fernandomarquesaluno-svg/-lia-fernando](https://github.com/fernandomarquesaluno-svg/-lia-fernando). Após ativar GitHub Pages em Settings → Pages → Deploy from a branch → main / (root), o endereço esperado é [fernandomarquesaluno-svg.github.io/-lia-fernando](https://fernandomarquesaluno-svg.github.io/-lia-fernando/). O hífen inicial faz parte do nome atual do repositório.
+O acervo científico original está em [depression_poject](https://github.com/fernandomarquesaluno-svg/depression_poject), com o [Atlas comparativo](https://fernandomarquesaluno-svg.github.io/depression_poject/tabelas/comparativo/). Este portal **incorpora** o Atlas; não substitui, duplica ou altera o conteúdo original.
+
+A apresentação de **Kallstenius et al. (2026)** refere-se ao artigo *Ensemble of Domain-Specific Natural Language Processing and Large Language Models for Detecting Suicidal Ideation and Mental Health Conditions in Social Media Text: Development and Evaluation Study*, JMIR Mental Health, DOI [10.2196/98925](https://doi.org/10.2196/98925).
+
+O site diferencia indicadores textuais de diagnóstico clínico, não trata resultados entre datasets como ranking e identifica a etapa experimental como *planejada*, sem inventar avaliações.
+
+## Desenvolvimento local
+
+Abra `index.html` diretamente ou, na raiz do repositório, execute:
+
+```bash
+python3 -m http.server 8000
+```
+
+Depois acesse `http://localhost:8000/`. As fontes do Google Fonts e o iframe do Atlas exigem acesso à internet.
+
+## GitHub Pages
+
+Em **Settings → Pages** escolha `Deploy from a branch`, branch `main`, pasta `/ (root)`. O arquivo `.nojekyll` mantém o site estático sem processamento do Jekyll.
+
+## Preservação
+
+- Backup do portal antes da revisão: branch `backup-portal-2026-11-13` neste repositório.
+- Backup do projeto Atlas: branch `backup-atlas-2026-11-13` no repositório original.
+
+**Autor:** Fernando Henrique de Souza Marques.
