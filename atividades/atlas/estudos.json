@@ -1,0 +1,1907 @@
+{
+  "meta": {
+    "source": "tabelas/tabela_comparativa_tecnica.md",
+    "updated": "2026-11-10",
+    "kind": "revisão narrativa",
+    "scope": "2020–2026",
+    "count": 33,
+    "notes": "Rótulos de grupo e idioma são classificação exploratória a partir dos textos das fichas, não medida experimental. Métricas de estudos diferentes não são comparáveis sem protocolo compatível. Em 10/11/2026, volumes dos trabalhos 1 e 3 conferidos nas tabelas/figuras dos artigos originais publicados na ACL Anthology.",
+    "review": {
+      "date": "2026-11-10",
+      "checked": 7,
+      "completedSpecificData": 4,
+      "pendingStudies": [
+        19,
+        20,
+        31
+      ],
+      "pendingFields": 4,
+      "method": "Conferência de artigo, tese, preprint e repositório; sem extrapolar métricas ou somar corpora compartilhados.",
+      "notes": "Mandal: valor do melhor experimento difere da média em 3 sementes. Santos 2025 tese: valores referem-se a um experimento e não ao resultado final de toda a tese. Shah: volumetria encontrada no pré-print, não auditada na versão do periódico."
+    },
+    "auditV2": {
+      "date": "2026-11-10",
+      "type": "Inventário documental de datasets e sua acessibilidade; não reexecutou 33 experimentos",
+      "fields": [
+        "name",
+        "platform",
+        "accessStatus",
+        "accessEvidence",
+        "datasetUrl",
+        "evidenceUrl",
+        "reuseAndCaveat"
+      ],
+      "rule": "Público no artigo não significa arquivos disponíveis. Em bases mistas status PARCIAL refere-se a componentes em regimes diferentes.",
+      "taxonomy": {
+        "publico": "Dados ou versões oficiais documentadas como públicas",
+        "controlado": "Acesso mediante cadastro, acordo ou aprovação",
+        "restrito": "Arquivos ou textos originais indisponíveis sem autorização",
+        "parcial": "Componentes com regimes diferentes; verificar ficha",
+        "nao_confirmado": "Ausência de confirmação documental de acesso ao corpus completo",
+        "nao_aplica": "Revisão secundária sem novo corpus próprio"
+      },
+      "additionalChecks": [
+        "DEPTWEET publica tweet IDs e aceita DUA; classificado como parcial em vez de não confirmado",
+        "Chung et al. 2025 solicita autorização ao autor correspondente; classificado como controlado"
+      ]
+    },
+    "auditV3": {
+      "date": "2026-11-10",
+      "round": 3,
+      "target": "Oito registros anteriormente sem confirmação de acesso e relações de reutilização de fontes primárias",
+      "reclassified": [
+        {
+          "id": 8,
+          "from": "nao_confirmado",
+          "to": "restrito",
+          "basis": "Origem Amive identificada e distribuição dos textos originais vedada pelo grupo"
+        },
+        {
+          "id": 22,
+          "from": "nao_confirmado",
+          "to": "parcial",
+          "basis": "Criadores originais do MDDL publicam link de dataset; partições de Shah não auditadas"
+        },
+        {
+          "id": 23,
+          "from": "nao_confirmado",
+          "to": "controlado",
+          "basis": "Declaração primária: dados disponíveis mediante solicitação"
+        },
+        {
+          "id": 27,
+          "from": "nao_confirmado",
+          "to": "controlado",
+          "basis": "Página oficial UMD com requerimento de IRB e acordo"
+        }
+      ],
+      "stillUnconfirmed": [
+        9,
+        13,
+        19,
+        21
+      ],
+      "datasetFamilies": {
+        "AMIVE": [
+          8,
+          31
+        ],
+        "IDEA-IDEABOT": [
+          9,
+          13
+        ],
+        "SETEMBROBR": [
+          6,
+          7,
+          20,
+          30
+        ],
+        "UMD-SUICIDALITY": [
+          27
+        ]
+      },
+      "caveats": [
+        "UMD CLPsych 2024 n=125 usuários anotados não implica acesso público.",
+        "Amive 780 postagens originais não implica 780 instâncias efetivas na avaliação Figueiredo 2026.",
+        "MDDL oferece distribuição do corpus-base, não partições exatas do artigo Shah.",
+        "Hussain 2025: data available on request.",
+        "Mao & Han 2025: cinco conjuntos autodenominados públicos mas URLs das versões exatas não confirmadas."
+      ]
+    },
+    "auditV4": {
+      "date": "2026-11-10",
+      "scope": "Reclassificação independente de tipo de publicação, método técnico e tarefa principal; auditoria de acesso em 4 estudos; metadados de comparação experimental",
+      "primaryGroups": [
+        "Depressão",
+        "Depressão e ansiedade",
+        "Estresse",
+        "Risco suicida",
+        "Múltiplas condições"
+      ],
+      "methodGroups": [
+        "Análise lexical",
+        "ML clássico",
+        "Transformers",
+        "LLMs",
+        "Grafos/GNNs",
+        "Multimodal/fusão"
+      ],
+      "empiricalCount": 25,
+      "resourceCount": 3,
+      "reviewCount": 5,
+      "affectedStudies": [
+        9,
+        13,
+        19,
+        21
+      ],
+      "accessUnconfirmed": [
+        9,
+        13,
+        19
+      ],
+      "note": "21 passou a parcial porque três repositórios originais foram encontrados, mas suas cinco partições exatas não foram reproduzidas. 9,13 e 19 seguem sem acesso ao corpus experimental confirmado. Métricas são específicas a cada estudo."
+    },
+    "auditV5": {
+      "date": "2026-11-10",
+      "focusedIds": [
+        19,
+        20,
+        31
+      ],
+      "findings": [
+        {
+          "id": 19,
+          "verified": "Quatro classes e comparabilidade qualitativa",
+          "stillMissing": "Corpus de teste e F1 por modelo"
+        },
+        {
+          "id": 20,
+          "verified": "Razões 7:1 e 9:1; médias 1.443 e 162 posts; filtro 1.000 tweets, split original; teste humano n=100",
+          "stillMissing": "Totais da Tabela 2 por corpus/classe/split"
+        },
+        {
+          "id": 31,
+          "verified": "Amive 780 postagens de origem e quatro condições de treino/teste sintético-real",
+          "stillMissing": "N de sentenças e divisões efetivas da avaliação 2026"
+        }
+      ],
+      "extractionStatus": "Conferência da página original e textos publicamente acessíveis; Tabela 2 do IEEE está como imagem e TCC PDF da UFSCar indisponível por interface consultada; sem valores inventados.",
+      "remainingNumeric": [
+        19,
+        20,
+        31
+      ]
+    },
+    "auditV6": {
+      "date": "2026-11-10",
+      "scoped": [
+        9,
+        13,
+        19
+      ],
+      "finding": "Nenhum dos três estudos expõe link público ou termo de disponibilização específico comprovado nesta busca; contatos oficiais identificados para solicitação; um estudo relacionado do IDEA-RiSCo (2024) diz que os seus próprios dados podem ser pedidos.",
+      "numDatasetsPubliclyVerifiedInThisRound": 0,
+      "requestContactsVerified": 3,
+      "authorRequestsSent": 0,
+      "unconfirmedRemain": [
+        9,
+        13,
+        19
+      ],
+      "strictRule": "Não marcar solicitação como acesso concedido, nem aplicar automaticamente política de uma publicação a outra."
+    }
+  },
+  "studies": [
+    {
+      "id": 1,
+      "title": "Harrigian, Aguirre & Dredze (2020) — Generalization",
+      "url": "https://aclanthology.org/2020.findings-emnlp.337/",
+      "year": 2020,
+      "condition": "Depressão; validade externa de modelos de saúde mental",
+      "source": "Textos de múltiplas plataformas sociais; inglês",
+      "dataset": "Cinco corpora de usuários: CLPsych (477 depressão / 477 controle), Multi-Task Learning (1.400 / 1.400), RSDD (9.210 / 107.274), SMHD (14.139 / 127.251) e Topic-Restricted Text (6.853 / 7.016). Valores por grupo reportados na Tabela 1 do artigo.",
+      "labeling": "Supervisão distante por autorrelato ou proxy de plataforma",
+      "methods": "Classificadores de depressão; testes de transferência entre plataformas",
+      "results": "Na análise de artefatos temporais, a separação desajustada elevou artificialmente o F1 em 3–22% , dependendo do corpus (§5.2.1); não há F1 único para transferência entre plataformas.",
+      "limitations": "Demonstra confundidores e sobre-estimação por dados proxy; fundamenta validação externa",
+      "language": "Inglês",
+      "type": "Pesquisa",
+      "group": "Outras",
+      "methodTags": [
+        "Outras abordagens"
+      ],
+      "conditions": [
+        "Depressão"
+      ],
+      "pending": [],
+      "datasetAudit": {
+        "name": "CLPsych 2015; Multi-Task Learning; RSDD; SMHD; Topic-Restricted Text",
+        "platform": "Twitter/X e Reddit",
+        "accessStatus": "controlado",
+        "accessEvidence": "A maior parte das bases exige acordos de uso ou aprovação ética; o repositório descreve uma exceção de acesso para Topic-Restricted Text.",
+        "datasetUrl": "https://github.com/kharrigian/emnlp-2020-mental-health-generalization",
+        "evidenceUrl": "https://github.com/kharrigian/emnlp-2020-mental-health-generalization",
+        "reuseAndCaveat": "Cinco corpora comparados; não existe um único dataset independente criado pelo artigo.",
+        "reviewedOn": "2026-11-10",
+        "accessAssessment": "Classificação baseada na fonte vinculada; conferir condições atuais do provedor"
+      },
+      "analysisTaxonomy": {
+        "publicationKind": "empirico",
+        "primaryTask": "Depressão",
+        "methodFamilies": [
+          "ML clássico"
+        ],
+        "datasetFamily": null,
+        "caveat": "Tarefa-alvo e métodos categorizados a partir do artigo e da síntese técnica; a ligação não representa força de evidência.",
+        "auditedOn": "2026-11-10",
+        "methodScope": "Famílias efetivamente utilizadas na publicação, inclusive baselines explicitamente comparados; não indica qual venceu.",
+        "linkBasis": "Associação por tarefa principal verificada na síntese; pode requerer nova conferência para artigos sem tabela integral."
+      }
+    },
+    {
+      "id": 2,
+      "title": "Ji et al. (2022) — MentalBERT",
+      "url": "https://aclanthology.org/2022.lrec-1.778/",
+      "year": 2022,
+      "condition": "Multicondição; estresse e depressão",
+      "source": "Posts e fóruns; inglês",
+      "dataset": "Pré-treino em textos de saúde mental; diversos benchmarks, inclusive Dreaddit",
+      "labeling": "Rótulos herdados de cada conjunto de avaliação",
+      "methods": "Pré-treino de domínio: MentalBERT e MentalRoBERTa",
+      "results": "Em Dreaddit : MentalRoBERTa F1 81,76% , MentalBERT F1 80,04% (Tabela 3)",
+      "limitations": "Resultado específico de benchmark; transferência ao PT-BR não avaliada",
+      "language": "Inglês",
+      "type": "Pesquisa",
+      "group": "Transformers",
+      "methodTags": [
+        "Transformers"
+      ],
+      "conditions": [
+        "Depressão",
+        "Estresse"
+      ],
+      "pending": [],
+      "datasetAudit": {
+        "name": "MentalBERT (corpus Reddit de pré-treinamento); Dreaddit e outros benchmarks",
+        "platform": "Reddit",
+        "accessStatus": "parcial",
+        "accessEvidence": "O checkpoint MentalBERT exige aceite de condições no Hugging Face. Dreaddit tem versões públicas; isso não comprova acesso ao corpus bruto completo de pré-treinamento.",
+        "datasetUrl": null,
+        "evidenceUrl": "https://huggingface.co/mental/mental-bert-base-uncased",
+        "reuseAndCaveat": "O link de modelo MentalBERT no Hugging Face não é um link de corpus. Dreaddit é benchmark distinto; requer buscar dados nas fontes originais, sem presumir acesso ao corpus de pré-treino.",
+        "reviewedOn": "2026-11-10",
+        "accessAssessment": "Classificação baseada na fonte vinculada; conferir condições atuais do provedor"
+      },
+      "analysisTaxonomy": {
+        "publicationKind": "empirico",
+        "primaryTask": "Múltiplas condições",
+        "methodFamilies": [
+          "Transformers"
+        ],
+        "datasetFamily": null,
+        "caveat": "Modelo pré-treinado avaliado em múltiplos benchmarks; depressão e estresse são tarefas de avaliação distintas.",
+        "auditedOn": "2026-11-10",
+        "methodScope": "Famílias efetivamente utilizadas na publicação, inclusive baselines explicitamente comparados; não indica qual venceu.",
+        "linkBasis": "Associação por tarefa principal verificada na síntese; pode requerer nova conferência para artigos sem tabela integral."
+      }
+    },
+    {
+      "id": 3,
+      "title": "Poświata & Perełkiewicz (2022) — DepRoBERTa",
+      "url": "https://aclanthology.org/2022.ltedi-1.40/",
+      "year": 2022,
+      "condition": "Sinais textuais de depressão; três níveis",
+      "source": "Postagens sociais; inglês",
+      "dataset": "Reddit — DepSign-LT-EDI@ACL2022. Partição original: treino 8.891, desenvolvimento 4.496, teste 3.245 posts; após remoção de duplicatas e redivisão: treino 6.006, desenvolvimento 1.000, teste 3.245. Pré-treino adicional do DepRoBERTa com 396.968 posts (Figura 1; §4.2).",
+      "labeling": "Classes não depressivo, moderado e grave do desafio; rótulo do texto, não diagnóstico clínico",
+      "methods": "Fine-tuning BERT/RoBERTa/XLNet, adaptação DepRoBERTa, ensemble",
+      "results": "Macro-F1 0,583 para o ensemble vencedor da tarefa",
+      "limitations": "Fornece baseline de transformers e modelo especializado; não comparar com classificação clínica individual",
+      "language": "Inglês",
+      "type": "Pesquisa",
+      "group": "Transformers",
+      "methodTags": [
+        "Transformers"
+      ],
+      "conditions": [
+        "Depressão"
+      ],
+      "pending": [],
+      "datasetAudit": {
+        "name": "DepSign-LT-EDI@ACL 2022; Reddit Depression Corpora",
+        "platform": "Reddit (r/depression; r/SuicideWatch e outros)",
+        "accessStatus": "publico",
+        "accessEvidence": "O repositório dos autores disponibiliza dataset de competição pré-processado e código; o corpus de adaptação de domínio também é documentado.",
+        "datasetUrl": "https://github.com/rafalposwiata/depression-detection-lt-edi-2022",
+        "evidenceUrl": "https://github.com/rafalposwiata/depression-detection-lt-edi-2022",
+        "reuseAndCaveat": "Os 396.968 textos de pré-treino não equivalem ao tamanho do benchmark rotulado.",
+        "reviewedOn": "2026-11-10",
+        "accessAssessment": "Classificação baseada na fonte vinculada; conferir condições atuais do provedor"
+      },
+      "analysisTaxonomy": {
+        "publicationKind": "empirico",
+        "primaryTask": "Depressão",
+        "methodFamilies": [
+          "Transformers"
+        ],
+        "datasetFamily": null,
+        "caveat": "Tarefa-alvo e métodos categorizados a partir do artigo e da síntese técnica; a ligação não representa força de evidência.",
+        "auditedOn": "2026-11-10",
+        "methodScope": "Famílias efetivamente utilizadas na publicação, inclusive baselines explicitamente comparados; não indica qual venceu.",
+        "linkBasis": "Associação por tarefa principal verificada na síntese; pode requerer nova conferência para artigos sem tabela integral."
+      }
+    },
+    {
+      "id": 4,
+      "title": "Kabir et al. (2023) — DEPTWEET",
+      "url": "https://www.sciencedirect.com/science/article/pii/S0747563222003235",
+      "year": 2023,
+      "condition": "Depressão; gravidade expressa no texto",
+      "source": "Twitter/X; inglês",
+      "dataset": "40.191 tweets , quatro categorias",
+      "labeling": "Anotação supervisionada por especialistas; tipologia inspirada em PHQ-9/DSM-5",
+      "methods": "BERT, DistilBERT e baselines de classificação",
+      "results": "DistilBERT, AUC-ROC por classe : não deprimido 0,789 ; leve 0,747 ; moderado 0,788 ; grave 0,866 (Tabela 5 do manuscrito).",
+      "limitations": "Gravidade anotada do tweet não é avaliação clínica do autor",
+      "language": "Inglês",
+      "type": "Dataset/recurso",
+      "group": "Recursos",
+      "methodTags": [
+        "Transformers"
+      ],
+      "conditions": [
+        "Depressão"
+      ],
+      "pending": [],
+      "datasetAudit": {
+        "name": "DEPTWEET",
+        "platform": "Twitter/X",
+        "accessStatus": "parcial",
+        "accessEvidence": "Repositório dos autores distribui IDs de tweets e rótulos; o texto deve ser reidratado, sujeito à disponibilidade atual no Twitter/X. Como alternativa, os autores solicitam assinatura de acordo de uso (DUA) para fornecer os textos.",
+        "datasetUrl": "https://github.com/mohsinulkabir14/DEPTWEET",
+        "evidenceUrl": "https://github.com/mohsinulkabir14/DEPTWEET",
+        "reuseAndCaveat": "Não confundir IDs publicamente distribuídos com disponibilidade integral dos textos. Tweets apagados ou indisponíveis não podem ser recuperados por reidratação.",
+        "reviewedOn": "2026-11-10",
+        "accessAssessment": "Não confirmado quanto ao acesso ao corpus específico"
+      },
+      "analysisTaxonomy": {
+        "publicationKind": "recurso",
+        "primaryTask": "Depressão",
+        "methodFamilies": [],
+        "datasetFamily": null,
+        "caveat": "Tarefa-alvo e métodos categorizados a partir do artigo e da síntese técnica; a ligação não representa força de evidência.",
+        "auditedOn": "2026-11-10",
+        "methodScope": "Famílias efetivamente utilizadas na publicação, inclusive baselines explicitamente comparados; não indica qual venceu.",
+        "linkBasis": "Associação por tarefa principal verificada na síntese; pode requerer nova conferência para artigos sem tabela integral."
+      }
+    },
+    {
+      "id": 5,
+      "title": "Yang et al. (2024) — MentaLLaMA; preprint 2023",
+      "url": "https://arxiv.org/abs/2309.13567",
+      "year": 2024,
+      "condition": "Multicondição; avaliação interpretável",
+      "source": "Redes sociais; inglês",
+      "dataset": "105 mil instâncias de instrução IMHI de dez fontes",
+      "labeling": "Rótulos existentes e explicações geradas/avaliadas",
+      "methods": "LLaMA 2, instruction tuning, geração de explicações",
+      "results": "MentaLLaMA-chat-13B: F1 ponderado 75,79% em Dreaddit (Tabela 2); comparar com MentalRoBERTa 81,76% no mesmo benchmark.",
+      "limitations": "Justificativas geradas não garantem fidelidade clínica",
+      "language": "Inglês",
+      "type": "Pesquisa",
+      "group": "LLMs",
+      "methodTags": [
+        "LLMs/ensemble"
+      ],
+      "conditions": [
+        "Outras/geral"
+      ],
+      "pending": [],
+      "datasetAudit": {
+        "name": "IMHI — Interpretable Mental Health Instruction Dataset",
+        "platform": "Reddit; Twitter/X; SMS",
+        "accessStatus": "parcial",
+        "accessEvidence": "Repositório oficial indica quais tarefas/partições foram liberadas; o benchmark agrega dez fontes e nem todas são disponibilizadas como dados brutos.",
+        "datasetUrl": "https://github.com/SteveKGYang/MentalLLaMA",
+        "evidenceUrl": "https://github.com/SteveKGYang/MentalLLaMA",
+        "reuseAndCaveat": "Inclui dez bases subjacentes; evitar contar cada base reutilizada como nova amostra.",
+        "reviewedOn": "2026-11-10",
+        "accessAssessment": "Classificação baseada na fonte vinculada; conferir condições atuais do provedor"
+      },
+      "analysisTaxonomy": {
+        "publicationKind": "empirico",
+        "primaryTask": "Múltiplas condições",
+        "methodFamilies": [
+          "LLMs"
+        ],
+        "datasetFamily": null,
+        "caveat": "Tarefa-alvo e métodos categorizados a partir do artigo e da síntese técnica; a ligação não representa força de evidência.",
+        "auditedOn": "2026-11-10",
+        "methodScope": "Famílias efetivamente utilizadas na publicação, inclusive baselines explicitamente comparados; não indica qual venceu.",
+        "linkBasis": "Associação por tarefa principal verificada na síntese; pode requerer nova conferência para artigos sem tabela integral."
+      }
+    },
+    {
+      "id": 6,
+      "title": "dos Santos, de Oliveira & Paraboni (2024) — SetembroBR; online 2023",
+      "url": "https://link.springer.com/article/10.1007/s10579-022-09633-0",
+      "year": 2024,
+      "condition": "Depressão; ansiedade",
+      "source": "Twitter/X; português brasileiro",
+      "dataset": "46,8 milhões de tweets; 18.819 usuários ; 3.163 usuários com autorrelato (3.903 ocorrências parcialmente sobrepostas)",
+      "labeling": "Autorrelato de diagnóstico/tratamento e marco temporal",
+      "methods": "Corpus e comparações de modelos textuais e informações de rede",
+      "results": "Artigo de apresentação do corpus : oferece baselines para tarefas específicas; não existe um resultado agregado único do dataset. As métricas dos modelos não são utilizadas sem identificação de tarefa e configuração.",
+      "limitations": "Dados do mesmo corpus usado no estudo seguinte; não constitui nova coorte",
+      "language": "PT-BR",
+      "type": "Dataset/recurso",
+      "group": "Recursos",
+      "methodTags": [
+        "Outras abordagens"
+      ],
+      "conditions": [
+        "Depressão",
+        "Ansiedade"
+      ],
+      "pending": [],
+      "datasetAudit": {
+        "name": "SetembroBR",
+        "platform": "Twitter/X",
+        "accessStatus": "publico",
+        "accessEvidence": "A página do grupo responsável informa disponibilização pública e aponta diretamente para a pasta de distribuição.",
+        "datasetUrl": "https://drive.google.com/drive/folders/1MXFRs0u8iF1RNUWABTA0Oz8_Ix1skqZT",
+        "evidenceUrl": "https://ivandreparaboni.wixsite.com/research/setembrobr",
+        "reuseAndCaveat": "Download indicado pelo grupo; verificar licença e formato antes de reutilizar.",
+        "reviewedOn": "2026-11-10",
+        "accessAssessment": "Classificação baseada na fonte vinculada; conferir condições atuais do provedor"
+      },
+      "analysisTaxonomy": {
+        "publicationKind": "recurso",
+        "primaryTask": "Depressão e ansiedade",
+        "methodFamilies": [],
+        "datasetFamily": "SETEMBROBR",
+        "caveat": "Tarefa-alvo e métodos categorizados a partir do artigo e da síntese técnica; a ligação não representa força de evidência.",
+        "auditedOn": "2026-11-10",
+        "methodScope": "Famílias efetivamente utilizadas na publicação, inclusive baselines explicitamente comparados; não indica qual venceu.",
+        "linkBasis": "Associação por tarefa principal verificada na síntese; pode requerer nova conferência para artigos sem tabela integral."
+      }
+    },
+    {
+      "id": 7,
+      "title": "Nagamatu & Paraboni (2024)",
+      "url": "https://www.linguamatica.com/index.php/linguamatica/pt/article/view/440",
+      "year": 2024,
+      "condition": "Depressão; ansiedade; detecção precoce",
+      "source": "Twitter/X; português brasileiro",
+      "dataset": "Reutiliza SetembroBR ; subconjuntos por condição; não somar usuários como casos independentes",
+      "labeling": "Autorrelato herdado do corpus de origem",
+      "methods": "Modelos tradicionais e abordagem LLM com engenharia de prompts",
+      "results": "GPT_relev: F1-latency 0,24 (depressão) e 0,23 (ansiedade); F1-macro 0,56/0,55 ; antecipação de 436/479 dias (Tabela 5).",
+      "limitations": "Dependência do mesmo corpus e da proximidade ao momento declarado",
+      "language": "PT-BR",
+      "type": "Pesquisa",
+      "group": "LLMs",
+      "methodTags": [
+        "LLMs/ensemble"
+      ],
+      "conditions": [
+        "Depressão",
+        "Ansiedade"
+      ],
+      "pending": [],
+      "datasetAudit": {
+        "name": "SetembroBR (reutilização)",
+        "platform": "Twitter/X",
+        "accessStatus": "publico",
+        "accessEvidence": "Reutiliza corpus SetembroBR, com acesso documentado no site do grupo original.",
+        "datasetUrl": "https://drive.google.com/drive/folders/1MXFRs0u8iF1RNUWABTA0Oz8_Ix1skqZT",
+        "evidenceUrl": "https://ivandreparaboni.wixsite.com/research/setembrobr",
+        "reuseAndCaveat": "Mesmo corpus da referência 6; não contabilizar como base independente.",
+        "reviewedOn": "2026-11-10",
+        "accessAssessment": "Classificação baseada na fonte vinculada; conferir condições atuais do provedor"
+      },
+      "analysisTaxonomy": {
+        "publicationKind": "empirico",
+        "primaryTask": "Depressão e ansiedade",
+        "methodFamilies": [
+          "ML clássico",
+          "LLMs"
+        ],
+        "datasetFamily": "SETEMBROBR",
+        "caveat": "Propõe detecção precoce de depressão e ansiedade, duas tarefas previstas.",
+        "auditedOn": "2026-11-10",
+        "methodScope": "Famílias efetivamente utilizadas na publicação, inclusive baselines explicitamente comparados; não indica qual venceu.",
+        "linkBasis": "Associação por tarefa principal verificada na síntese; pode requerer nova conferência para artigos sem tabela integral."
+      }
+    },
+    {
+      "id": 8,
+      "title": "Mendes & Caseli (2024)",
+      "url": "https://aclanthology.org/2024.lrec-main.754/",
+      "year": 2024,
+      "condition": "Sinais de depressão (inclui preocupação/ansiedade)",
+      "source": "Facebook de universitários; português brasileiro",
+      "dataset": "Amive: 780 postagens públicas de páginas universitárias do Facebook, coletadas de 2012–2021; 21 sinais anotados por quatro especialistas em formação. Dados originais não redistribuídos publicamente pelo grupo devido à sensibilidade.",
+      "labeling": "Anotação humana dos sinais; não classifica diagnósticos",
+      "methods": "Regressão logística, SVM, BERTimbau, MentalBERT, MentalRoBERTa",
+      "results": "Average Precision : sono 0,900 (regressão logística); preocupação/ansiedade 0,794 (MentalBERT); tristeza 0,745 (BERTimbau); Tabela 5",
+      "limitations": "Métrica por sinal; corpus pequeno; não avalia estresse como transtorno",
+      "language": "PT-BR",
+      "type": "Pesquisa",
+      "group": "Transformers",
+      "methodTags": [
+        "Clássico/lexical",
+        "Transformers"
+      ],
+      "conditions": [
+        "Depressão",
+        "Ansiedade"
+      ],
+      "pending": [],
+      "datasetAudit": {
+        "name": "Amive — corpus de 780 postagens universitárias com 21 sinais de depressão",
+        "platform": "Facebook — páginas públicas de segredos universitários",
+        "accessStatus": "restrito",
+        "accessEvidence": "Livro técnico do grupo UFSCar documenta 780 postagens do Facebook (2012–2021), selecionadas e anotadas manualmente em 21 sinais. O repositório oficial do projeto de geração de dados sintéticos afirma que os textos originais do Amive não podem ser distribuídos publicamente devido à sensibilidade.",
+        "datasetUrl": null,
+        "evidenceUrl": "https://brasileiraspln.com/livro-pln/3a-edicao/parte-dominios/cap-saude-mental/cap-saude-mental.html",
+        "reuseAndCaveat": "A publicação Mendes & Caseli (2024) avalia os textos anotados do projeto Amive; Figueiredo (2026) estuda síntese do mesmo recurso. Não contar as duas publicações como corpora independentes.",
+        "reviewedOn": "2026-11-10",
+        "accessAssessment": "Não confirmado quanto ao acesso ao corpus específico",
+        "sampleUnit": "postagem",
+        "sampleSize": "780 postagens selecionadas (2012–2021)",
+        "labelingDetail": "Quatro anotadores de psicologia, psiquiatria ou terapia ocupacional marcaram trechos associados a 21 sinais e um rótulo de postagem indicativa.",
+        "datasetFamily": "AMIVE",
+        "sourceChecks": [
+          "https://brasileiraspln.com/livro-pln/3a-edicao/parte-dominios/cap-saude-mental/cap-saude-mental.html",
+          "https://github.com/LALIC-UFSCar/synthetic-data-mental-health"
+        ],
+        "confidence": "alta — identificação, origem e restrição sustentadas por fontes do grupo de pesquisa"
+      },
+      "analysisTaxonomy": {
+        "publicationKind": "empirico",
+        "primaryTask": "Depressão",
+        "methodFamilies": [
+          "ML clássico",
+          "Transformers"
+        ],
+        "datasetFamily": "AMIVE",
+        "caveat": "Ansiedade é um dos sinais anotados no contexto de depressão; não é classificador independente de transtorno de ansiedade.",
+        "auditedOn": "2026-11-10",
+        "methodScope": "Famílias efetivamente utilizadas na publicação, inclusive baselines explicitamente comparados; não indica qual venceu.",
+        "linkBasis": "Associação por tarefa principal verificada na síntese; pode requerer nova conferência para artigos sem tabela integral."
+      }
+    },
+    {
+      "id": 9,
+      "title": "Viduani et al. (2025) — pronomes/LIWC",
+      "url": "https://doi.org/10.47626/1516-4446-2024-4058",
+      "year": 2025,
+      "condition": "Depressão",
+      "source": "Áudio transcrito; português brasileiro",
+      "dataset": "IDEA-RiSCo / IDEABot: 52 adolescentes analisados (13 MDD, 39 controle) entre 150 recrutados inicialmente; sete dias de transcrições de áudios via WhatsApp; LIWC em português, sem partição treino/teste.",
+      "labeling": "Caracterização clínica + sintomas autorreferidos e avaliados",
+      "methods": "LIWC; frequência de pronomes; testes estatísticos",
+      "results": "Uso médio de pronomes singulares: MDD 9,15% vs. não MDD 8,02%, p=0,026; correlação com MFQ rho=0,366, p=0,008. Não é desempenho de classificador.",
+      "limitations": "Estudo correlacional; não é experimento de fine-tuning de BERTimbau",
+      "language": "PT-BR",
+      "type": "Pesquisa",
+      "group": "Clássicos",
+      "methodTags": [
+        "Clássico/lexical"
+      ],
+      "conditions": [
+        "Depressão"
+      ],
+      "pending": [],
+      "datasetAudit": {
+        "name": "IDEA-RiSCo / IDEABot — sete dias de áudio transcrito por participante",
+        "platform": "WhatsApp (IDEABot), respostas em áudio transcritas em português brasileiro",
+        "accessStatus": "nao_confirmado",
+        "accessEvidence": "Texto integral fornece desenho, elegibilidade, exclusão de identificadores na transcrição e análise LIWC. Nenhum link de descarga dos 52 conjuntos de transcrições ou termo de solicitação foi localizado; acesso ao conteúdo textual não confirmado. Contato acadêmico verificado: Christian Kieling; o acesso ao corpus específico depende de confirmação direta.",
+        "datasetUrl": null,
+        "evidenceUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12815307/",
+        "reuseAndCaveat": "O estudo Viduani 2026 utiliza também IDEABot/WhatsApp, mas não foi demonstrado que os mesmos participantes ou transcrições se repetem. Tratar como família de coleta compartilhada, não amostra idêntica.",
+        "reviewedOn": "2026-11-10",
+        "accessAssessment": "Corpus específico sem link de distribuição ou política de liberação documentalmente confirmados; canal de contato público identificado. Não presumir disponibilidade.",
+        "sampleUnit": "adolescente com 7 transcrições ao longo de 7 dias",
+        "sampleSize": "52 participantes completos, 13 com MDD e 39 controles; 121 realizaram ao menos uma interação",
+        "labelingDetail": "K-SADS-PL por psiquiatra; MFQ autorrelato e CDRS-R escala clínica; LIWC de pronomes para análise estatística, não treino de classificador.",
+        "datasetFamily": "IDEA-IDEABOT",
+        "sourceChecks": [
+          "https://pmc.ncbi.nlm.nih.gov/articles/PMC12815307/"
+        ],
+        "confidence": "alta para origem e amostragem; acesso aos textos não confirmado",
+        "sampleProtocol": "50? Não: 150 recrutados no coorte; 132 elegíveis na 3ª onda; 121 tiveram interação; 52 completaram 7 dias e foram incluídos no estudo.",
+        "splitDescription": "Não se aplica a partição de treino/teste: estudo observacional comparativo com LIWC, t-tests e correlações.",
+        "metricDefinition": "Diferença de uso de pronomes singulares 9,15% vs 8,02%, p=0,026; rho=0,366, p=0,008 para MFQ.",
+        "labelSource": "Diagnóstico de MDD confirmado por entrevista psiquiátrica K-SADS-PL.",
+        "accessRequest": {
+          "type": "contato_autor",
+          "contactName": "Christian Kieling",
+          "contactEmail": "christian.kieling@hmv.org.br",
+          "contactEvidenceUrl": "https://www.scielo.br/j/rbp/a/sKPPK597vm68xkwqS7RMQPL/?lang=en",
+          "relatedPolicyText": "Um artigo distinto do mesmo projeto IDEA-RiSCo, publicado em 2024, declara dados disponíveis mediante solicitação. Isso não estabelece direito de acesso às transcrições utilizadas em 2025.",
+          "relatedPolicyUrl": "https://www.nature.com/articles/s41398-024-02959-z",
+          "requestSubject": "Consulta acadêmica sobre acesso aos dados — Viduani et al. (2025) / IDEA-RiSCo",
+          "requestBody": "Gostaria de confirmar se existe uma versão anonimizada das transcrições utilizadas em Viduani et al. (2025), disponível para pesquisa, e quais requisitos éticos ou termos de uso se aplicam. Se não for possível fornecer transcrições, há estatísticas agregadas, metadados ou um procedimento de acesso controlado?",
+          "status": "não solicitado; não existe confirmação de concessão de acesso",
+          "reviewedOn": "2026-11-10"
+        }
+      },
+      "analysisTaxonomy": {
+        "publicationKind": "empirico",
+        "primaryTask": "Depressão",
+        "methodFamilies": [
+          "Análise lexical"
+        ],
+        "datasetFamily": "IDEA-IDEABOT",
+        "caveat": "Tarefa-alvo e métodos categorizados a partir do artigo e da síntese técnica; a ligação não representa força de evidência.",
+        "auditedOn": "2026-11-10",
+        "methodScope": "Famílias efetivamente utilizadas na publicação, inclusive baselines explicitamente comparados; não indica qual venceu.",
+        "linkBasis": "Associação por tarefa principal verificada na síntese; pode requerer nova conferência para artigos sem tabela integral."
+      }
+    },
+    {
+      "id": 10,
+      "title": "Pérez et al. (2025) — DepreSym",
+      "url": "https://doi.org/10.1007/s10579-025-09831-6",
+      "year": 2025,
+      "condition": "Sinais específicos de depressão e interpretabilidade",
+      "source": "Sentenças de conteúdos digitais do desafio eRisk; inglês",
+      "dataset": "21.580 sentenças avaliadas quanto a 21 sintomas BDI-II",
+      "labeling": "Julgamento de relevância por três avaliadores especialistas, incluindo psicólogo; não diagnóstico do autor",
+      "methods": "LLMs como avaliadores, recuperação de informação lexical/densa e re-ranking",
+      "results": "Recuperação de sintomas com ANCE : NDCG@10 = 0,746 e AP@1000 = 0,340 nas consultas baseadas em respostas do BDI-II (Tabela 6). Métricas de busca, não de diagnóstico.",
+      "limitations": "Valioso para detecção de sinais interpretáveis; dependência do benchmark eRisk e anotações de relevância",
+      "language": "Inglês",
+      "type": "Pesquisa",
+      "group": "LLMs",
+      "methodTags": [
+        "LLMs/ensemble"
+      ],
+      "conditions": [
+        "Depressão"
+      ],
+      "pending": [],
+      "datasetAudit": {
+        "name": "DepreSym / CLEF eRisk 2023 Task 1",
+        "platform": "Reddit",
+        "accessStatus": "parcial",
+        "accessEvidence": "Qrels de relevância podem ser consultados; a coleção textual completa exige acordo de utilização para pesquisa enviado aos organizadores.",
+        "datasetUrl": "https://erisk.irlab.org/depresym_dataset.html",
+        "evidenceUrl": "https://erisk.irlab.org/depresym_dataset.html",
+        "reuseAndCaveat": "21.580 sentenças anotadas; acervo maior de 3.807.115 sentenças não é a mesma amostra.",
+        "reviewedOn": "2026-11-10",
+        "accessAssessment": "Classificação baseada na fonte vinculada; conferir condições atuais do provedor"
+      },
+      "analysisTaxonomy": {
+        "publicationKind": "empirico",
+        "primaryTask": "Depressão",
+        "methodFamilies": [
+          "Análise lexical",
+          "LLMs"
+        ],
+        "datasetFamily": null,
+        "caveat": "LLMs e recuperação de informação avaliam sintomas de depressão; não correspondem a diagnóstico clínico.",
+        "auditedOn": "2026-11-10",
+        "methodScope": "Famílias efetivamente utilizadas na publicação, inclusive baselines explicitamente comparados; não indica qual venceu.",
+        "linkBasis": "Associação por tarefa principal verificada na síntese; pode requerer nova conferência para artigos sem tabela integral."
+      }
+    },
+    {
+      "id": 11,
+      "title": "Karpontinis & Soufleri (2025) — DP-CARE",
+      "url": "https://doi.org/10.3389/fdgth.2025.1709671",
+      "year": 2025,
+      "condition": "Estresse textual e privacidade em IA",
+      "source": "Reddit / Dreaddit; inglês",
+      "dataset": "Benchmark Dreaddit, 3.553 segmentos rotulados no corpus de referência",
+      "labeling": "Rótulos humanos de estresse expresso; não avaliação diagnóstica",
+      "methods": "Encoder MentalBERT congelado e classificador com DP-AdamW (privacidade diferencial)",
+      "results": "F1 classe estresse 0,7808 , ε≈3; baseline sem DP F1 0,8058",
+      "limitations": "Trade-off utilidade/privacidade; o artigo diverge entre resumo e tabela no recall, por isso recall não é reproduzido aqui",
+      "language": "Inglês",
+      "type": "Pesquisa",
+      "group": "Transformers",
+      "methodTags": [
+        "Transformers"
+      ],
+      "conditions": [
+        "Estresse"
+      ],
+      "pending": [],
+      "datasetAudit": {
+        "name": "Dreaddit",
+        "platform": "Reddit",
+        "accessStatus": "publico",
+        "accessEvidence": "Benchmark com 3.553 segmentos rotulados e versões de download publicadas; distinguir os segmentos rotulados do corpus maior coletado.",
+        "datasetUrl": "https://github.com/agircc/agir-dreaddit-experiments",
+        "evidenceUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12739647/",
+        "reuseAndCaveat": "O repositório referenciado é de experimentos públicos com Dreaddit; não substitui a atribuição ao dataset original.",
+        "reviewedOn": "2026-11-10",
+        "accessAssessment": "Classificação baseada na fonte vinculada; conferir condições atuais do provedor"
+      },
+      "analysisTaxonomy": {
+        "publicationKind": "empirico",
+        "primaryTask": "Estresse",
+        "methodFamilies": [
+          "Transformers"
+        ],
+        "datasetFamily": null,
+        "caveat": "Tarefa-alvo e métodos categorizados a partir do artigo e da síntese técnica; a ligação não representa força de evidência.",
+        "auditedOn": "2026-11-10",
+        "methodScope": "Famílias efetivamente utilizadas na publicação, inclusive baselines explicitamente comparados; não indica qual venceu.",
+        "linkBasis": "Associação por tarefa principal verificada na síntese; pode requerer nova conferência para artigos sem tabela integral."
+      }
+    },
+    {
+      "id": 12,
+      "title": "Chung et al. (2025) — BERT and BERTopic",
+      "url": "https://doi.org/10.1186/s12889-025-23337-4",
+      "year": 2025,
+      "condition": "Risco de depressão e relatos de situações estressoras",
+      "source": "Mensagens abertas em aplicativo; coreano",
+      "dataset": "1.332 mensagens , 230 participantes idosos",
+      "labeling": "Triagem PHQ-9 ≥ 10 ; não equivale a entrevista clínica estruturada",
+      "methods": "KcBERT e KLUE BERT; BERTopic para temas e evolução temporal",
+      "results": "KcBERT F1 global reportado 0,87 ; F1 da classe de risco 0,83",
+      "limitations": "Protocolo reporta split por mensagens; examinar possível dependência entre mensagens da mesma pessoa",
+      "language": "Coreano",
+      "type": "Pesquisa",
+      "group": "Transformers",
+      "methodTags": [
+        "Transformers"
+      ],
+      "conditions": [
+        "Depressão",
+        "Estresse"
+      ],
+      "pending": [],
+      "datasetAudit": {
+        "name": "Mensagens abertas de aplicativo de saúde comunitária (Chung et al.)",
+        "platform": "Aplicativo móvel de mensagens (Coreia do Sul)",
+        "accessStatus": "controlado",
+        "accessEvidence": "A declaração 'Data availability' informa explicitamente que os dados não estão em repositório público para proteger participantes; solicitações devem ser encaminhadas ao autor correspondente.",
+        "datasetUrl": null,
+        "evidenceUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12150497/",
+        "reuseAndCaveat": "Dados originais de 1.332 textos e 230 idosos sob proteção de privacidade; artigo integral disponível não implica corpus aberto.",
+        "reviewedOn": "2026-11-10",
+        "accessAssessment": "Não confirmado quanto ao acesso ao corpus específico"
+      },
+      "analysisTaxonomy": {
+        "publicationKind": "empirico",
+        "primaryTask": "Depressão",
+        "methodFamilies": [
+          "Transformers"
+        ],
+        "datasetFamily": null,
+        "caveat": "Relatos de estressores são fontes de atributos para análise de depressão, não tarefa independente de classificar estresse.",
+        "auditedOn": "2026-11-10",
+        "methodScope": "Famílias efetivamente utilizadas na publicação, inclusive baselines explicitamente comparados; não indica qual venceu.",
+        "linkBasis": "Associação por tarefa principal verificada na síntese; pode requerer nova conferência para artigos sem tabela integral."
+      }
+    },
+    {
+      "id": 13,
+      "title": "Viduani et al. (2026) — estudo experimental GPT-4o",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42134742/",
+      "year": 2026,
+      "condition": "Depressão",
+      "source": "Fala cotidiana transcrita; português brasileiro",
+      "dataset": "IDEABot: 30 adolescentes de 16–19 anos, 15 com MDD confirmado e 15 controles; 14 dias de fala em português, via chatbot WhatsApp; predição binária por participante.",
+      "labeling": "Diagnóstico de psiquiatra infantojuvenil com procedimentos padrão-ouro",
+      "methods": "GPT-4o por prompting; comparação com 12 modelos GPT",
+      "results": "GPT-4o: acurácia 86,6% (IC95% 70,3–95,6), sensibilidade 100% e especificidade 73,3%; sem diferenças estatisticamente significativas frente a 12 outros GPTs. Amostra de prova de conceito, não validação populacional.",
+      "limitations": "n=30 e grupos extremos; não emprega BERTimbau+LIWC ou laudos como texto de entrada",
+      "language": "PT-BR",
+      "type": "Pesquisa",
+      "group": "LLMs",
+      "methodTags": [
+        "LLMs/ensemble"
+      ],
+      "conditions": [
+        "Depressão"
+      ],
+      "pending": [],
+      "datasetAudit": {
+        "name": "IDEABot / WhatsApp — transcrições diárias de voz de adolescentes",
+        "platform": "WhatsApp (IDEABot) com mensagens de voz transcritas em português brasileiro",
+        "accessStatus": "nao_confirmado",
+        "accessEvidence": "O artigo aberto explicita amostra 15/15, período de coleta de 14 dias, tarefa binária por participante e métricas com IC. Não localizei repositório de transcrições nem termo de disponibilidade específica para os dados individuais. Contato acadêmico verificado: Anna Viduani; o acesso ao corpus específico depende de confirmação direta.",
+        "datasetUrl": null,
+        "evidenceUrl": "https://www.sciencedirect.com/science/article/pii/S0165032726008086",
+        "reuseAndCaveat": "Compartilha a infraestrutura de coleta IDEABot com Viduani et al. (2025); sobreposição efetiva de pessoas e transcrições não documentada nesta auditoria.",
+        "reviewedOn": "2026-11-10",
+        "accessAssessment": "Corpus específico sem link de distribuição ou política de liberação documentalmente confirmados; canal de contato público identificado. Não presumir disponibilidade.",
+        "sampleUnit": "adolescente (classificação por participante)",
+        "sampleSize": "30 adolescentes 16–19 anos (15 MDD confirmados por psiquiatra, 15 controles); 14 dias de coleta",
+        "labelingDetail": "Diagnóstico individual de depressão maior validado por psiquiatra infantil e adolescente; avaliação de GPT-4o e 12 modelos adicionais com variação de dias de fala.",
+        "datasetFamily": "IDEA-IDEABOT",
+        "sourceChecks": [
+          "https://www.sciencedirect.com/science/article/pii/S0165032726008086",
+          "https://pubmed.ncbi.nlm.nih.gov/42134742/"
+        ],
+        "confidence": "alta para 30 pessoas e origem; disponibilidade não confirmada",
+        "splitDescription": "Amostra de prova de conceito proposital (15/15); proporção de partição de treinamento não aplicável a prompting zero-shot sem ajuste informado. 14 dias são comprimento da entrada, não 14 folds.",
+        "metricDefinition": "GPT-4o: acurácia 86,6% (IC95% 70,3–95,6), sensibilidade 100%, especificidade 73,3%; sem superioridade estatística demonstrada frente a 12 alternativas.",
+        "labelSource": "Diagnóstico MDD estabelecido por psiquiatra infantil/adolescente.",
+        "accessRequest": {
+          "type": "contato_autor",
+          "contactName": "Anna Viduani",
+          "contactEmail": "anna.andrade@hmv.org.br",
+          "contactEvidenceUrl": "https://pubmed.ncbi.nlm.nih.gov/42134742/",
+          "relatedPolicyText": "O estudo experimental de 2026 utiliza IDEABot e transcrições de fala de adolescentes. O artigo da mesma equipe sobre IDEA-RiSCo, de 2024, declara solicitação possível para seus próprios dados, mas essa condição não está comprovada para as transcrições do estudo GPT-4o.",
+          "relatedPolicyUrl": "https://www.nature.com/articles/s41398-024-02959-z",
+          "requestSubject": "Consulta acadêmica sobre disponibilização de transcrições — Viduani et al. (2026)",
+          "requestBody": "Gostaria de confirmar se o conjunto de transcrições anonimizadas usado na classificação GPT-4o em Viduani et al. (2026) pode ser acessado sob acordo de pesquisa, ou se existem dados derivados e protocolos publicamente compartilháveis. Poderia informar as condições e eventuais exigências do comitê de ética?",
+          "status": "não solicitado; não existe confirmação de concessão de acesso",
+          "reviewedOn": "2026-11-10"
+        }
+      },
+      "analysisTaxonomy": {
+        "publicationKind": "empirico",
+        "primaryTask": "Depressão",
+        "methodFamilies": [
+          "LLMs"
+        ],
+        "datasetFamily": "IDEA-IDEABOT",
+        "caveat": "Tarefa-alvo e métodos categorizados a partir do artigo e da síntese técnica; a ligação não representa força de evidência.",
+        "auditedOn": "2026-11-10",
+        "methodScope": "Famílias efetivamente utilizadas na publicação, inclusive baselines explicitamente comparados; não indica qual venceu.",
+        "linkBasis": "Associação por tarefa principal verificada na síntese; pode requerer nova conferência para artigos sem tabela integral."
+      }
+    },
+    {
+      "id": 14,
+      "title": "AlSaad, Alshakhs & Thomas (2026)",
+      "url": "https://www.frontiersin.org/journals/digital-health/articles/10.3389/fdgth.2026.1790533/full",
+      "year": 2026,
+      "condition": "Subtipos de depressão; seis classes textuais",
+      "source": "Twitter/X; inglês",
+      "dataset": "14.983 tweets",
+      "labeling": "Curadoria/anotação textual; sem confirmação diagnóstica por pessoa",
+      "methods": "LLMs few-shot; encoders fine-tuned (RoBERTa, DeBERTa e outros)",
+      "results": "RoBERTa-large : macro-F1 0,957 , acurácia 0,954 no teste (Tabela 2)",
+      "limitations": "Taxonomia textual, não avaliação psiquiátrica; um domínio",
+      "language": "Inglês",
+      "type": "Pesquisa",
+      "group": "LLMs",
+      "methodTags": [
+        "Transformers",
+        "LLMs/ensemble"
+      ],
+      "conditions": [
+        "Depressão"
+      ],
+      "pending": [],
+      "datasetAudit": {
+        "name": "Depression Subtype Twitter Dataset (Zenodo 14233292)",
+        "platform": "Twitter/X",
+        "accessStatus": "publico",
+        "accessEvidence": "Os autores declaram que a base de 14.983 tweets em seis categorias está disponível no Zenodo e publicam repositório de código.",
+        "datasetUrl": "https://doi.org/10.5281/zenodo.14233292",
+        "evidenceUrl": "https://www.frontiersin.org/journals/digital-health/articles/10.3389/fdgth.2026.1790533/full",
+        "reuseAndCaveat": "Nome descritivo; não afirmar que o arquivo no Zenodo possui exatamente esse título sem abrir o registro.",
+        "reviewedOn": "2026-11-10",
+        "accessAssessment": "Classificação baseada na fonte vinculada; conferir condições atuais do provedor"
+      },
+      "analysisTaxonomy": {
+        "publicationKind": "empirico",
+        "primaryTask": "Depressão",
+        "methodFamilies": [
+          "Transformers",
+          "LLMs"
+        ],
+        "datasetFamily": null,
+        "caveat": "Tarefa-alvo e métodos categorizados a partir do artigo e da síntese técnica; a ligação não representa força de evidência.",
+        "auditedOn": "2026-11-10",
+        "methodScope": "Famílias efetivamente utilizadas na publicação, inclusive baselines explicitamente comparados; não indica qual venceu.",
+        "linkBasis": "Associação por tarefa principal verificada na síntese; pode requerer nova conferência para artigos sem tabela integral."
+      }
+    },
+    {
+      "id": 15,
+      "title": "Kallstenius et al. (2026)",
+      "url": "https://mental.jmir.org/2026/1/e98925/",
+      "year": 2026,
+      "condition": "Multicondição; depressão, ansiedade, estresse e outras",
+      "source": "Reddit e Twitter/X; inglês",
+      "dataset": "60.889 textos ; 9 classes ; treino 42.622, validação 6.089, teste 12.178",
+      "labeling": "Comunidade de origem ou autodeclaração",
+      "methods": "TF-IDF + SVM RBF; GPT-4o-mini base/ajustado; 2 ensembles",
+      "results": "Acurácia teste: 0,939 (soft), 0,938 (híbrido), 0,919 (SVM), 0,886 (GPT ajustado)",
+      "limitations": "Split por post e back-translation pré-split; ausência de avaliação clínica externa",
+      "language": "Inglês",
+      "type": "Pesquisa",
+      "group": "LLMs",
+      "methodTags": [
+        "Clássico/lexical",
+        "LLMs/ensemble"
+      ],
+      "conditions": [
+        "Depressão",
+        "Ansiedade",
+        "Estresse"
+      ],
+      "pending": [],
+      "datasetAudit": {
+        "name": "Mental Health Sentiment Analysis (Kaggle; corpus-base), ampliado por publicações de subreddits de TDAH/autismo",
+        "platform": "Reddit; Twitter/X",
+        "accessStatus": "parcial",
+        "accessEvidence": "O artigo utiliza o corpus-base Mental Health Sentiment Analysis do Kaggle, com contribuições de r/ADHD, r/adhdwomen, r/autism e r/aspergers. O Kaggle fornece acesso ao corpus-base; não foi identificado download público que reproduza integralmente a compilação e o pré-processamento das 60.889 instâncias do artigo.",
+        "datasetUrl": "https://www.kaggle.com/datasets/suchintikasarkar/sentiment-analysis-for-mental-health/data",
+        "evidenceUrl": "https://mental.jmir.org/2026/1/e98925/",
+        "reuseAndCaveat": "Link confirmado do corpus-base. O dataset agregado/expandido e as saídas do ensemble não devem ser descritos como integralmente públicos apenas com base no Kaggle.",
+        "reviewedOn": "2026-11-10",
+        "accessAssessment": "Classificação baseada na fonte vinculada; conferir condições atuais do provedor"
+      },
+      "analysisTaxonomy": {
+        "publicationKind": "empirico",
+        "primaryTask": "Múltiplas condições",
+        "methodFamilies": [
+          "ML clássico",
+          "LLMs"
+        ],
+        "datasetFamily": null,
+        "caveat": "Ensemble multiclasse com diferentes categorias relacionadas à saúde mental, não apenas três diagnósticos.",
+        "auditedOn": "2026-11-10",
+        "methodScope": "Famílias efetivamente utilizadas na publicação, inclusive baselines explicitamente comparados; não indica qual venceu.",
+        "linkBasis": "Associação por tarefa principal verificada na síntese; pode requerer nova conferência para artigos sem tabela integral."
+      }
+    },
+    {
+      "id": 16,
+      "title": "Viduani et al. (2026) — revisão de escopo",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/41825397/",
+      "year": 2026,
+      "condition": "Depressão; métodos de análise linguística",
+      "source": "Literatura internacional; idiomas diversos",
+      "dataset": "180 estudos incluídos de 27.967 registros",
+      "labeling": "Auditoria da referência diagnóstica nos estudos incluídos",
+      "methods": "Revisão de recursos lexicais, LIWC, PLN, transformers e LLMs",
+      "results": "20,5% com instrumento diagnóstico padrão-ouro; 64,2% das amostras em inglês",
+      "limitations": "Síntese da evidência, não produz classificador nem F1 próprio",
+      "language": "Diversos/NI",
+      "type": "Revisão",
+      "group": "Revisões",
+      "methodTags": [
+        "Clássico/lexical",
+        "Transformers",
+        "LLMs/ensemble"
+      ],
+      "conditions": [
+        "Depressão"
+      ],
+      "pending": [],
+      "datasetAudit": {
+        "name": "Não se aplica — revisão de escopo (180 estudos)",
+        "platform": "Literatura científica",
+        "accessStatus": "nao_aplica",
+        "accessEvidence": "Revisão secundária, sem corpus textual próprio que deva ser disponibilizado.",
+        "datasetUrl": null,
+        "evidenceUrl": "https://pubmed.ncbi.nlm.nih.gov/41825397/",
+        "reuseAndCaveat": "Os 180 estudos são referências incluídas, não registros textuais para treinamento.",
+        "reviewedOn": "2026-11-10",
+        "accessAssessment": "Não se aplica a revisão de literatura"
+      },
+      "analysisTaxonomy": {
+        "publicationKind": "sintese",
+        "primaryTask": "Depressão",
+        "methodFamilies": [],
+        "datasetFamily": null,
+        "caveat": "Tarefa-alvo e métodos categorizados a partir do artigo e da síntese técnica; a ligação não representa força de evidência.",
+        "auditedOn": "2026-11-10",
+        "methodScope": "Famílias efetivamente utilizadas na publicação, inclusive baselines explicitamente comparados; não indica qual venceu.",
+        "linkBasis": "Associação por tarefa principal verificada na síntese; pode requerer nova conferência para artigos sem tabela integral."
+      }
+    },
+    {
+      "id": 17,
+      "title": "Alqahtani, Kayi & Diab (2026) — StressRoBERTa",
+      "url": "https://aclanthology.org/2026.healing-1.27/",
+      "year": 2026,
+      "condition": "Estresse crônico autorreportado; transferência de depressão/ansiedade/PTSD",
+      "source": "Tweets e posts de redes sociais; inglês",
+      "dataset": "Pré-treino em 108 milhões de palavras do Stress-SMHD; avaliação SMM4H 2022 e Dreaddit",
+      "labeling": "Histórico de diagnósticos autorreportados para pré-treino; rótulos de estresse dos benchmarks",
+      "methods": "RoBERTa com pré-treino contínuo entre condições e fine-tuning na tarefa de estresse",
+      "results": "F1 0,82 no SMM4H 2022 e 0,81 no Dreaddit",
+      "limitations": "Estudo 2026 diretamente ligado às três condições; resultados por corpus, sem validade clínica externa",
+      "language": "Inglês",
+      "type": "Pesquisa",
+      "group": "Transformers",
+      "methodTags": [
+        "Transformers"
+      ],
+      "conditions": [
+        "Depressão",
+        "Ansiedade",
+        "Estresse"
+      ],
+      "pending": [],
+      "datasetAudit": {
+        "name": "Stress-SMHD (pré-treinamento); SMM4H 2022 Task 8; Dreaddit",
+        "platform": "Reddit e Twitter/X",
+        "accessStatus": "parcial",
+        "accessEvidence": "Dreaddit possui cópias públicas; o SMM4H é distribuído via portal da tarefa, com cadastro para participação. Não identifiquei download aberto do Stress-SMHD integral.",
+        "datasetUrl": "https://healthlanguageprocessing.org/smm4h-2022/",
+        "evidenceUrl": "https://aclanthology.org/2026.healing-1.27/",
+        "reuseAndCaveat": "Distinguir 108 milhões de palavras de pré-treinamento das instâncias rotuladas de avaliação.",
+        "reviewedOn": "2026-11-10",
+        "accessAssessment": "Classificação baseada na fonte vinculada; conferir condições atuais do provedor"
+      },
+      "analysisTaxonomy": {
+        "publicationKind": "empirico",
+        "primaryTask": "Estresse",
+        "methodFamilies": [
+          "Transformers"
+        ],
+        "datasetFamily": null,
+        "caveat": "Alvo de avaliação é estresse; depressão, ansiedade e TEPT alimentam transferência de domínio, sem constituir tarefas-alvo separadas.",
+        "auditedOn": "2026-11-10",
+        "methodScope": "Famílias efetivamente utilizadas na publicação, inclusive baselines explicitamente comparados; não indica qual venceu.",
+        "linkBasis": "Associação por tarefa principal verificada na síntese; pode requerer nova conferência para artigos sem tabela integral."
+      }
+    },
+    {
+      "id": 18,
+      "title": "Herculano et al. (2024) — DepreRedditBR",
+      "url": "https://doi.org/10.5753/dsw.2024.243994",
+      "year": 2024,
+      "condition": "Depressão; construção de corpus especializado",
+      "source": "Reddit; português brasileiro",
+      "dataset": "DepreRedditBR: 509.675 postagens textuais em português brasileiro; recurso apresentado no DSW 2024.",
+      "labeling": "Seleção de conteúdo relacionado à depressão; não equivale a confirmação de diagnóstico clínico do autor.",
+      "methods": "Tarefa: Construção de dataset e apoio ao pré-treinamento e à classificação de intensidade de sinais depressivos. Modelos e representações: Corpus para pré-treinamento de modelo de linguagem de domínio; aplicação posterior em classificação textual.",
+      "results": "Contribuição principal: conjunto de 509.675 instâncias. Não atribuir a esse artigo uma acurácia única de diagnóstico.",
+      "limitations": "Conteúdo e amostragem de rede social não constituem padrão-ouro clínico.",
+      "language": "PT-BR",
+      "type": "Dataset/recurso",
+      "group": "Recursos",
+      "methodTags": [
+        "Outras abordagens"
+      ],
+      "conditions": [
+        "Depressão"
+      ],
+      "pending": [],
+      "datasetAudit": {
+        "name": "DepreRedditBR",
+        "platform": "Reddit",
+        "accessStatus": "restrito",
+        "accessEvidence": "Registro público no Zenodo, mas arquivos explicitamente marcados como restritos. É preciso acesso concedido pelo depositante.",
+        "datasetUrl": "https://zenodo.org/records/12744841",
+        "evidenceUrl": "https://zenodo.org/records/12744841",
+        "reuseAndCaveat": "Página pública ≠ arquivos públicos. Não prometer download dos textos.",
+        "reviewedOn": "2026-11-10",
+        "accessAssessment": "Classificação baseada na fonte vinculada; conferir condições atuais do provedor"
+      },
+      "analysisTaxonomy": {
+        "publicationKind": "recurso",
+        "primaryTask": "Depressão",
+        "methodFamilies": [],
+        "datasetFamily": null,
+        "caveat": "Tarefa-alvo e métodos categorizados a partir do artigo e da síntese técnica; a ligação não representa força de evidência.",
+        "auditedOn": "2026-11-10",
+        "methodScope": "Famílias efetivamente utilizadas na publicação, inclusive baselines explicitamente comparados; não indica qual venceu.",
+        "linkBasis": "Associação por tarefa principal verificada na síntese; pode requerer nova conferência para artigos sem tabela integral."
+      }
+    },
+    {
+      "id": 19,
+      "title": "Herculano et al. (2025) — Comparação DepreBERTBR",
+      "url": "https://doi.org/10.5753/sbbd.2025.247283",
+      "year": 2025,
+      "condition": "Gravidade expressa em textos depressivos",
+      "source": "Textos em português brasileiro",
+      "dataset": "Tarefa de classificação de textos em português brasileiro em quatro categorias (ausente, leve, moderada, grave). Resumo da publicação 2025 acessível em SBC Books/ResearchGate; amostra efetiva, corpus de avaliação, partições e distribuição por classe NÃO foram comprovados. Os 509.675 registros DepreRedditBR (2024) são base de pré-treinamento, não n confirmado da avaliação de 2025.",
+      "labeling": "Quatro classes textuais: ausente, leve, moderada e grave; não são diagnósticos individualizados.",
+      "methods": "Tarefa: Classificação supervisionada multiclasse. Modelos e representações: DepreBERTBR especializado versus modelos de linguagem monolíngues e multilíngues de domínio geral.",
+      "results": "Resumo do SBBD 2025: DepreBERTBR competitivo e com F1 comparável a modelos gerais monolíngues/multilíngues. O resumo não apresenta F1 por modelo, média macro/micro/ponderada ou IC; sem acesso confirmado às tabelas integrais, não atribuir números.",
+      "limitations": "A comparação depende das mesmas classes, partições e critérios de rotulagem.",
+      "language": "PT-BR",
+      "type": "Pesquisa",
+      "group": "Transformers",
+      "methodTags": [
+        "Transformers"
+      ],
+      "conditions": [
+        "Depressão"
+      ],
+      "pending": [
+        "Dataset: amostra e partições de avaliação",
+        "Resultados: F1 por modelo/averaging"
+      ],
+      "audit": "Resumo do SBBD 2025 e artigo de 2024 do DepreRedditBR; informação numérica da amostra de avaliação e F1 da comparação permanece pendente.",
+      "provenance": "https://sbc-books.dexl.lncc.br/paper/uma-avaliacao-comparativa-entre-o-deprebertbr-e-modelos-de-linguagem-para-classificacao-de-textos-depressivos",
+      "verifiedOn": "2026-11-10",
+      "datasetAudit": {
+        "name": "Base multiclasse para comparar DepreBERTBR com encoders gerais (quatro níveis); corpus exato não confirmado",
+        "platform": "Português brasileiro; plataforma não confirmada para avaliação 2025",
+        "accessStatus": "nao_confirmado",
+        "accessEvidence": "Confirmado no registro bibliográfico do SBBD 2025 e resumo SBC Books: modelo DepreBERTBR comparado a modelos gerais em 4 classes. Texto integral e tabelas de n, partições e F1 não acessíveis de forma verificável nesta rodada; o registro ResearchGate oferece somente solicitação aos autores. Contato acadêmico verificado: Ayrton Herculano; o acesso ao corpus específico depende de confirmação direta.",
+        "datasetUrl": null,
+        "evidenceUrl": "https://sbc-books.dexl.lncc.br/paper/uma-avaliacao-comparativa-entre-o-deprebertbr-e-modelos-de-linguagem-para-classificacao-de-textos-depressivos",
+        "reuseAndCaveat": "Também faltam valores exatos de F1 por configuração, exigindo tabelas do artigo completo.",
+        "reviewedOn": "2026-11-10",
+        "accessAssessment": "Corpus específico sem link de distribuição ou política de liberação documentalmente confirmados; canal de contato público identificado. Não presumir disponibilidade.",
+        "sampleUnit": "texto/postagem; não foi confirmada a unidade específica da avaliação de 2025",
+        "sampleSize": "NÃO CONFIRMADO na versão do resumo acessível do SBBD 2025",
+        "labelingDetail": "Quatro categorias pretendidas: ausente, leve, moderada, grave; método exato de anotação e distribuição por classe não confirmados.",
+        "sourceChecks": [
+          "https://sbc-books.dexl.lncc.br/paper/uma-avaliacao-comparativa-entre-o-deprebertbr-e-modelos-de-linguagem-para-classificacao-de-textos-depressivos",
+          "https://www.researchgate.net/publication/396745117_Uma_Avaliacao_Comparativa_entre_o_DepreBERTBR_e_Modelos_de_Linguagem_para_Classificacao_de_Textos_Depressivos",
+          "https://doi.org/10.5753/sbbd.2025.247283"
+        ],
+        "splitDescription": "Não documentado nas fontes acessíveis nesta revisão. Não atribuir as 10 dobras ou partições de trabalhos relacionados.",
+        "metricDefinition": "F1-score citado sem número, sem média especificada; não declarar resultado quantitativo nem comparar percentuais.",
+        "labelSource": "Classes textuais: ausente, leve, moderada e grave; método de rotulagem e proporções de classes ainda sem verificação no artigo integral.",
+        "verificationLevel": "Protocolo da tarefa confirmado no resumo; contagens e escores por modelo pendentes",
+        "accessRequest": {
+          "type": "contato_autor",
+          "contactName": "Ayrton Herculano",
+          "contactEmail": "ayrton.herculano@academico.ifpb.edu.br",
+          "contactEvidenceUrl": "https://sbc-books.dexl.lncc.br/paper/uma-avaliacao-comparativa-entre-o-deprebertbr-e-modelos-de-linguagem-para-classificacao-de-textos-depressivos",
+          "relatedPolicyText": "O registro oficial do SBBD 2025 identifica pesquisadores e o protocolo em quatro classes, mas não disponibiliza nas fontes acessadas o corpus exato de avaliação nem termo de obtenção. O DepreRedditBR 2024 não deve ser presumido como conjunto experimental de 2025.",
+          "relatedPolicyUrl": "https://sbc-books.dexl.lncc.br/paper/uma-avaliacao-comparativa-entre-o-deprebertbr-e-modelos-de-linguagem-para-classificacao-de-textos-depressivos",
+          "requestSubject": "Consulta acadêmica sobre dataset de avaliação — Herculano et al. (SBBD 2025)",
+          "requestBody": "Gostaria de confirmar o nome oficial, procedência e disponibilidade do conjunto de avaliação em quatro classes usado no artigo SBBD 2025, incluindo número de exemplos por classe, divisão treino/validação/teste e resultados F1 por configuração. Existe repositório, DOI dos dados ou processo de solicitação?",
+          "status": "não solicitado; não existe confirmação de concessão de acesso",
+          "reviewedOn": "2026-11-10"
+        }
+      },
+      "analysisTaxonomy": {
+        "publicationKind": "empirico",
+        "primaryTask": "Depressão",
+        "methodFamilies": [
+          "Transformers"
+        ],
+        "datasetFamily": null,
+        "caveat": "Tarefa-alvo e métodos categorizados a partir do artigo e da síntese técnica; a ligação não representa força de evidência.",
+        "auditedOn": "2026-11-10",
+        "methodScope": "Famílias efetivamente utilizadas na publicação, inclusive baselines explicitamente comparados; não indica qual venceu.",
+        "linkBasis": "Associação por tarefa principal verificada na síntese; pode requerer nova conferência para artigos sem tabela integral."
+      }
+    },
+    {
+      "id": 20,
+      "title": "Santos et al. (2025) — Mixture of Experts",
+      "url": "https://doi.org/10.1109/ACCESS.2025.3583259",
+      "year": 2025,
+      "condition": "Predição de depressão e ansiedade",
+      "source": "Twitter/X em português brasileiro e Reddit em inglês",
+      "dataset": "SetembroBR (Twitter/X, PT-BR) e SMHD (Reddit, inglês). Tabela 2: aproximadamente 7 controles por usuário diagnosticado no SetembroBR e 9 por 1 no SMHD. Para classe positiva de depressão, média original relatada de 1.443 tweets por usuário vs. 162 posts Reddit; tamanho médio 12 vs. 42 palavras, respectivamente. Experimento limita SetembroBR aos últimos 1.000 tweets por usuário; controla SMHD por seleção aleatória da classe negativa para atingir 9:1. Totais absolutos de usuários/partições da Tabela 2 não confirmados.",
+      "labeling": "Dados dos corpora e avaliação humana por especialistas; não generalizar para diagnóstico clínico confirmado.",
+      "methods": "Tarefa: Predição de condições por dados textuais e não textuais; avaliação entre plataformas e idiomas. Modelos e representações: Modelos de linguagem em arquitetura mixture-of-experts (MoE), com atributos textuais e sociais.",
+      "results": "Avalia precisão, recall e F1 na porção de teste de cada corpus; aplica McNemar em pares comparáveis. GPT.H versus BERT melhora significativamente na tarefa de depressão (χ=15, p<0,001) e ansiedade (χ=43, p<0,001) no Twitter/X; efeito de adicionar menções não textuais é significativo para depressão, não ansiedade. Estudo humano usa 100 timelines do teste (25 TP/TN/FP/FN), totalizando 172.517 tweets.",
+      "limitations": "Heterogeneidade de domínio, idioma e rotulagem afeta a transferência.",
+      "language": "Misto",
+      "type": "Pesquisa",
+      "group": "LLMs",
+      "methodTags": [
+        "LLMs/ensemble"
+      ],
+      "conditions": [
+        "Depressão",
+        "Ansiedade"
+      ],
+      "pending": [
+        "Dataset: contagens absolutas por classe e split da Tabela 2"
+      ],
+      "audit": "Datasets e recorte de mensagens verificados no texto integral disponibilizado pelos autores; quantitativos da Tabela 2 pendentes.",
+      "provenance": "https://doi.org/10.1109/ACCESS.2025.3583259",
+      "verifiedOn": "2026-11-10",
+      "datasetAudit": {
+        "name": "SetembroBR; SMHD (Self-Reported Mental Health Diagnoses)",
+        "platform": "Twitter/X e Reddit",
+        "accessStatus": "parcial",
+        "accessEvidence": "Corpora SetembroBR e SMHD identificados no texto integral do IEEE Access (Santos et al. 2025, §III-D); acesso público ao SetembroBR, SMHD com condições de acesso; totais de cada classe/partição aparecem na Tabela 2 em figura não extraída nesta auditoria.",
+        "datasetUrl": "https://ivandreparaboni.wixsite.com/research/setembrobr",
+        "evidenceUrl": "https://doi.org/10.1109/ACCESS.2025.3583259",
+        "reuseAndCaveat": "Médias originais 1.443/162 postagens por usuário não são n do treinamento; limite operacional de até 1.000 tweets por usuário e reamostragem SMHD alteram a efetiva entrada. Avaliação humana separada de 100 timelines (172.517 tweets) não é o tamanho da amostra total de treino/teste.",
+        "reviewedOn": "2026-11-10",
+        "accessAssessment": "Classificação baseada na fonte vinculada; conferir condições atuais do provedor",
+        "sourceChecks": [
+          "https://www.researchgate.net/publication/393042738_Mixture_of_Experts_for_Depression_and_Anxiety_Disorder_Prediction_From_Textual_and_Non-Textual_Social_Media_Data",
+          "https://www.researchgate.net/figure/Twitter-X-top-and-Reddit-bottom-domains-descriptive-statistics_tbl1_393042738",
+          "https://doi.org/10.1109/ACCESS.2025.3583259"
+        ],
+        "confidence": "alta para corpora e plataformas; tamanhos por partição permanecem pendentes",
+        "datasetFamily": "SETEMBROBR",
+        "sampleUnit": "usuário (timeline), com múltiplas postagens de texto",
+        "sampleSize": "Razão controle/positivo: 7:1 SetembroBR; 9:1 SMHD. Média na classe positiva depressão: 1.443 tweets por usuário no corpus e 162 posts por usuário Reddit. N absolutos por classe/partição ainda não lidos na Tabela 2.",
+        "splitDescription": "Divisão treino/teste original de cada corpus; SetembroBR limitado a 1.000 tweets mais recentes por usuário para modelagem; controles SMHD reamostrados aleatoriamente visando razão 9:1; proporções numéricas das partições não recuperadas.",
+        "metricDefinition": "Precisão, recall e F1 no teste; significância por McNemar quando há previsões comparáveis. GPT.H contra BERT: χ=15 (depressão), χ=43 (ansiedade), ambos p<0,001; não confundir estatística χ com escore F1.",
+        "verificationLevel": "Métricas, ratios, protocolo e tamanho da validação humana confirmados no texto integral; totais da Tabela 2 por amostra permanecem pendentes"
+      },
+      "analysisTaxonomy": {
+        "publicationKind": "empirico",
+        "primaryTask": "Depressão e ansiedade",
+        "methodFamilies": [
+          "LLMs",
+          "Multimodal/fusão"
+        ],
+        "datasetFamily": "SETEMBROBR",
+        "caveat": "Trabalho avalia depressão e ansiedade, com recursos textuais e de mídia social. Reutiliza SetembroBR e também usa corpus de outro domínio; não implica mesma partição das demais publicações.",
+        "auditedOn": "2026-11-10",
+        "methodScope": "Famílias efetivamente utilizadas na publicação, inclusive baselines explicitamente comparados; não indica qual venceu.",
+        "linkBasis": "Associação por tarefa principal verificada na síntese; pode requerer nova conferência para artigos sem tabela integral."
+      }
+    },
+    {
+      "id": 21,
+      "title": "Mao & Han (2025) — TextGCN com emoção",
+      "url": "https://doi.org/10.3389/fpsyg.2025.1612769",
+      "year": 2025,
+      "condition": "Classificação de sinais depressivos",
+      "source": "Postagens de redes sociais; múltiplos benchmarks",
+      "dataset": "Conjuntos 1–5: CLPsych Practice Twitter 3.200; Cha et al. (inglês Twitter) 1.000; Pirina & Çöltekin fóruns 1.323, Reddit 1.841, combinado 2.821. 80/20 treino/teste, com possível vazamento transdutivo reconhecido pelos autores.",
+      "labeling": "Rótulos fornecidos por cada benchmark, sem equivalência automática a diagnóstico clínico.",
+      "methods": "Classificação binária pós-texto com TextGCN (duas camadas GCN, dropout 0,5, dimensão oculta 200), enriquecido por embeddings de MentalBERT, MentalRoBERTa e RoBERTaDepressionDetection; validação 80/20 e K-fold adicional.",
+      "results": "Ganhos relatados frente a configurações de referência; não consolidar resultados de datasets distintos em um F1 único.",
+      "limitations": "Autores reconhecem risco de leakage transdutivo ao incluir nós do teste no grafo; cinco corpora com rotulagens e desequilíbrios distintos. Não confundir CLPsych practice (heurísticas hashtag, não validado) com dados clínicos do desafio principal.",
+      "language": "Diversos/NI",
+      "type": "Pesquisa",
+      "group": "Clássicos",
+      "methodTags": [
+        "Clássico/lexical"
+      ],
+      "conditions": [
+        "Depressão"
+      ],
+      "pending": [],
+      "datasetAudit": {
+        "name": "Conjuntos 1–5 de Mao & Han: CLPsych 2021 Practice Twitter; Cha et al. Twitter multilíngue (EN); Pirina & Çöltekin Reddit/fóruns",
+        "platform": "Twitter/X, fóruns web e Reddit — fontes individualizadas na Tabela 1",
+        "accessStatus": "parcial",
+        "accessEvidence": "Foram localizadas três fontes originais: o repositório CLPsych 2021 divulga o dataset de prática (alerta de não validação); Cha et al. disponibilizam amostras de Twitter/Everytime no GitHub dxlabskku/Mental-Health; Pirina & Çöltekin disponibilizam código e scripts no GitHub Inusette/Identifying-depression. Não foi comprovado download das cinco versões exatas de Mao & Han.",
+        "datasetUrl": "https://github.com/seanmacavaney/clpsych2021-shared-task/tree/main/practice-dataset",
+        "evidenceUrl": "https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2025.1612769/full",
+        "reuseAndCaveat": "A fonte CLPsych 2021 adverte que dataset de prática não foi validado. Os autores do TextGCN reconhecem possível vazamento ao incluir nós de teste no grafo. A soma 10.185 não identifica amostras independentes.",
+        "reviewedOn": "2026-11-10",
+        "accessAssessment": "Não confirmado quanto ao acesso ao corpus específico",
+        "sampleUnit": "postagem",
+        "sampleSize": "Cinco amostras de 3.200, 1.000, 1.323, 1.841 e 2.821 posts (Tabela 1); 80/20 treino/teste, K-fold adicional de K não declarado no recorte examinado",
+        "labelingDetail": "Dataset 1: rótulos obtidos por heurísticas de hashtag; Dataset 2: léxico de depressão; Datasets 3–5: rótulos herdados de Pirina & Çöltekin, não diagnóstico clínico.",
+        "datasetFamily": "FIVE-REUSED-BENCHMARKS",
+        "sourceChecks": [
+          "https://github.com/seanmacavaney/clpsych2021-shared-task/tree/main/practice-dataset",
+          "https://github.com/dxlabskku/Mental-Health",
+          "https://github.com/Inusette/Identifying-depression",
+          "https://aclanthology.org/W18-5903/",
+          "https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2025.1612769/full"
+        ],
+        "confidence": "alta para os cinco totais; acesso reprodutível às versões não confirmado",
+        "splitDescription": "80/20 treino/teste; também K-fold CV mencionado sem K explícito na seção examinada; 200 épocas, early stopping 10, Adam, 2 camadas GCN, dimensão oculta 200 e dropout 0,5.",
+        "metricDefinition": "Acurácia, precisão, recall e F1 por corpus; não agregar F1 das cinco bases; autores admitem potencial vazamento transdutivo por nós de teste no grafo.",
+        "labelSource": "Heurísticas de hashtag, léxico e classes herdadas de fontes diferentes, conforme Dataset 1–5."
+      },
+      "analysisTaxonomy": {
+        "publicationKind": "empirico",
+        "primaryTask": "Depressão",
+        "methodFamilies": [
+          "Grafos/GNNs",
+          "Transformers"
+        ],
+        "datasetFamily": "FIVE-REUSED-BENCHMARKS",
+        "caveat": "Arquitetura principal é rede neural em grafo TextGCN com embeddings de modelos pré-treinados; não é algoritmo clássico.",
+        "auditedOn": "2026-11-10",
+        "methodScope": "Famílias efetivamente utilizadas na publicação, inclusive baselines explicitamente comparados; não indica qual venceu.",
+        "linkBasis": "Associação por tarefa principal verificada na síntese; pode requerer nova conferência para artigos sem tabela integral."
+      }
+    },
+    {
+      "id": 22,
+      "title": "Shah et al. (2025) — Fine-tuning de LLMs",
+      "url": "https://doi.org/10.1016/j.osnem.2025.100311",
+      "year": 2025,
+      "condition": "Detecção textual de depressão",
+      "source": "Postagens em redes sociais; idioma não estabelecido com segurança no resumo",
+      "dataset": "Twitter/X; reutiliza o corpus de Shen et al. (IJCAI 2017), organizado em D1 (usuários com autorrelato de depressão), D2 (controles operacionais) e D3 (candidatos com rótulos mais ruidosos). O pré-print dos autores (arXiv:2409.14794, §3.4.1) informa 20.000 instâncias rotuladas para ajuste do GPT-3.5 Turbo e outras 20.000 instâncias para teste, sem sobreposição declarada. Não são o total do corpus original; diferenças na versão editorial de 2025 não foram verificadas.",
+      "labeling": "Rótulos binários de conteúdo depressivo ou não depressivo da base utilizada.",
+      "methods": "Tarefa: Classificação binária de postagens. Modelos e representações: GPT-3.5 Turbo 1106 e LLaMA2-7B ajustados; avaliação zero-shot/few-shot.",
+      "results": "No protocolo few-shot relatado: 96,4% de acurácia para GPT-3.5 ajustado e 87,1% para LLaMA2-7B; não comparável diretamente a outros datasets.",
+      "limitations": "Desempenho no corpus avaliado não valida uso diagnóstico.",
+      "language": "Diversos/NI",
+      "type": "Pesquisa",
+      "group": "LLMs",
+      "methodTags": [
+        "LLMs/ensemble"
+      ],
+      "conditions": [
+        "Depressão"
+      ],
+      "pending": [],
+      "audit": "Volumetria e origem verificadas na versão pré-publicada de autoria coincidente (arXiv:2409.14794, §3.4.1); a edição do periódico de 2025 não foi auditada quanto a eventuais revisões de protocolo.",
+      "provenance": "https://arxiv.org/abs/2409.14794",
+      "verifiedOn": "2026-11-10",
+      "datasetAudit": {
+        "name": "MDDL / Shen et al. (IJCAI 2017) — D1, D2 e D3, corpus de Twitter/X",
+        "platform": "Twitter/X",
+        "accessStatus": "parcial",
+        "accessEvidence": "Os criadores originais publicam README oficial do MDDL com descrição das bases D1 (autorrelato de diagnóstico), D2 (controles por filtro lexical) e D3 (candidatos ruidosos sem rótulo) e link de download em SharePoint. Não foi comprovado que os arquivos exatos de 20 mil registros para treino e 20 mil para teste do trabalho de Shah 2025 estejam incluídos sem preparação adicional.",
+        "datasetUrl": "https://github.com/sunlightsgy/MDDL",
+        "evidenceUrl": "https://github.com/sunlightsgy/MDDL",
+        "reuseAndCaveat": "Repositório é da fonte original do corpus, não do estudo de Shah. Acesso público anunciado à base original não comprova download atual do SharePoint ou correspondência exata de partições.",
+        "reviewedOn": "2026-11-10",
+        "accessAssessment": "Não confirmado quanto ao acesso ao corpus específico",
+        "sampleUnit": "postagem/usuário conforme corpus original e recorte editorial",
+        "sampleSize": "Pré-print de Shah: 20.000 instâncias para ajuste e 20.000 para teste; total original de D1/D2/D3 distinto.",
+        "labelingDetail": "D1 autorrelato de diagnóstico; D2 controles baseados em ausência de menção lexical; D3 candidatos não rotulados com termo 'depress'.",
+        "datasetFamily": "MDDL-SHEN2017",
+        "sourceChecks": [
+          "https://github.com/sunlightsgy/MDDL",
+          "https://arxiv.org/abs/2409.14794"
+        ],
+        "confidence": "alta para disponibilização anunciada do MDDL; protocolo exato de Shah requer confirmação"
+      },
+      "analysisTaxonomy": {
+        "publicationKind": "empirico",
+        "primaryTask": "Depressão",
+        "methodFamilies": [
+          "LLMs"
+        ],
+        "datasetFamily": "MDDL-SHEN2017",
+        "caveat": "Tarefa-alvo e métodos categorizados a partir do artigo e da síntese técnica; a ligação não representa força de evidência.",
+        "auditedOn": "2026-11-10",
+        "methodScope": "Famílias efetivamente utilizadas na publicação, inclusive baselines explicitamente comparados; não indica qual venceu.",
+        "linkBasis": "Associação por tarefa principal verificada na síntese; pode requerer nova conferência para artigos sem tabela integral."
+      }
+    },
+    {
+      "id": 23,
+      "title": "Hussain et al. (2025) — Gravidade em quatro níveis",
+      "url": "https://doi.org/10.3390/ai6070157",
+      "year": 2025,
+      "condition": "Gravidade de sinais depressivos",
+      "source": "Reddit; textos em inglês",
+      "dataset": "9.841 postagens em inglês de 6.200 usuários únicos do Reddit, coletadas de janeiro de 2019 a dezembro de 2023, após filtragem; quatro níveis anotados de gravidade textual (mínimo, leve, moderado, grave). Os usuários contribuem em média com 1,59 postagem. Trata-se de posts de comunidades de saúde mental, não de amostra representativa da população geral.",
+      "labeling": "Quatro classes definidas no dataset; não inferir avaliação clínica individual.",
+      "methods": "Tarefa: Classificação multiclasse de gravidade textual. Modelos e representações: Dez classificadores clássicos com GloVe/Word2Vec e dez transformers, incluindo MentalBERT.",
+      "results": "F1 relatado: MentalBERT 97,31%; XGBoost + GloVe 94,01%, dentro do protocolo do estudo.",
+      "limitations": "Comparações externas exigem mesma tarefa, classes e divisão dos dados.",
+      "language": "Inglês",
+      "type": "Pesquisa",
+      "group": "Transformers",
+      "methodTags": [
+        "Clássico/lexical",
+        "Transformers"
+      ],
+      "conditions": [
+        "Depressão"
+      ],
+      "pending": [],
+      "audit": "Contagens verificadas na seção de dataset da versão integral da revista AI 2025, 6(7), 157.",
+      "provenance": "https://www.mdpi.com/2673-2688/6/7/157",
+      "verifiedOn": "2026-11-10",
+      "datasetAudit": {
+        "name": "Reddit depression severity — corpus anotado por Hussain et al. (2025)",
+        "platform": "Reddit (r/depression; r/SuicideWatch; r/mentalhealth e outros)",
+        "accessStatus": "controlado",
+        "accessEvidence": "A seção Data Availability Statement da publicação diz 'The data is available on request'. Portanto, 9.841 postagens de 6.200 usuários não são descritas como arquivos de download público; requerem solicitação aos autores.",
+        "datasetUrl": null,
+        "evidenceUrl": "https://www.mdpi.com/2673-2688/6/7/157",
+        "reuseAndCaveat": "Volume de 9.841 postagens, de 6.200 usuários, com quatro níveis de gravidade textual; não atribuir diagnóstico clínico nem inferir acesso livre aos arquivos.",
+        "reviewedOn": "2026-11-10",
+        "accessAssessment": "Não confirmado quanto ao acesso ao corpus específico",
+        "sampleUnit": "postagem do Reddit",
+        "sampleSize": "9.841 postagens / 6.200 usuários (2019–2023)",
+        "labelingDetail": "Quatro níveis (mínimo, leve, moderado, grave), consenso entre anotadores e adjudicação; verificar distribuição por classe antes de reproduzir.",
+        "datasetFamily": "HUSSAIN-REDDIT2025",
+        "sourceChecks": [
+          "https://www.mdpi.com/2673-2688/6/7/157"
+        ],
+        "confidence": "alta — declaração de disponibilidade explícita na revista"
+      },
+      "analysisTaxonomy": {
+        "publicationKind": "empirico",
+        "primaryTask": "Depressão",
+        "methodFamilies": [
+          "ML clássico",
+          "Transformers"
+        ],
+        "datasetFamily": "HUSSAIN-REDDIT2025",
+        "caveat": "Tarefa-alvo e métodos categorizados a partir do artigo e da síntese técnica; a ligação não representa força de evidência.",
+        "auditedOn": "2026-11-10",
+        "methodScope": "Famílias efetivamente utilizadas na publicação, inclusive baselines explicitamente comparados; não indica qual venceu.",
+        "linkBasis": "Associação por tarefa principal verificada na síntese; pode requerer nova conferência para artigos sem tabela integral."
+      }
+    },
+    {
+      "id": 24,
+      "title": "Tahir et al. (2025) — Revisão ML/DL",
+      "url": "https://doi.org/10.1109/ACCESS.2025.3530862",
+      "year": 2025,
+      "condition": "Depressão; síntese do campo",
+      "source": "Revisão de estudos de redes sociais, incluindo Twitter/X, Reddit e outras plataformas",
+      "dataset": "Múltiplos corpora analisados na literatura; não se trata de um corpus de teste único.",
+      "labeling": "Analisa diferenças de anotação e rotulagem entre estudos; não gera rótulos próprios.",
+      "methods": "Tarefa: Revisão de técnicas e datasets para detecção de depressão. Modelos e representações: Mapeamento de ML e DL, representações e arquiteturas; discussão de desafios.",
+      "results": "Revisão sem acurácia ou F1 experimental próprio.",
+      "limitations": "Evidência secundária; exclui algumas famílias de métodos e se concentra em redes sociais.",
+      "language": "Diversos/NI",
+      "type": "Revisão",
+      "group": "Revisões",
+      "methodTags": [
+        "Outras abordagens"
+      ],
+      "conditions": [
+        "Depressão"
+      ],
+      "pending": [],
+      "datasetAudit": {
+        "name": "Não se aplica — revisão metodológica ML/DL",
+        "platform": "Literatura científica",
+        "accessStatus": "nao_aplica",
+        "accessEvidence": "Reúne datasets de terceiros; não informa um único corpus experimental novo.",
+        "datasetUrl": null,
+        "evidenceUrl": "https://doi.org/10.1109/ACCESS.2025.3530862",
+        "reuseAndCaveat": "A avaliação deve comparar cobertura da revisão, não métricas de treino de um corpus inexistente.",
+        "reviewedOn": "2026-11-10",
+        "accessAssessment": "Não se aplica a revisão de literatura"
+      },
+      "analysisTaxonomy": {
+        "publicationKind": "sintese",
+        "primaryTask": "Depressão",
+        "methodFamilies": [],
+        "datasetFamily": null,
+        "caveat": "Tarefa-alvo e métodos categorizados a partir do artigo e da síntese técnica; a ligação não representa força de evidência.",
+        "auditedOn": "2026-11-10",
+        "methodScope": "Famílias efetivamente utilizadas na publicação, inclusive baselines explicitamente comparados; não indica qual venceu.",
+        "linkBasis": "Associação por tarefa principal verificada na síntese; pode requerer nova conferência para artigos sem tabela integral."
+      }
+    },
+    {
+      "id": 25,
+      "title": "Jin & Zhang (2026) — Multitarefa guiada por DSM-5",
+      "url": "https://doi.org/10.3390/electronics15030598",
+      "year": 2026,
+      "condition": "Depressão, sintomas e gravidade",
+      "source": "Weibo; chinês",
+      "dataset": "WU3D: 32.570 usuários e cerca de 2,19 milhões de postagens; 1.390 usuários no grupo de depressão e 31.180 controles, conforme artigo.",
+      "labeling": "O artigo descreve entrevistas clínicas e PHQ-9 para o grupo de depressão, com anotação especializada.",
+      "methods": "Tarefa: Detecção binária, reconhecimento multirrótulo de sintomas e classificação da gravidade. Modelos e representações: BERT chinês + Bi-LSTM + atenção hierárquica + características temporais e tópicos LDA; treinamento multitarefa guiado por DSM-5.",
+      "results": "F1 principal de 91,8% no WU3D, contra 85,6% do BERT-base, conforme autores.",
+      "limitations": "Uma população e plataforma específicas; não supõe validade clínica externa ou em português.",
+      "language": "Diversos/NI",
+      "type": "Pesquisa",
+      "group": "Transformers",
+      "methodTags": [
+        "Transformers"
+      ],
+      "conditions": [
+        "Depressão"
+      ],
+      "pending": [],
+      "datasetAudit": {
+        "name": "WU3D — Weibo User Depression Detection Dataset",
+        "platform": "Weibo",
+        "accessStatus": "controlado",
+        "accessEvidence": "Apesar de seção metodológica chamar o conjunto de público, a declaração de disponibilidade informa que dados brutos não são públicos, com possível contato aos autores e aprovação ética.",
+        "datasetUrl": null,
+        "evidenceUrl": "https://www.mdpi.com/2079-9292/15/3/598",
+        "reuseAndCaveat": "32.570 usuários, 2.191.910 posts; declaração de acesso prevalece sobre rótulo genérico 'publicamente disponível'.",
+        "reviewedOn": "2026-11-10",
+        "accessAssessment": "Classificação baseada na fonte vinculada; conferir condições atuais do provedor"
+      },
+      "analysisTaxonomy": {
+        "publicationKind": "empirico",
+        "primaryTask": "Depressão",
+        "methodFamilies": [
+          "Transformers"
+        ],
+        "datasetFamily": null,
+        "caveat": "Tarefa-alvo e métodos categorizados a partir do artigo e da síntese técnica; a ligação não representa força de evidência.",
+        "auditedOn": "2026-11-10",
+        "methodScope": "Famílias efetivamente utilizadas na publicação, inclusive baselines explicitamente comparados; não indica qual venceu.",
+        "linkBasis": "Associação por tarefa principal verificada na síntese; pode requerer nova conferência para artigos sem tabela integral."
+      }
+    },
+    {
+      "id": 26,
+      "title": "Tang et al. (2026) — AI in the Wild (metanálise)",
+      "url": "https://doi.org/10.1609/aaai.v40i46.41283",
+      "year": 2026,
+      "condition": "Depressão; metanálise de resultados de IA",
+      "source": "67 estudos publicados entre 2022 e 2025; diferentes idiomas e plataformas",
+      "dataset": "Síntese de 67 estudos empíricos, não uma nova base de postagens.",
+      "labeling": "Analisa procedência dos rótulos como moderador metodológico.",
+      "methods": "Tarefa: Metanálise de desempenho, fatores de heterogeneidade e avaliação alinhada a critérios psicológicos. Modelos e representações: Comparação de técnicas tradicionais, transformers e modelos multimodais.",
+      "results": "Desempenho agregado descrito pelos autores como r≈0,80; não é acurácia, nem F1 de classificador individual.",
+      "limitations": "Heterogeneidade de estudos e diferença entre tarefa computacional e validade clínica.",
+      "language": "Diversos/NI",
+      "type": "Revisão",
+      "group": "Revisões",
+      "methodTags": [
+        "Transformers"
+      ],
+      "conditions": [
+        "Depressão"
+      ],
+      "pending": [],
+      "datasetAudit": {
+        "name": "Não se aplica — metanálise AI in the Wild",
+        "platform": "Literatura científica",
+        "accessStatus": "nao_aplica",
+        "accessEvidence": "Dados agregados extraídos de 67 estudos; não constitui nova coleção de postagens.",
+        "datasetUrl": null,
+        "evidenceUrl": "https://doi.org/10.1609/aaai.v40i46.41283",
+        "reuseAndCaveat": "Metanálise exige método de síntese próprio; não registrar como dataset primário.",
+        "reviewedOn": "2026-11-10",
+        "accessAssessment": "Não se aplica a revisão de literatura"
+      },
+      "analysisTaxonomy": {
+        "publicationKind": "sintese",
+        "primaryTask": "Depressão",
+        "methodFamilies": [],
+        "datasetFamily": null,
+        "caveat": "Tarefa-alvo e métodos categorizados a partir do artigo e da síntese técnica; a ligação não representa força de evidência.",
+        "auditedOn": "2026-11-10",
+        "methodScope": "Famílias efetivamente utilizadas na publicação, inclusive baselines explicitamente comparados; não indica qual venceu.",
+        "linkBasis": "Associação por tarefa principal verificada na síntese; pode requerer nova conferência para artigos sem tabela integral."
+      }
+    },
+    {
+      "id": 27,
+      "title": "Chim et al. (2024) — CLPsych Shared Task",
+      "url": "https://aclanthology.org/2024.clpsych-1.15/",
+      "year": 2024,
+      "condition": "Evidências textuais de risco suicida",
+      "source": "Reddit/r/SuicideWatch; inglês",
+      "dataset": "Amostra anotada de 125 usuários; postagens de Reddit e níveis de risco predefinidos.",
+      "labeling": "Risco predefinido em três níveis (baixo, moderado e alto); evidências textuais anotadas para avaliação das subtarefas.",
+      "methods": "Tarefa: Extração de trechos de evidência e sumarização de evidências de risco. Modelos e representações: Benchmark de sistemas com LLMs abertos; comparação por BERTScore e inferência textual.",
+      "results": "O artigo introduz protocolo e métricas de avaliação das duas subtarefas; não reportar um único F1 de diagnóstico.",
+      "limitations": "Níveis de risco atribuídos no benchmark não equivalem a decisão clínica automatizada.",
+      "language": "Inglês",
+      "type": "Pesquisa",
+      "group": "LLMs",
+      "methodTags": [
+        "Transformers",
+        "LLMs/ensemble"
+      ],
+      "conditions": [
+        "Risco suicida"
+      ],
+      "pending": [],
+      "datasetAudit": {
+        "name": "UMD Reddit Suicidality Dataset, Version 2 — recorte CLPsych 2024 (125 usuários)",
+        "platform": "Reddit (r/SuicideWatch)",
+        "accessStatus": "controlado",
+        "accessEvidence": "A página oficial da Universidade de Maryland exige solicitação e comprovante de análise por IRB ou comitê de ética equivalente. Na CLPsych 2024, participantes assinaram acordo de acesso e eliminação dos arquivos ao término da tarefa.",
+        "datasetUrl": "https://psresnik.github.io/umd_reddit_suicidality_dataset.html",
+        "evidenceUrl": "https://psresnik.github.io/umd_reddit_suicidality_dataset.html",
+        "reuseAndCaveat": "A versão da Shared Task 2024 contém 125 usuários de amostra anotada; acesso para estudos posteriores exige novo pedido e revisão ética, não o formulário temporário do evento.",
+        "reviewedOn": "2026-11-10",
+        "accessAssessment": "Não confirmado quanto ao acesso ao corpus específico",
+        "sampleUnit": "usuário com sequência de postagens",
+        "sampleSize": "125 usuários anotados da tarefa",
+        "labelingDetail": "Risco de suicidabilidade por usuário baseado em anotações de especialistas; sub-tarefas de realce de evidências e sumarização, sem diagnóstico clínico.",
+        "datasetFamily": "UMD-SUICIDALITY",
+        "sourceChecks": [
+          "https://psresnik.github.io/umd_reddit_suicidality_dataset.html",
+          "https://clpsych.org/wp-content/uploads/2023/12/Dataset-application-for-CLPsych-2024.pdf"
+        ],
+        "confidence": "alta — página oficial com requisitos explícitos"
+      },
+      "analysisTaxonomy": {
+        "publicationKind": "empirico",
+        "primaryTask": "Risco suicida",
+        "methodFamilies": [
+          "Transformers",
+          "LLMs"
+        ],
+        "datasetFamily": "UMD-SUICIDALITY",
+        "caveat": "Risco de suicidabilidade avaliado por extratos e resumos de evidências; não agregar automaticamente aos estudos de depressão.",
+        "auditedOn": "2026-11-10",
+        "methodScope": "Famílias efetivamente utilizadas na publicação, inclusive baselines explicitamente comparados; não indica qual venceu.",
+        "linkBasis": "Associação por tarefa principal verificada na síntese; pode requerer nova conferência para artigos sem tabela integral."
+      }
+    },
+    {
+      "id": 28,
+      "title": "Yu et al. (2026) — MIND e detecção precoce",
+      "url": "https://doi.org/10.2196/87138",
+      "year": 2026,
+      "condition": "Detecção precoce de depressão",
+      "source": "Reddit; inglês",
+      "dataset": "Benchmark eRisk 2017; sequências temporais de postagens por usuário.",
+      "labeling": "Grupos deprimido/controle do eRisk baseados em registros e autorrelatos disponíveis no benchmark.",
+      "methods": "Tarefa: Predição sequencial no nível de usuário e identificação precoce de risco. Modelos e representações: MIND: padrões temporais de postagem e filtragem/análise por LLM.",
+      "results": "A análise de ablação relata F1-ERD 0,671; ERDE5 0,080 e ERDE50 0,069 para MIND.",
+      "limitations": "Horários de postagem são proxies de atividade, não medidas diretas de sono ou diagnóstico.",
+      "language": "Inglês",
+      "type": "Pesquisa",
+      "group": "LLMs",
+      "methodTags": [
+        "LLMs/ensemble"
+      ],
+      "conditions": [
+        "Depressão"
+      ],
+      "pending": [],
+      "datasetAudit": {
+        "name": "CLEF eRisk 2017 — Early Risk Detection (depressão)",
+        "platform": "Reddit",
+        "accessStatus": "controlado",
+        "accessEvidence": "Datasets da competição foram disponibilizados a participantes registrados. Um artigo posterior tornar código público não significa abrir os textos integrais.",
+        "datasetUrl": "https://erisk.irlab.org/2017/task.html",
+        "evidenceUrl": "https://erisk.irlab.org/2017/task.html",
+        "reuseAndCaveat": "Sequências por usuário: unidade de análise e marco temporal devem ser preservados.",
+        "reviewedOn": "2026-11-10",
+        "accessAssessment": "Classificação baseada na fonte vinculada; conferir condições atuais do provedor"
+      },
+      "analysisTaxonomy": {
+        "publicationKind": "empirico",
+        "primaryTask": "Depressão",
+        "methodFamilies": [
+          "LLMs"
+        ],
+        "datasetFamily": null,
+        "caveat": "Tarefa-alvo e métodos categorizados a partir do artigo e da síntese técnica; a ligação não representa força de evidência.",
+        "auditedOn": "2026-11-10",
+        "methodScope": "Famílias efetivamente utilizadas na publicação, inclusive baselines explicitamente comparados; não indica qual venceu.",
+        "linkBasis": "Associação por tarefa principal verificada na síntese; pode requerer nova conferência para artigos sem tabela integral."
+      }
+    },
+    {
+      "id": 29,
+      "title": "Mandal et al. (2025) — QuestMF",
+      "url": "https://aclanthology.org/2025.clpsych-1.4/",
+      "year": 2025,
+      "condition": "Gravidade de depressão em entrevistas",
+      "source": "Entrevistas multimodais; inglês",
+      "dataset": "E-DAIC (AVEC 2019): 275 sessões multimodais de entrevistas em inglês, sendo 163 para treino, 56 para validação e 56 para teste; uma sessão da validação e uma de teste excluídas por arquivos incompletos de vídeo. Textos transcritos, áudio, atributos visuais e escores PHQ-8; não é corpus de postagens de redes sociais.",
+      "labeling": "Escores de avaliação de depressão por questionários/entrevistas no benchmark; a predição é de gravidade, não diagnóstico clínico novo.",
+      "methods": "Tarefa: Predição ordinal de gravidade e de respostas por pergunta. Modelos e representações: QuestMF (fusão multimodal por questão) e função de perda ImbOLL para desequilíbrio e ordinalidade.",
+      "results": "QuestMF com ImbOLL no E-DAIC, Tabela 1 (melhor execução): CCC = 0,685, RMSE = 5,32, MAE = 4,11. Tabela 2 (média ± desvio-padrão, três sementes): CCC = 0,662 ± 0,022, RMSE = 5,25 ± 0,08, MAE = 3,95 ± 0,13. CCC mede concordância, não acurácia ou F1.",
+      "limitations": "Avaliação circunscrita ao benchmark de entrevista, distinta de redes sociais.",
+      "language": "Inglês",
+      "type": "Pesquisa",
+      "group": "Outras",
+      "methodTags": [
+        "Multimodal"
+      ],
+      "conditions": [
+        "Depressão"
+      ],
+      "pending": [],
+      "audit": "Dados e métricas verificados no PDF do artigo na ACL Anthology, Tabelas 1–2, e seção 3 do texto integral arXiv.",
+      "provenance": "https://aclanthology.org/2025.clpsych-1.4.pdf",
+      "verifiedOn": "2026-11-10",
+      "datasetAudit": {
+        "name": "E-DAIC — Extended Distress Analysis Interview Corpus (AVEC 2019)",
+        "platform": "Entrevistas clínico-computacionais (transcrição, áudio e vídeo)",
+        "accessStatus": "controlado",
+        "accessEvidence": "USC ICT distribui E-DAIC mediante solicitação assinada de pesquisadores acadêmicos ou sem fins lucrativos.",
+        "datasetUrl": "https://dcapswoz.ict.usc.edu/",
+        "evidenceUrl": "https://dcapswoz.ict.usc.edu/",
+        "reuseAndCaveat": "275 sessões no protocolo descrito; dados não são corpus de Reddit e não são download aberto.",
+        "reviewedOn": "2026-11-10",
+        "accessAssessment": "Classificação baseada na fonte vinculada; conferir condições atuais do provedor"
+      },
+      "analysisTaxonomy": {
+        "publicationKind": "empirico",
+        "primaryTask": "Depressão",
+        "methodFamilies": [
+          "Multimodal/fusão"
+        ],
+        "datasetFamily": null,
+        "caveat": "Tarefa-alvo e métodos categorizados a partir do artigo e da síntese técnica; a ligação não representa força de evidência.",
+        "auditedOn": "2026-11-10",
+        "methodScope": "Famílias efetivamente utilizadas na publicação, inclusive baselines explicitamente comparados; não indica qual venceu.",
+        "linkBasis": "Associação por tarefa principal verificada na síntese; pode requerer nova conferência para artigos sem tabela integral."
+      }
+    },
+    {
+      "id": 30,
+      "title": "Wesley Ramos dos Santos (2025) — Predição de transtornos de saúde mental",
+      "url": "https://doi.org/10.11606/T.100.2025.tde-12062025-101544",
+      "year": 2025,
+      "condition": "Depressão e ansiedade",
+      "source": "Twitter/X em português brasileiro e Reddit em inglês",
+      "dataset": "SetembroBR e corpus de Reddit para transferência entre domínios.",
+      "labeling": "Autorrelatos de diagnóstico/tratamento para seleção dos indivíduos; parcela do corpus em português avaliada por especialistas humanos.",
+      "methods": "Tarefa: Predição no nível de usuário a partir de timelines; transferência entre domínio e idioma. Modelos e representações: Filtros de relevância, atributos textuais/não textuais e comitês de classificadores.",
+      "results": "Exemplo experimental documentado na tese, Tabela 4, p. 87: classificador LSTM.BERT treinado em dados desbalanceados do SetembroBR obteve macro-F1 = 0,63 em depressão e = 0,61 em ansiedade; versões balanceadas obtiveram 0,43 e 0,31, respectivamente. São resultados desse experimento e não um único desempenho consolidado da tese ou do método final.",
+      "limitations": "Tese de doutorado, não artigo de periódico; possível sobreposição temática e de recursos com Santos et al. (2025).",
+      "language": "Misto",
+      "type": "Tese/TCC",
+      "group": "Tese/TCC",
+      "methodTags": [
+        "Outras abordagens"
+      ],
+      "conditions": [
+        "Depressão",
+        "Ansiedade"
+      ],
+      "pending": [],
+      "audit": "Resultados confirmados no PDF integral da tese USP (Tabela 4, p. 87); não confundir baseline LSTM.BERT com todos os experimentos da tese.",
+      "provenance": "https://teses.usp.br/teses/disponiveis/100/100131/tde-12062025-101544/publico/DefesaWesleyFinal.pdf",
+      "verifiedOn": "2026-11-10",
+      "datasetAudit": {
+        "name": "SetembroBR; corpus Reddit usado na tese",
+        "platform": "Twitter/X e Reddit",
+        "accessStatus": "parcial",
+        "accessEvidence": "SetembroBR possui acesso público indicado pelo grupo. O corpus do domínio Reddit e condições de reprodução exatas na tese não foram confirmados aqui.",
+        "datasetUrl": "https://ivandreparaboni.wixsite.com/research/setembrobr",
+        "evidenceUrl": "https://doi.org/10.11606/T.100.2025.tde-12062025-101544",
+        "reuseAndCaveat": "Evitar confundir métricas de baseline com resultado agregado da tese.",
+        "reviewedOn": "2026-11-10",
+        "accessAssessment": "Classificação baseada na fonte vinculada; conferir condições atuais do provedor",
+        "datasetFamily": "SETEMBROBR"
+      },
+      "analysisTaxonomy": {
+        "publicationKind": "empirico",
+        "primaryTask": "Depressão e ansiedade",
+        "methodFamilies": [
+          "ML clássico",
+          "Transformers"
+        ],
+        "datasetFamily": "SETEMBROBR",
+        "caveat": "Tarefa-alvo e métodos categorizados a partir do artigo e da síntese técnica; a ligação não representa força de evidência. Reutiliza SetembroBR e também usa corpus de outro domínio; não implica mesma partição das demais publicações.",
+        "auditedOn": "2026-11-10",
+        "methodScope": "Famílias efetivamente utilizadas na publicação, inclusive baselines explicitamente comparados; não indica qual venceu.",
+        "linkBasis": "Associação por tarefa principal verificada na síntese; pode requerer nova conferência para artigos sem tabela integral."
+      }
+    },
+    {
+      "id": 31,
+      "title": "Figueiredo (2026) — Dados sintéticos em saúde mental",
+      "url": "https://repositorio.ufscar.br/items/e2916bfc-974c-4b67-b96e-f0d67065827c",
+      "year": 2026,
+      "condition": "Sintomas de depressão; geração sintética e privacidade",
+      "source": "Corpus Amive; português brasileiro",
+      "dataset": "Amive: corpus de origem de 780 postagens anônimas de páginas universitárias do Facebook (não disponível integralmente por privacidade), com 21 sinais anotados no projeto original. Figueiredo (TCC UFSCar, 2026) seleciona sentenças e gera paráfrases para o sintoma Tristeza/Humor deprimido. N efetivo de sentenças retidas, sintéticas e de teste NÃO consta no resumo institucional acessível; 780 postagens não é n do experimento.",
+      "labeling": "Anotações de sintomas provenientes do corpus Amive; foco de avaliação no sintoma tristeza/humor deprimido.",
+      "methods": "Tarefa: Paráfrase sintética, similaridade textual e avaliação extrínseca de classificação binária. Modelos e representações: Retrotradução, PEGASUS, BERTScore com BERTimbau; baselines LR, SVM, Naive Bayes e Random Forest.",
+      "results": "Resumo institucional do TCC: avaliação intrínseca da diversidade lexical, POS e exemplos; avaliação extrínseca com regressão logística, SVM, Naive Bayes e Random Forest em quatro combinações treino/teste (original→original, sintético→sintético, sintético→original, original→sintético). Preserva parte da utilidade/recall, mas a precisão cai em sintético→original; sem métricas numéricas verificadas nesta rodada.",
+      "limitations": "Trabalho de conclusão de curso, não artigo revisado por pares; apenas parte dos sintomas foi estudada.",
+      "language": "PT-BR",
+      "type": "Tese/TCC",
+      "group": "Tese/TCC",
+      "methodTags": [
+        "Clássico/lexical",
+        "Transformers"
+      ],
+      "conditions": [
+        "Depressão"
+      ],
+      "pending": [
+        "Dataset: número de sentenças por classe, originais/sintéticas e por split"
+      ],
+      "audit": "Corpus e método verificados no repositório institucional UFSCar e README do projeto; tamanho e partições exigem conferência das tabelas do TCC.",
+      "provenance": "https://repositorio.ufscar.br/items/e2916bfc-974c-4b67-b96e-f0d67065827c",
+      "verifiedOn": "2026-11-10",
+      "datasetAudit": {
+        "name": "Amive — corpus original sensível e pipeline de paráfrases sintéticas",
+        "platform": "Facebook — páginas universitárias na origem do corpus Amive",
+        "accessStatus": "restrito",
+        "accessEvidence": "TCC de Figueiredo está catalogado no repositório oficial UFSCar com arquivo TCC_Vitoria.pdf, licença da obra CC BY-NC 4.0 e GitHub para o pipeline. Texto original Amive não é redistribuído; contagens do experimento dependem de consulta às tabelas do PDF integral, que não pôde ser acessado nesta rodada.",
+        "datasetUrl": null,
+        "evidenceUrl": "https://repositorio.ufscar.br/items/e2916bfc-974c-4b67-b96e-f0d67065827c",
+        "reuseAndCaveat": "Mesmo projeto de origem usado por Mendes & Caseli (2024). Para Figueiredo (2026), conferir n de sentenças/instâncias após seleção do sintoma e split de treino/teste; 780 postagens originais não são o total do experimento binário.",
+        "reviewedOn": "2026-11-10",
+        "accessAssessment": "Classificação baseada na fonte vinculada; conferir condições atuais do provedor",
+        "sampleUnit": "sentenças selecionadas por sintoma e paráfrases geradas; 780 postagens é total da base de origem, não da avaliação",
+        "sampleSize": "Corpus original: 780 postagens com 21 sinais anotados. N efetivo de sentenças originais, sintéticas, positivas/negativas e de splits no estudo 2026 NÃO confirmado.",
+        "labelingDetail": "Sinais anotados em trechos de postagens; classificação binária do sintoma Tristeza/Humor deprimido na avaliação extrínseca.",
+        "datasetFamily": "AMIVE",
+        "sourceChecks": [
+          "https://repositorio.ufscar.br/items/e2916bfc-974c-4b67-b96e-f0d67065827c",
+          "https://repositorio.ufscar.br/items/e2916bfc-974c-4b67-b96e-f0d67065827c/full",
+          "https://github.com/LALIC-UFSCar/synthetic-data-mental-health",
+          "https://brasileiraspln.com/livro-pln/3a-edicao/parte-dominios/cap-saude-mental/cap-saude-mental.html"
+        ],
+        "confidence": "alta para família e privacidade; tamanho do experimento Figueiredo pendente",
+        "splitDescription": "Quatro cenários (treino→teste): original→original; sintético→sintético; sintético→original; original→sintético. Os tamanhos de partição e estratégia de separação por postagem/autor não foram verificados no resumo.",
+        "metricDefinition": "Classificação binária Tristeza/Humor deprimido: precisão, recall, F1 e acurácia; intrínsecas: diversidade lexical, POS e análises qualitativas; valores numéricos exatos dos ensaios não confirmados.",
+        "verificationLevel": "Tarefa, regimes de dados e quatro cenários confirmados; tamanho do experimento TCC não confirmado"
+      },
+      "analysisTaxonomy": {
+        "publicationKind": "empirico",
+        "primaryTask": "Depressão",
+        "methodFamilies": [
+          "ML clássico",
+          "Transformers"
+        ],
+        "datasetFamily": "AMIVE",
+        "caveat": "PEGASUS e BERTimbau operam no pipeline de síntese e seleção; os baselines de classificação são LR/SVM/NB/RF.",
+        "auditedOn": "2026-11-10",
+        "methodScope": "Famílias efetivamente utilizadas na publicação, inclusive baselines explicitamente comparados; não indica qual venceu.",
+        "linkBasis": "Associação por tarefa principal verificada na síntese; pode requerer nova conferência para artigos sem tabela integral."
+      }
+    },
+    {
+      "id": 32,
+      "title": "Bhatt et al. (2026) — Revisão entre plataformas",
+      "url": "https://doi.org/10.1007/s44192-026-00368-w",
+      "year": 2026,
+      "condition": "Depressão, ansiedade, TEPT; generalização entre plataformas",
+      "source": "Literatura sobre diferentes plataformas e idiomas",
+      "dataset": "Revisão de datasets e tarefas de mídias sociais; sem novo conjunto de avaliação próprio.",
+      "labeling": "Discute heterogeneidade da anotação e das populações entre estudos.",
+      "methods": "Tarefa: Revisão narrativa de métodos, datasets, transferência e ética. Modelos e representações: Panorama de BERT, RoBERTa e outros métodos de PLN para análise de saúde mental.",
+      "results": "Síntese secundária, sem acurácia ou F1 experimental único.",
+      "limitations": "A heterogeneidade dos estudos impede comparações quantitativas diretas.",
+      "language": "Diversos/NI",
+      "type": "Revisão",
+      "group": "Revisões",
+      "methodTags": [
+        "Transformers"
+      ],
+      "conditions": [
+        "Depressão",
+        "Ansiedade"
+      ],
+      "pending": [],
+      "datasetAudit": {
+        "name": "Não se aplica — revisão entre plataformas",
+        "platform": "Literatura científica",
+        "accessStatus": "nao_aplica",
+        "accessEvidence": "Revisão de estudos, sem base original independente para baixar.",
+        "datasetUrl": null,
+        "evidenceUrl": "https://doi.org/10.1007/s44192-026-00368-w",
+        "reuseAndCaveat": "Usar como evidência secundária e fonte para localizar bases subjacentes.",
+        "reviewedOn": "2026-11-10",
+        "accessAssessment": "Não se aplica a revisão de literatura"
+      },
+      "analysisTaxonomy": {
+        "publicationKind": "sintese",
+        "primaryTask": "Múltiplas condições",
+        "methodFamilies": [],
+        "datasetFamily": null,
+        "caveat": "Tarefa-alvo e métodos categorizados a partir do artigo e da síntese técnica; a ligação não representa força de evidência.",
+        "auditedOn": "2026-11-10",
+        "methodScope": "Famílias efetivamente utilizadas na publicação, inclusive baselines explicitamente comparados; não indica qual venceu.",
+        "linkBasis": "Associação por tarefa principal verificada na síntese; pode requerer nova conferência para artigos sem tabela integral."
+      }
+    },
+    {
+      "id": 33,
+      "title": "Jin et al. (2025) — Scoping Review de LLMs",
+      "url": "https://doi.org/10.2196/69284",
+      "year": 2025,
+      "condition": "Aplicações de LLMs em saúde mental",
+      "source": "Literatura internacional, diferentes idiomas e contextos clínicos/digitais",
+      "dataset": "Revisão de escopo: 95 artigos incluídos de 4.859 registros examinados em sete bases.",
+      "labeling": "Consolida tipos de ground truth empregados nos estudos; não produz rótulos originais.",
+      "methods": "Tarefa: Mapeamento de triagem, detecção, tratamento e aconselhamento apoiado por LLMs. Modelos e representações: Famílias de LLMs e estratégias de uso; estudos de detecção e intervenções.",
+      "results": "67/95 artigos abordam triagem/detecção; 33/95 tratam especificamente de detecção/classificação de depressão, segundo a revisão.",
+      "limitations": "Revisão secundária com grande heterogeneidade de tarefas e desenhos; não implica eficácia clínica comprovada.",
+      "language": "Diversos/NI",
+      "type": "Pesquisa",
+      "group": "LLMs",
+      "methodTags": [
+        "LLMs/ensemble"
+      ],
+      "conditions": [
+        "Outras/geral"
+      ],
+      "pending": [],
+      "datasetAudit": {
+        "name": "Não se aplica — scoping review sobre LLMs",
+        "platform": "Literatura científica",
+        "accessStatus": "nao_aplica",
+        "accessEvidence": "Inclui 95 trabalhos, não um dataset de postagens rotuladas para experimentar.",
+        "datasetUrl": null,
+        "evidenceUrl": "https://doi.org/10.2196/69284",
+        "reuseAndCaveat": "95 artigos ≠ 95 instâncias ou 95 corpora independentes.",
+        "reviewedOn": "2026-11-10",
+        "accessAssessment": "Não se aplica a revisão de literatura"
+      },
+      "analysisTaxonomy": {
+        "publicationKind": "sintese",
+        "primaryTask": "Múltiplas condições",
+        "methodFamilies": [],
+        "datasetFamily": null,
+        "caveat": "Scoping review de aplicações de LLMs; literatura secundária, não experimento direto com uma coleção de postagens.",
+        "auditedOn": "2026-11-10",
+        "methodScope": "Famílias efetivamente utilizadas na publicação, inclusive baselines explicitamente comparados; não indica qual venceu.",
+        "linkBasis": "Associação por tarefa principal verificada na síntese; pode requerer nova conferência para artigos sem tabela integral."
+      }
+    }
+  ]
+}
