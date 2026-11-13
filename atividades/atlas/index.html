@@ -132,6 +132,7 @@
 @media(max-width:760px){.weighted-head,.weighted-criteria{grid-template-columns:1fr}.rank-card{grid-template-columns:72px minmax(0,1fr);gap:11px}.weighted-actions span{margin-left:0}.weighted-results{max-height:600px}}
 @media(prefers-reduced-motion:reduce){.connection-viz .c-link{animation:none!important}}
 
+#openTour,#tourLayer{display:none!important}
 </style>
 </head>
 <body>
@@ -737,7 +738,7 @@ async function init(){
  try{
   const d=JSON.parse(get("studiesEmbedded").textContent);
   if(!Array.isArray(d.studies)||d.studies.length!==33)throw Error("Base incompleta");
-  studies=d.studies;renderNetwork();setupTour();
+  studies=d.studies;renderNetwork();
   get("showPtOnly").addEventListener("change",renderNetwork);
   get("conexaoViz").addEventListener("click",ev=>onNetworkActivate(ev.target));
   get("conexaoViz").addEventListener("keydown",ev=>{if((ev.key==="Enter"||ev.key===" ")&&(ev.target.closest(".c-link,.c-hub"))){ev.preventDefault();onNetworkActivate(ev.target)}});
