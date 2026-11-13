@@ -133,6 +133,7 @@
 @media(prefers-reduced-motion:reduce){.connection-viz .c-link{animation:none!important}}
 
 #openTour,#tourLayer{display:none!important}
+.connect-side .c-studies{max-height:360px;overflow-y:auto;scrollbar-width:thin}
 </style>
 </head>
 <body>
@@ -270,9 +271,9 @@
    <div class="section-head reveal"><div><span class="kicker">04 / LABORATÓRIO DE COMPARAÇÃO</span><h2 class="section-title" id="compareTitle">Escolha critérios.<br>Compare evidências.</h2></div><p class="section-copy">Primeiro classifique as referências por aderência aos seus interesses e pesos. Em seguida, escolha dois trabalhos para confrontar 18 dimensões técnicas. O ranking não determina vencedores por desempenho.</p></div>
    <div class="panel weighted-lab reveal" id="weightedLab" aria-labelledby="weightedTitle">
 <div class="weighted-head"><div><span class="kicker">NOVA FERRAMENTA · RECOMENDAÇÃO DO PROFESSOR</span><h3 id="weightedTitle">Encontre estudos alinhados aos seus critérios</h3><p>Marque características de interesse, ajuste seu peso de 1 a 5 e obtenha um ranking de <strong>aderência metodológica</strong> calculado sobre as 33 referências.</p></div><div class="weighted-formula"><strong>Score = Σ pesos atendidos / Σ pesos escolhidos</strong><span>Escala de 0 a 100 · não mede qualidade científica</span></div></div>
-<div class="weighted-actions"><button type="button" id="rankExample" class="small-btn">Carregar exemplo</button><button type="button" id="rankClear" class="small-btn">Limpar critérios</button><span id="rankSelectionCount" aria-live="polite">Selecione critérios</span></div>
+<div class="weighted-actions"><button type="button" id="rankExample" class="small-btn">Carregar exemplo</button><button type="button" id="rankClear" class="small-btn">Limpar critérios</button><span id="rankSelectionCount" aria-live="polite">Exemplo inicial selecionado</span></div>
 <div id="rankCriteria" class="weighted-criteria" role="group" aria-label="Características e pesos de preferência"></div>
-<div class="weighted-results-head"><h4>Estudos ordenados por aderência</h4><span id="rankSummary" aria-live="polite">Selecione um ou mais critérios acima para calcular.</span></div>
+<div class="weighted-results-head"><h4>Estudos ordenados por aderência</h4><span id="rankSummary" aria-live="polite">Exemplo inicial: empírico + LLMs + PT-BR. Altere os critérios e pesos.</span></div>
 <div id="rankResults" class="weighted-results" aria-live="polite"><p class="loading">Ajuste suas preferências para gerar o ranking.</p></div>
 <p class="weighted-caution"><strong>Como interpretar:</strong> o score reflete apenas a correspondência com as características selecionadas. Não é um ranking de desempenho, qualidade metodológica ou validade clínica. Campos ausentes/não confirmados não pontuam e não devem ser tratados como evidência de ausência. Em empates, preserva-se a ordem de identificação dos estudos.</p>
 </div><div class="panel comparator reveal">
@@ -664,7 +665,7 @@ function showCategoryRelations(g,c){
  get("edgeTitle").textContent=(g?"Método: "+g:"Tarefa: "+c);
  get("edgeCount").textContent=relevant.length+(relevant.length===1?" estudo":" estudos");
  get("connectionDescription").textContent=relatedEdges.length+" conexões destacadas. A listagem contém apenas publicações empíricas com a família ou tarefa principal selecionada. Clique novamente na categoria para remover o destaque.";
- get("edgeSources").innerHTML=relevant.slice(0,12).map(s=>'<li><span style="color:#9bc5d0">'+s.year+'</span> · '+esc(short(s.title))+'</li>').join("")+(relevant.length>12?'<li>+ '+(relevant.length-12)+' outros</li>':"");
+ get("edgeSources").innerHTML=relevant.map(s=>'<li><span style="color:#9bc5d0">'+s.year+'</span> · '+esc(s.title)+'</li>').join("");
  get("edgeJump").hidden=relevant.length===0;
 }
 function onNetworkActivate(target){
@@ -831,7 +832,8 @@ init();
   {id:"f1",label:"Resultados com métrica F1",match:s=>/\bf1\b/i.test(s.results||"")}
  ];
  const weights=new Map(criteria.map(k=>[k.id,3]));
- const chosen=new Set();
+ const chosen=new Set(["empirico","llms","ptbr"]);
+ weights.set("empirico",5); weights.set("llms",4); weights.set("ptbr",3);
  const el=id=>document.getElementById(id);
  const escape=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
  function drawCriteria(){
