@@ -1,56 +1,52 @@
-# Portal Acadêmico — Laboratório de Inteligência Artificial
+# Portal acadêmico — Laboratório de Inteligência Artificial
 
-Site acadêmico multipágina sobre **indicadores textuais de depressão, ansiedade e estresse**, desenvolvido para acompanhar a pesquisa ao longo do semestre e apoiar a apresentação final.
+Site acadêmico responsivo, baseado na identidade visual do **Atlas de Evidências**, que reúne o contexto da pesquisa e páginas independentes para cada trabalho desenvolvido na disciplina.
 
 **Site publicado:** https://fernandomarquesaluno-svg.github.io/lia-fernando/
 
-## Páginas
+## Organização
 
-| Arquivo | Finalidade |
+| Página | Objetivo |
 | --- | --- |
-| `index.html` | Página inicial, destaques do Atlas e do artigo, roteiro da pesquisa |
-| `contexto.html` | Contexto, problema, pergunta e objetivos |
-| `metodologia.html` | Percurso metodológico e critérios de qualidade |
-| `atlas.html` | Integração do Atlas científico original, com acesso alternativo |
-| `kallstenius.html` | Análise e apresentação interativa de nove quadros do artigo de 2026 |
-| `experimentos.html` | Proposta de experimento com LLMs, ainda em planejamento |
-| `evolucao.html` | Linha do tempo das entregas, decisões e refinamentos |
+| `index.html` | Página inicial e entrada do projeto |
+| `contexto.html` | Contexto, problema, pergunta de pesquisa e objetivos |
+| `metodologia.html` | Estratégia metodológica da pesquisa |
+| `trabalhos.html` | Catálogo das entregas acadêmicas |
+| `levantamento.html` | Página dedicada ao levantamento bibliográfico (2020–2026) |
+| `atlas.html` | Página dedicada ao Atlas interativo de evidências |
+| `kallstenius.html` | Página contínua de análise técnica do artigo de Kallstenius et al. (2026) |
+| `experimentos.html` | Página da proposta experimental com LLMs, ainda em planejamento |
+| `evolucao.html` | Diário cronológico de evolução e refinamentos |
 
-## Funcionalidades
+## Experiência de navegação
 
-- Layout responsivo inspirado no Atlas, com fundo azul-escuro e acentos ciano/violeta.
-- Animações de entrada, visualizações e barra de progresso de leitura, respeitando redução de movimento no navegador.
-- Menu acessível para computador, tablet e celular.
-- Navegação na apresentação técnica por botões ou setas do teclado quando o painel está em foco.
-- **Modo apresentação em tela cheia** no artigo de Kallstenius: botão para abrir/fechar e tecla Esc para sair.
-- Filtros na linha do tempo, indicação de estados e links para fontes.
-- Site estático em HTML/CSS/JavaScript sem etapa de build.
+- Todas as entregas são páginas HTML próprias: **não existe modo de slides ou apresentações em quadros**.
+- A página do artigo reúne objetivo, dados, modelos, ensembles, protocolo, resultados, limitações e referência.
+- O Atlas permanece incorporado do [projeto original](https://github.com/fernandomarquesaluno-svg/depression_poject), mantendo seus filtros e visualizações, além de um link para acesso direto.
+- Responsividade, animações discretas, navegação por âncoras, menu móvel e respeito à preferência de movimento reduzido.
+- Código estático em HTML, CSS e JavaScript, sem dependências de build.
 
-## Fontes científicas e limites
+## Rigor acadêmico
 
-O acervo científico original está em [depression_poject](https://github.com/fernandomarquesaluno-svg/depression_poject), com o [Atlas comparativo](https://fernandomarquesaluno-svg.github.io/depression_poject/tabelas/comparativo/). Este portal **incorpora** o Atlas; não substitui, duplica ou altera o conteúdo original.
+- Rótulos relacionados a depressão, ansiedade e estresse em conjuntos de textos **não equivalem a diagnósticos clínicos**.
+- O levantamento é **narrativo**, não uma revisão sistemática PRISMA.
+- As 33 referências incluem tipos distintos de publicação; não são necessariamente 33 experimentos independentes.
+- A etapa experimental não tem resultados próprios ainda: o artigo-base e a base de dados serão definidos posteriormente.
+- Artigo analisado: Kallstenius et al. (2026), *JMIR Mental Health*, DOI [10.2196/98925](https://doi.org/10.2196/98925).
 
-A apresentação de **Kallstenius et al. (2026)** refere-se ao artigo *Ensemble of Domain-Specific Natural Language Processing and Large Language Models for Detecting Suicidal Ideation and Mental Health Conditions in Social Media Text: Development and Evaluation Study*, JMIR Mental Health, DOI [10.2196/98925](https://doi.org/10.2196/98925).
+## Execução e publicação
 
-O site diferencia indicadores textuais de diagnóstico clínico, não trata resultados entre datasets como ranking e identifica a etapa experimental como *planejada*, sem inventar avaliações.
-
-## Desenvolvimento local
-
-Abra `index.html` diretamente ou, na raiz do repositório, execute:
+Abrir `index.html` no navegador ou executar:
 
 ```bash
 python3 -m http.server 8000
 ```
 
-Depois acesse `http://localhost:8000/`. As fontes do Google Fonts e o iframe do Atlas exigem acesso à internet.
-
-## GitHub Pages
-
-Em **Settings → Pages** escolha `Deploy from a branch`, branch `main`, pasta `/ (root)`. O arquivo `.nojekyll` mantém o site estático sem processamento do Jekyll.
+Em **Settings → Pages**, escolha `Deploy from a branch`, branch `main`, pasta `/ (root)`.
 
 ## Preservação
 
-- Backup do portal antes da revisão: branch `backup-portal-2026-11-13` neste repositório.
-- Backup do projeto Atlas: branch `backup-atlas-2026-11-13` no repositório original.
+- Branch `backup-portal-2026-11-13`: versão do portal anterior à revisão visual e estrutural.
+- Branch `backup-atlas-2026-11-13` no projeto original: cópia de segurança do Atlas.
 
 **Autor:** Fernando Henrique de Souza Marques.
