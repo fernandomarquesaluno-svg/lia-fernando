@@ -1,0 +1,72 @@
+/* Identidade compartilhada: portal de IA + Atlas de evidências. */
+.evo-ready .verified-preview{display:none}
+.evo-explorer{--evo-accent:#7df4db;position:relative;isolation:isolate;padding:clamp(58px,7vw,105px) 0;color:#effbff;background:radial-gradient(ellipse 52% 75% at 93% 15%,#286a7663,transparent 80%),radial-gradient(ellipse 42% 70% at -4% 89%,#433c7959,transparent 80%),#091523;border-top:1px solid #43838a55;border-bottom:1px solid #43838a55;overflow:hidden;font-family:'DM Sans','Segoe UI',system-ui,sans-serif}
+.evo-explorer:before{content:"";position:absolute;inset:0;z-index:-1;opacity:.34;background-image:linear-gradient(#b7f6ff0c 1px,transparent 1px),linear-gradient(90deg,#b7f6ff0c 1px,transparent 1px);background-size:64px 64px;mask-image:linear-gradient(90deg,#000,transparent 75%);pointer-events:none}
+.evo-explorer:after{content:"";position:absolute;left:0;right:0;top:0;height:2px;background:linear-gradient(90deg,transparent,var(--evo-accent),#ac9aff,transparent);transition:background .5s}
+.evo-inner{width:min(1180px,calc(100% - 48px));margin:0 auto}
+.evo-heading{position:relative;display:grid;grid-template-columns:minmax(0,1fr) 270px;gap:25px;align-items:center;margin-bottom:35px}
+.evo-heading h2{font:700 clamp(2.4rem,4.6vw,4.8rem)/1.06 'Space Grotesk','DM Sans',system-ui,sans-serif;letter-spacing:-.065em;margin:16px 0 20px;max-width:850px;color:#f3faff}
+.evo-heading h2 em{font-style:normal;background:linear-gradient(95deg,#7df4db,#d1c8ff);color:transparent;-webkit-background-clip:text;background-clip:text}
+.evo-heading p{font-size:clamp(.9rem,1.5vw,1.03rem);line-height:1.8;max-width:740px;margin:0;color:#b6d2df}
+.evo-kicker,.evo-label{color:#93ecdc;font-size:.7rem;font-weight:900;letter-spacing:.18em;text-transform:uppercase}
+.evo-kicker{display:inline-flex;align-items:center;gap:12px}
+.evo-pulse{width:10px;height:10px;border-radius:50%;background:#8cffe1;box-shadow:0 0 0 5px #79f6db1d,0 0 22px #8effeb;animation:evoPulse 2.7s ease-in-out infinite}
+.evo-orbit{height:232px;width:232px;border-radius:50%;margin:0 auto;border:1px solid #7affdc5e;position:relative;display:grid;place-items:center;box-shadow:0 0 0 28px #7affdc0b,0 0 0 57px #a7a0ff08,inset 0 0 55px #5db0d21e;animation:evoOrbit 28s linear infinite}
+.evo-orbit:before,.evo-orbit:after{content:"";position:absolute;border-radius:50%;inset:19px;border:1px dashed #a39cff5e;transform:rotate(-26deg)}
+.evo-orbit:after{inset:49px;border-style:solid;border-color:#6ee4d735}
+.evo-orbit i{position:absolute;width:12px;height:12px;background:#82f7e2;border:2px solid #11283b;box-shadow:0 0 16px #82f7e2;border-radius:50%;top:-6px;left:calc(50% - 6px)}
+.evo-orbit i:nth-child(2){top:calc(50% - 6px);left:-6px;background:#b3a7ff;box-shadow:0 0 16px #b3a7ff}
+.evo-orbit i:nth-child(3){top:auto;bottom:17px;left:auto;right:17px;background:#ffcb91;box-shadow:0 0 16px #ffcb91}
+.evo-orbit b{font:800 2rem 'Space Grotesk',system-ui,sans-serif;letter-spacing:-.07em;color:#ddfdf7;animation:evoCounterOrbit 28s linear infinite}
+.evo-orbit b span{color:#b6aaff;margin:0 3px}
+.evo-tabs{display:flex;gap:9px;flex-wrap:wrap;padding:7px;margin:0 0 20px;background:#101f30e6;border:1px solid #35576a;border-radius:19px}
+.evo-topic{appearance:none;position:relative;overflow:hidden;background:transparent;border:1px solid transparent;border-radius:13px;padding:12px 17px;color:#bfd6e3;font-size:.85rem;font-weight:800;line-height:1.3;white-space:normal;transition:background .26s,border-color .26s,transform .26s,color .26s,box-shadow .26s;cursor:pointer}
+.evo-topic:before{content:"";position:absolute;inset:auto 15px 0 15px;height:2px;background:var(--topic);transform:scaleX(0);transition:transform .28s}
+.evo-topic:hover{color:white;background:#254356;transform:translateY(-2px)}
+.evo-topic.is-active{color:white;background:color-mix(in srgb,var(--topic) 15%,#102236);border-color:color-mix(in srgb,var(--topic) 58%,#263c4e);box-shadow:0 6px 25px color-mix(in srgb,var(--topic) 11%,transparent)}
+.evo-topic.is-active:before{transform:scaleX(1)}
+.evo-topic:focus-visible,.evo-action:focus-visible,.evo-study:focus-visible{outline:3px solid #ffd391;outline-offset:3px}
+.evo-workspace{display:grid;grid-template-columns:minmax(240px,.85fr) minmax(0,1.15fr);grid-template-areas:'focus analysis' 'focus publications';gap:17px;align-items:stretch}
+.evo-feature,.evo-analysis,.evo-publications{border:1px solid #315b6b;border-radius:23px;background:linear-gradient(150deg,#152e3eea,#0e1d2deb);box-shadow:0 18px 65px #00000021;position:relative;overflow:hidden}
+.evo-feature{grid-area:focus;min-height:435px;padding:32px;display:flex;flex-direction:column;justify-content:center;background:radial-gradient(circle at 100% 0%,color-mix(in srgb,var(--evo-accent) 23%,transparent),transparent 55%),linear-gradient(147deg,#173441,#0c1d30)}
+.evo-feature:after{content:"";position:absolute;right:-95px;bottom:-118px;width:280px;height:280px;border:1px solid color-mix(in srgb,var(--evo-accent) 40%,transparent);border-radius:50%;box-shadow:0 0 0 39px #80f1dd0a,0 0 0 78px #a29bff09;pointer-events:none}
+.evo-big{font:800 clamp(5rem,10vw,9rem)/1 'Space Grotesk',system-ui,sans-serif;letter-spacing:-.11em;color:var(--evo-accent);margin:18px 0 3px;transition:color .4s;text-shadow:0 0 65px color-mix(in srgb,var(--evo-accent) 27%,transparent);font-variant-numeric:tabular-nums}
+.evo-feature h3{font:700 clamp(1.45rem,2.3vw,2.2rem)/1.2 'Space Grotesk',system-ui,sans-serif;letter-spacing:-.04em;color:#f5fcff;margin:7px 0 14px;max-width:310px}
+.evo-feature p{font-size:.87rem;color:#bcd4df;line-height:1.72;max-width:360px;min-height:91px;margin:0}
+.evo-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:28px;z-index:1;position:relative}
+.evo-action{display:inline-flex;align-items:center;gap:9px;justify-content:center;min-height:43px;padding:10px 16px;border-radius:10px;background:var(--evo-accent);color:#06272b!important;font-weight:900;font-size:.8rem;text-decoration:none!important;border:1px solid transparent;transition:transform .2s,filter .2s,background .3s}
+.evo-action:hover{transform:translateY(-3px);filter:brightness(1.12)}
+.evo-action.evo-alt{background:#152f40;color:#d2fff3!important;border-color:#558e92}
+.evo-analysis{grid-area:analysis;padding:26px 29px}
+.evo-publications{grid-area:publications;padding:26px 29px}
+.evo-analysis-head{display:flex;align-items:start;justify-content:space-between;gap:15px;margin-bottom:22px}
+.evo-analysis-head h3{color:#f2fcff;font:700 1.35rem 'Space Grotesk',system-ui,sans-serif;letter-spacing:-.04em;margin:8px 0 0}
+.evo-annotation{font-size:.71rem;color:#9cbacb;text-align:right;margin-top:5px}
+.evo-bars{display:grid;gap:13px}
+.evo-bar-row{display:grid;grid-template-columns:minmax(115px,170px) 1fr 25px;gap:12px;align-items:center;font-size:.78rem;color:#d4e8ee;animation:evoSlideIn .53s cubic-bezier(.2,1,.3,1) both;animation-delay:var(--delay,0ms)}
+.evo-bar-row>span{overflow-wrap:anywhere}
+.evo-bar-track{height:11px;border-radius:9px;background:#263d4e;overflow:hidden}
+.evo-bar-track i{display:block;background:linear-gradient(90deg,#327f8a,var(--evo-accent));box-shadow:0 0 15px color-mix(in srgb,var(--evo-accent) 34%,transparent);height:100%;width:var(--bar-width);border-radius:inherit;animation:evoBarGrow .85s cubic-bezier(.2,1,.3,1) both;animation-delay:var(--delay,0ms)}
+.evo-bar-row b{font-variant-numeric:tabular-nums;text-align:right;color:#fff}
+.evo-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:11px}
+.evo-study{display:flex;flex-direction:column;gap:9px;padding:17px;border:1px solid #375769;background:#142b3b;border-radius:13px;text-decoration:none!important;min-height:151px;animation:evoSlideIn .53s cubic-bezier(.2,1,.3,1) both;animation-delay:var(--delay,0ms);transition:transform .22s,border-color .22s,background .22s}
+.evo-study:hover{transform:translateY(-5px);background:#1b3a49;border-color:var(--evo-accent)}
+.evo-study span{font-size:.7rem;font-weight:800;color:#9de9dd}
+.evo-study strong{font-size:.78rem;line-height:1.55;color:#f2fbff;flex:1;overflow-wrap:anywhere}
+.evo-study small{color:var(--evo-accent);font-size:.73rem;font-weight:900}
+.evo-empty{margin:10px 0;color:#bdcedb}
+.evo-bottom{display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap;padding:22px 3px 0;font-size:.78rem;color:#a8c3d1}
+.evo-bottom span{display:inline-flex;gap:9px;align-items:center}
+.evo-bottom i{display:inline-block;width:7px;height:7px;border-radius:50%;background:#8bf3dd;box-shadow:0 0 12px #8bf3dd}
+.evo-bottom a{color:#9df3e1!important;font-weight:800;text-decoration:none!important}
+.evo-changing .evo-feature h3,.evo-changing .evo-feature p,.evo-changing .evo-big{animation:evoTextIn .46s cubic-bezier(.2,1,.3,1) both}
+.evo-explorer .evo-publications a:hover,.evo-explorer .evo-action:hover{text-decoration:none}
+@keyframes evoTextIn{from{opacity:.3;transform:translateY(13px) scale(.98)}to{opacity:1;transform:none}}
+@keyframes evoSlideIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+@keyframes evoBarGrow{from{transform:scaleX(0);transform-origin:left}to{transform:scaleX(1);transform-origin:left}}
+@keyframes evoPulse{50%{box-shadow:0 0 0 9px #79f6db0d,0 0 25px #8effeb}}
+@keyframes evoOrbit{to{transform:rotate(360deg)}}
+@keyframes evoCounterOrbit{to{transform:rotate(-360deg)}}
+@media(max-width:940px){.evo-heading{grid-template-columns:1fr 180px}.evo-orbit{width:160px;height:160px}.evo-workspace{grid-template-columns:1fr;grid-template-areas:'focus' 'analysis' 'publications'}.evo-feature{min-height:0;padding:28px}.evo-feature p{min-height:0;max-width:620px}.evo-big{font-size:6rem}.evo-cards{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:650px){.evo-inner{width:calc(100% - 30px)}.evo-explorer{padding:55px 0}.evo-heading{display:block}.evo-heading h2{font-size:clamp(2.2rem,10vw,3.25rem)}.evo-heading p{font-size:.91rem}.evo-orbit{display:none}.evo-tabs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:5px}.evo-topic{padding:11px 8px;font-size:.75rem}.evo-feature,.evo-analysis,.evo-publications{border-radius:17px}.evo-analysis,.evo-publications{padding:22px 18px}.evo-cards{grid-template-columns:1fr}.evo-study{min-height:0}.evo-bar-row{grid-template-columns:minmax(94px,125px) 1fr 18px;gap:8px;font-size:.72rem}.evo-annotation{font-size:.64rem}.evo-feature h3{max-width:none}.evo-bottom{font-size:.73rem}}
+@media(prefers-reduced-motion:reduce){.evo-explorer *, .evo-explorer *:before, .evo-explorer *:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}

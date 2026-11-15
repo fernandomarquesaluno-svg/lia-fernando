@@ -135,12 +135,9 @@
 #openTour,#tourLayer{display:none!important}
 .connect-side .c-studies{max-height:360px;overflow-y:auto;scrollbar-width:thin}
 </style>
+<link rel="stylesheet" href="../../assets/discovery.css">
 </head>
 <body>
-<div role="region" aria-label="Matriz científica para apresentação" style="position:relative;z-index:35;background:#0b3642;border-bottom:2px solid #7df4db;color:#edfffb;padding:13px 18px;text-align:center;font:800 15px/1.5 system-ui,sans-serif">
-  A matriz técnica com 33 estudos, filtros de datasets, plataformas e acesso já está disponível.
-  <a href="./matriz-cientifica-33.html" style="display:inline-block;color:#061d22;background:#89f5de;padding:9px 17px;border-radius:9px;margin-left:12px;text-decoration:none;font-weight:900">Abrir matriz científica interativa ↗</a>
-</div>
 <a class="skip" href="#estudos">Pular para o explorador de estudos</a>
 <div id="ambient" aria-hidden="true"></div>
 <header class="topbar">
@@ -162,6 +159,7 @@
    <div class="hero-actions">
     <a class="action" href="#conexoes">Explorar relações científicas <span aria-hidden="true">↗</span></a>
     <a class="action secondary" href="#comparar">Comparar métodos <span aria-hidden="true">⇄</span></a>
+    <a class="action secondary" href="./matriz-cientifica-33.html">Matriz técnica de 33 estudos ↗</a>
    </div>
    <div class="hero-stats" aria-label="Indicadores bibliográficos">
     <div class="stat"><strong id="heroCount">33</strong><span>referências mapeadas</span></div>
@@ -888,4 +886,5 @@ init();
  drawCriteria();rank();
 })();
 </script>
+<script src="../../assets/discovery.js" data-kind="atlas" data-source="estudos.json" data-atlas="./" data-home="../../index.html" data-counterpart="https://fernandomarquesaluno-svg.github.io/depression_poject/tabelas/comparativo/"></script>
 </body></html>

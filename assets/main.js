@@ -45,6 +45,16 @@ window.addEventListener('scroll',()=>{
 window.addEventListener('resize',updateProgress);
 updateProgress();
 
+// Na página inicial, o panorama visual usa a mesma base científica do Atlas.
+if (document.querySelector('.feature-atlas') && document.querySelector('.hero')) {
+  const discovery = document.createElement('script');
+  discovery.src = 'assets/discovery.js';
+  discovery.dataset.source = 'atividades/atlas/estudos.json';
+  discovery.dataset.atlas = 'atividades/atlas/';
+  discovery.dataset.kind = 'portal-home';
+  document.body.appendChild(discovery);
+}
+
 // Filtros de marcos na linha do tempo.
 document.querySelectorAll('[data-filter]').forEach(button=>{
   button.setAttribute('aria-pressed',String(button.classList.contains('active')));
