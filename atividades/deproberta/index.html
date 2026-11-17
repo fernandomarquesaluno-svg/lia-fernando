@@ -1,0 +1,341 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#080f1d">
+<meta name="description" content="Laboratório de leitura científica: visualize o experimento DepRoBERTa, seus dados, metodologia e resultados publicados na ACL 2022.">
+<title>DepRoBERTa · Laboratório de estudo | Atlas.IA</title>
+<style>
+:root{color-scheme:dark;--bg:#080f1d;--panel:#102032;--panel2:#14283a;--line:#29465a;--ink:#f0f8ff;--muted:#a9c0d0;--teal:#7df4db;--violet:#b9afff;--gold:#ffd18d;--red:#ff9db0}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:90px}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.58 Inter,"Segoe UI",system-ui,-apple-system,sans-serif;overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(ellipse 50% 36% at 85% 8%,#1c777254,transparent 80%),radial-gradient(ellipse 45% 45% at -10% 50%,#513c8c3a,transparent 75%);opacity:.8}
+a{color:var(--teal)}button,input{font:inherit}button{cursor:pointer}a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid var(--gold);outline-offset:4px}
+.skip{position:absolute;top:-80px;left:15px;z-index:200;background:white;color:#092026;padding:9px}.skip:focus{top:10px}
+.container{width:min(1160px,calc(100% - 52px));margin:auto}
+header{position:sticky;top:0;z-index:80;background:#08111ee6;border-bottom:1px solid #3454679c;backdrop-filter:blur(18px)}
+.nav{display:flex;align-items:center;min-height:72px;gap:22px}.logo{font-size:.88rem;color:var(--ink);text-decoration:none;letter-spacing:.18em;font-weight:900;white-space:nowrap}.logo span{color:var(--teal)}
+.navlinks{display:flex;gap:23px;margin-left:auto;align-items:center}.navlinks a{font-size:.79rem;color:#c7d9e5;text-decoration:none;font-weight:750}.navlinks a:hover{color:var(--teal)}.navlinks .back{border:1px solid #457c79;border-radius:99px;padding:9px 15px;color:var(--teal)}
+.eyebrow{font-size:.75rem;font-weight:900;letter-spacing:.2em;text-transform:uppercase;color:var(--teal)}
+.hero{padding:88px 0 66px;position:relative}.hero-layout{display:grid;grid-template-columns:1.15fr .85fr;gap:45px;align-items:center}
+h1{font-size:clamp(3.25rem,7.8vw,6.6rem);line-height:.95;letter-spacing:-.077em;margin:17px 0 25px}h1 em{font-style:normal;background:linear-gradient(115deg,var(--teal),var(--violet));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{font-size:1.1rem;color:#c5dae6;max-width:610px}.authors{font-size:.86rem!important;color:#9eb7c8!important;margin-top:19px}.hero-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:29px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:12px 18px;border-radius:10px;font-size:.86rem;font-weight:800;text-decoration:none;border:1px solid #529288;background:#164440;color:#e8fff9;transition:transform .2s,background .2s}.btn:hover{transform:translateY(-3px);background:#225b52}.btn.secondary{background:#15283a;color:#e2f0f8;border-color:#476277}
+.signal{position:relative;width:100%;aspect-ratio:1;max-width:430px;margin:auto;display:grid;place-items:center;isolation:isolate}.signal:before,.signal:after{content:"";position:absolute;border:1px solid #3f958a6b;border-radius:50%;width:91%;height:91%;animation:turn 28s linear infinite}.signal:after{width:69%;height:69%;border-style:dashed;border-color:#8b79db8a;animation-direction:reverse;animation-duration:23s}
+.signal-core{width:48%;aspect-ratio:1;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;background:radial-gradient(circle at 40% 28%,#356c69,#132d3b 70%);border:1px solid #8de8d4;box-shadow:0 0 80px #6be4cb22;z-index:2}
+.signal-core strong{font-size:3.4rem;line-height:1;color:var(--teal);letter-spacing:-.06em}.signal-core span{font-size:.72rem;letter-spacing:.13em;font-weight:800;color:#d7e8ef;margin-top:7px}
+.orb{position:absolute;border:1px solid #668d9c;background:#132838;color:#ecf7f7;display:grid;place-items:center;text-align:center;width:107px;height:107px;border-radius:50%;font-size:.76rem;font-weight:800;line-height:1.25;z-index:3;box-shadow:0 12px 32px #0005}.orb.one{top:0;left:39%}.orb.two{bottom:17%;left:0;border-color:#a89cf1}.orb.three{bottom:13%;right:0;border-color:#ddad77}
+@keyframes turn{to{transform:rotate(360deg)}}
+.facts{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:62px}.fact{border:1px solid #345165;border-radius:15px;background:#142638b8;padding:19px 22px}.fact strong{display:block;font-size:2rem;letter-spacing:-.06em;color:#effbfe}.fact small{font-size:.76rem;color:var(--muted)}.fact:first-child strong{color:var(--teal)}
+.section{padding:82px 0;border-top:1px solid #2c445a78}.section-head{display:flex;align-items:end;justify-content:space-between;gap:26px;margin-bottom:30px}.section-head h2{font-size:clamp(2.05rem,4.5vw,3.65rem);line-height:1.04;letter-spacing:-.064em;margin:12px 0 0}.section-head p{max-width:430px;color:var(--muted);font-size:.9rem;margin:0}.number{color:var(--teal);font-size:.75rem;font-weight:900;letter-spacing:.18em}
+.panel{border:1px solid var(--line);background:linear-gradient(145deg,#162a3ddc,#0f1d2ddd);border-radius:20px;box-shadow:0 20px 60px #0002}
+.about{display:grid;grid-template-columns:1.1fr .9fr;gap:17px}.about .panel{padding:28px}.about h3{font-size:1.2rem;margin:10px 0}.about p{color:#c5d9e4;font-size:.9rem}.pill{display:inline-flex;align-items:center;padding:5px 10px;border:1px solid #4e897f;border-radius:99px;font-size:.69rem;font-weight:850;letter-spacing:.08em;color:var(--teal)}.tag-row{display:flex;flex-wrap:wrap;gap:9px;margin-top:23px}.tag{border:1px solid #39556a;border-radius:8px;padding:7px 10px;color:#d5e6ef;font-size:.74rem}
+.class-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:16px}.class-card{padding:19px;background:#152b3c;border:1px solid #345569;border-radius:13px}.class-card .circle{width:11px;height:11px;border-radius:50%;display:block;margin-bottom:12px}.class-card strong{display:block;font-size:.94rem}.class-card small{display:block;color:var(--muted);margin-top:6px;font-size:.76rem}.class-card:nth-child(1) .circle{background:#80dccc}.class-card:nth-child(2) .circle{background:#b4a3ff}.class-card:nth-child(3) .circle{background:#ffcf89}
+.controls{display:flex;gap:8px;flex-wrap:wrap;align-items:center}.choice{background:#112334;color:#cfe0e9;border:1px solid #385267;border-radius:9px;padding:9px 15px;font-size:.82rem;font-weight:800;transition:.2s}.choice[aria-pressed=true]{background:#25534f;border-color:var(--teal);color:#f0fff9}.choice:hover{border-color:#76d8cb}
+.dataset-grid{display:grid;grid-template-columns:1fr .8fr;gap:17px}.dataset-box{padding:27px}.dataset-row{display:grid;grid-template-columns:104px 1fr 75px;gap:15px;align-items:center;margin:26px 0}.dataset-row strong{font-size:.86rem}.dataset-row output{text-align:right;color:#daedf4;font-weight:800;font-size:.87rem;font-variant-numeric:tabular-nums}.stack{display:flex;height:19px;border-radius:8px;overflow:hidden;background:#294256;box-shadow:inset 0 1px 3px #071621}.seg{height:100%;transition:width .65s cubic-bezier(.22,1,.36,1)}.seg.non{background:#74decc}.seg.mod{background:#a99aff}.seg.sev{background:#fbc783}.stack.test .seg{background:#6c8598}.legend{display:flex;gap:17px;flex-wrap:wrap;margin-top:24px;color:#c0d5df;font-size:.75rem}.legend span{display:inline-flex;align-items:center;gap:6px}.legend i{width:9px;height:9px;border-radius:50%;display:inline-block}
+.disclaimer{border-left:3px solid var(--gold);background:#483b293f;color:#efd8b9;padding:16px 18px;border-radius:0 10px 10px 0;font-size:.84rem;line-height:1.6}.dataset-aside h3{font-size:1.13rem;margin:0 0 14px}.dataset-aside p{font-size:.89rem;color:#c1d4df}.dataset-aside .statline{border-top:1px solid #2c485b;padding:12px 0;display:flex;justify-content:space-between;gap:12px;font-size:.83rem}.dataset-aside .statline strong{color:var(--teal)}
+.pipeline{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px;margin-bottom:13px}.stage{display:flex;flex-direction:column;align-items:flex-start;text-align:left;min-height:135px;gap:14px;background:#132739;border:1px solid #35546a;padding:20px;border-radius:14px;color:#cbdce7;transition:.25s}.stage b{font-size:1.6rem;color:#6b9b9d;font-weight:800;letter-spacing:-.06em}.stage span{font-size:.86rem;font-weight:850}.stage.active,.stage[aria-selected=true]{border-color:var(--teal);background:#1b4647;transform:translateY(-4px)}.stage.active b{color:var(--teal)}.stage:hover{border-color:#74d1c0}
+.stage-detail{min-height:195px;padding:27px 30px;display:grid;grid-template-columns:1fr 260px;gap:24px;align-items:center;animation:fade .35s ease}.stage-detail h3{font-size:1.65rem;letter-spacing:-.035em;margin:8px 0}.stage-detail p{color:#bdd1dd;max-width:640px;margin-bottom:0}.stage-detail .side-note{background:#102537;border:1px solid #416b70;border-radius:13px;padding:19px;font-size:.86rem;color:#d4e9e9}.stage-detail .side-note b{color:var(--teal);display:block;margin-bottom:9px}
+@keyframes fade{from{opacity:.15;transform:translateY(9px)}to{opacity:1;transform:none}}
+.equation{text-align:center;margin:22px 0 0;padding:16px 22px;border:1px solid #3d7773;background:#1739395e;border-radius:12px;color:#d4fff5;font-size:1rem;font-weight:750}
+.results-box{padding:26px}.results-top{display:flex;justify-content:space-between;gap:15px;align-items:center;flex-wrap:wrap;padding-bottom:18px;border-bottom:1px solid #334e61}.results-top h3{margin:0;font-size:1.14rem}.metric-choices{display:flex;gap:7px;flex-wrap:wrap}.metrics-layout{display:grid;grid-template-columns:1fr 290px;gap:26px;align-items:start;margin-top:21px}.bars{display:grid;gap:11px}.chartrow{display:grid;grid-template-columns:150px 1fr 55px;gap:12px;align-items:center;font-size:.78rem}.chartrow label{color:#c9dce5;font-weight:700;line-height:1.2}.track{height:14px;border-radius:99px;background:#283e53;overflow:hidden}.bar{height:100%;width:0;background:linear-gradient(90deg,#648ee4,#a99bfc);border-radius:99px;transition:width .65s cubic-bezier(.2,.8,.2,1)}.chartrow:nth-last-child(2) .bar{background:linear-gradient(90deg,#55b8c1,#8fe8d5)}.chartrow:last-child .bar{background:linear-gradient(90deg,#49ccaa,#b7f7d6)}.chartrow output{text-align:right;font-variant-numeric:tabular-nums;font-weight:850;color:#ecf8fc}
+.results-aside{padding:18px;border-radius:13px;background:#16313f;border:1px solid #3f676d}.results-aside strong{display:block;font-size:2.95rem;line-height:1.1;letter-spacing:-.065em;color:var(--teal)}.results-aside p{font-size:.84rem;color:#bcd5df;margin:8px 0}.source-pill{display:block;margin-top:13px;border-top:1px solid #3a5868;padding-top:13px;color:#afc9d2;font-size:.71rem}
+.note{color:#aabeca;font-size:.77rem;margin-top:16px}
+.demo-grid{display:grid;grid-template-columns:1fr 1fr;gap:17px}.demo-grid .panel{padding:27px}.demo-grid h3{font-size:1.14rem;margin:0 0 13px}.demo-grid p{font-size:.9rem;color:#bcd0dc}.slider-label{display:flex;justify-content:space-between;align-items:center;font-size:.86rem;margin:25px 0 12px}.slider-label strong{font-size:1.1rem;color:var(--teal)}input[type=range]{width:100%;accent-color:var(--teal);cursor:pointer}.mini-dist{display:grid;gap:15px;margin-top:19px}.mini-dist>div{display:grid;grid-template-columns:128px 1fr 49px;gap:9px;align-items:center;font-size:.75rem}.mini-dist .track{height:11px}.mini-dist .bar{background:var(--teal)}.mini-dist>div:nth-child(2) .bar{background:var(--violet)}.mini-dist>div:nth-child(3) .bar{background:var(--gold)}
+.verdict{border:1px solid #4a837b;background:#16423e77;border-radius:13px;padding:18px;margin-top:21px}.verdict span{font-size:.7rem;color:#a8d6cd;text-transform:uppercase;letter-spacing:.12em;font-weight:900}.verdict strong{display:block;margin-top:8px;font-size:1.3rem}
+.route{display:grid;grid-template-columns:1.1fr .9fr;gap:17px}.route .panel{padding:27px}.route h3{font-size:1.22rem;margin:0 0 13px}.checklist{display:grid;gap:11px}.checkrow{display:flex;align-items:flex-start;gap:12px;border:1px solid #315065;background:#13293a;padding:14px 16px;border-radius:10px;cursor:pointer}.checkrow input{margin-top:4px;accent-color:var(--teal);width:17px;height:17px;flex:none}.checkrow span{font-size:.86rem;color:#d0e1e9}.checkrow strong{color:white}.progress-wrap{height:8px;background:#284558;border-radius:99px;overflow:hidden;margin:17px 0 7px}.progress-wrap span{display:block;width:0;height:100%;background:var(--teal);transition:width .25s}.progress-label{font-size:.73rem;color:#aec5d1}
+.command{position:relative;border:1px solid #3c6075;border-radius:12px;background:#071624;padding:18px;margin:16px 0;overflow:auto}.command pre{margin:0;color:#b6ffde;font:500 .76rem/1.8 ui-monospace,SFMono-Regular,Consolas,monospace;white-space:pre-wrap;overflow-wrap:anywhere}.command button{margin:13px 0 0;background:#28514f;color:white;border:1px solid #56887e;border-radius:8px;padding:7px 12px;font-size:.75rem;font-weight:800}.route aside ul{padding-left:19px;color:#c3d6de;font-size:.86rem}
+.sources{display:grid;grid-template-columns:repeat(4,1fr);gap:13px}.source{display:flex;flex-direction:column;justify-content:space-between;gap:18px;min-height:160px;padding:21px;text-decoration:none;color:#e8f9fe;transition:.25s}.source:hover{border-color:var(--teal);transform:translateY(-4px)}.source .name{font-weight:850;font-size:.92rem}.source small{color:var(--muted)}.source .arrow{color:var(--teal);font-size:1.4rem}
+footer{padding:36px 0;border-top:1px solid #29445a;color:#a7bfcb;font-size:.78rem}footer .container{display:flex;justify-content:space-between;gap:25px;flex-wrap:wrap}
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .6s,transform .6s}.reveal.visible{opacity:1;transform:none}
+.presenter[hidden],.deck-slide[hidden]{display:none!important}
+.presenter{position:fixed;inset:0;z-index:1000;display:flex;flex-direction:column;isolation:isolate;background:radial-gradient(circle at 78% 15%,#256a6660,transparent 37%),radial-gradient(circle at 14% 83%,#54418a55,transparent 42%),#08111f;color:#f3fbff;overflow:hidden}
+.presenter:after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background-image:linear-gradient(#ffffff05 1px,transparent 1px),linear-gradient(90deg,#ffffff05 1px,transparent 1px);background-size:64px 64px;mask-image:linear-gradient(to bottom,transparent,#000)}
+.deck-top,.deck-bottom{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:16px clamp(22px,4vw,74px);flex:none}
+.deck-top{border-bottom:1px solid #ffffff1d}.deck-bottom{border-top:1px solid #ffffff1d}
+.deck-brand{font-size:.77rem;letter-spacing:.18em;font-weight:900;color:#83f5dd}.deck-top-actions,.deck-controls{display:flex;align-items:center;gap:10px}
+.deck-btn{border:1px solid #5a778c;background:#152b3d;color:#eefbff;padding:9px 15px;border-radius:10px;font-size:.85rem;font-weight:750}.deck-btn:hover{background:#245568;border-color:#83f5dd}.deck-btn:disabled{opacity:.33;cursor:not-allowed}.deck-close{border-color:#6d8c9f}
+.deck-viewport{flex:1;min-height:0;display:grid;place-items:center;padding:clamp(20px,4vh,64px) clamp(20px,5vw,100px);overflow-y:auto}
+.deck-slide{width:min(1100px,100%);max-height:100%;animation:deckIn .38s cubic-bezier(.2,.8,.2,1) both}
+@keyframes deckIn{from{opacity:0;transform:translateY(18px) scale(.985)}to{opacity:1;transform:none}}
+.deck-kicker{font-size:clamp(.76rem,1.2vw,.98rem);color:#86f5dc;letter-spacing:.21em;text-transform:uppercase;font-weight:900}
+.deck-slide h2{font-size:clamp(2.35rem,6vw,5.8rem);line-height:1.03;letter-spacing:-.075em;margin:24px 0;max-width:1030px}.deck-slide h2 em{font-style:normal;color:#86f5dc}
+.deck-lead{font-size:clamp(1.06rem,2.15vw,1.65rem);line-height:1.52;color:#c8dfec;max-width:900px}
+.deck-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:35px}.deck-card{background:#14283beb;border:1px solid #38596a;border-radius:17px;padding:clamp(17px,2vw,28px)}.deck-card strong{display:block;color:#8bf4de;font-size:clamp(1.65rem,3.5vw,3.8rem);line-height:1.1;letter-spacing:-.05em}.deck-card span{display:block;color:#b8d1df;font-size:clamp(.82rem,1.3vw,1.05rem);margin-top:15px}.deck-card b{display:block;color:#f0f8ff;margin-bottom:9px;font-size:clamp(1rem,1.6vw,1.3rem)}
+.deck-flow{display:flex;gap:12px;align-items:stretch;margin:36px 0;flex-wrap:wrap}.deck-flow span{flex:1;min-width:135px;background:#193544;border:1px solid #3f6e71;border-radius:12px;padding:22px 16px;font-size:clamp(.9rem,1.4vw,1.2rem);font-weight:800;text-align:center}.deck-flow i{display:grid;place-items:center;color:#90efda;font-size:1.65rem;font-style:normal}
+.deck-note{margin-top:32px;padding:17px 22px;border-left:3px solid #ffcf89;background:#574b3336;border-radius:0 10px 10px 0;color:#e5d9bc;font-size:clamp(.84rem,1.2vw,1rem)}.deck-caption{font-size:.76rem;color:#93aebf;line-height:1.4;margin-top:22px}
+.deck-progress{height:4px;background:#315066}.deck-progress span{display:block;height:100%;background:linear-gradient(90deg,#79efda,#a99eff);transition:width .3s ease}.deck-count{font-variant-numeric:tabular-nums;color:#bfd6e3;font-size:.88rem;font-weight:800}.deck-hint{font-size:.75rem;color:#8ca8ba}
+body.deck-locked{overflow:hidden}
+@media(max-width:1020px){.navlinks{gap:12px}.hero-layout{grid-template-columns:1fr .7fr}.signal{max-width:330px}.orb{width:85px;height:85px;font-size:.64rem}.metrics-layout{grid-template-columns:1fr}.results-aside{max-width:none}.sources{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:760px){.container{width:calc(100% - 34px)}.nav{min-height:62px}.navlinks a:not(.back){display:none}.hero{padding:64px 0 44px}.hero-layout,.about,.dataset-grid,.demo-grid,.route{grid-template-columns:1fr}.signal{max-width:310px;margin-top:15px}.facts{grid-template-columns:repeat(2,1fr);margin-top:30px}.section{padding:57px 0}.section-head{display:block}.section-head p{margin-top:15px}.class-grid{grid-template-columns:1fr}.pipeline{grid-template-columns:repeat(2,1fr)}.stage{min-height:108px}.stage-detail{grid-template-columns:1fr}.chartrow{grid-template-columns:112px 1fr 50px;gap:8px;font-size:.7rem}.dataset-row{grid-template-columns:69px 1fr 55px;gap:8px}.dataset-box,.results-box,.demo-grid .panel,.route .panel{padding:18px}.facts .fact{padding:15px}.sources{grid-template-columns:1fr}.source{min-height:105px}}
+@media(max-width:760px){.deck-top,.deck-bottom{padding:11px 15px}.deck-viewport{padding:20px 21px}.deck-cards{grid-template-columns:1fr;gap:10px;margin-top:20px}.deck-card{padding:13px 17px}.deck-card strong{font-size:1.8rem}.deck-card span{margin-top:5px}.deck-slide h2{margin:14px 0}.deck-flow{gap:6px;margin:18px 0}.deck-flow span{padding:11px;min-width:110px}.deck-flow i{display:none}.deck-hint{display:none}.deck-btn{padding:8px 11px}.deck-brand{font-size:.65rem}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<a class="skip" href="#problema">Pular para o estudo</a>
+<header><div class="container nav">
+<a class="logo" href="../../index.html" aria-label="Voltar ao Atlas de Evidências">ATLAS<span>.IA</span> <span style="color:#789eb0">/ LAB</span></a>
+<nav class="navlinks" aria-label="Navegação"><a href="#dados">Dados</a><a href="#metodo">Método</a><a href="#resultados">Resultados</a><a href="#proximos-passos">Próximos passos</a><a class="back" href="../atlas/">← Atlas</a> <a class="back" href="../../index.html">Portal acadêmico</a></nav>
+</div></header>
+<main>
+<section class="hero"><div class="container">
+<div class="hero-layout">
+<div>
+<div class="eyebrow">ESTUDO Nº 03 / 33 · LEITURA INTERATIVA</div>
+<h1>Dentro do<br><em>DepRoBERTa.</em></h1>
+<p>Como dois modelos de linguagem foram combinados para classificar sinais de depressão em textos do Reddit? Explore os dados, a técnica, o experimento e os resultados <strong>publicados</strong>.</p>
+<p class="authors">Poświata &amp; Perełkiewicz · LT-EDI / ACL · 2022 · Pesquisa empírica</p>
+<div class="hero-actions">
+<button class="btn" type="button" id="presentationOpen">▶ Modo apresentação</button>
+<a class="btn" href="#metodo">Explorar o experimento ↓</a>
+<a class="btn secondary" href="https://aclanthology.org/2022.ltedi-1.40.pdf" target="_blank" rel="noopener noreferrer">Abrir artigo original ↗</a>
+</div></div>
+<div class="signal" aria-hidden="true"><div class="orb one">Texto<br>Reddit</div><div class="orb two">RoBERTa<br>large</div><div class="orb three">DepRoBERTa<br>large</div><div class="signal-core"><strong>0,583</strong><span>MACRO-F1 TESTE</span></div></div>
+</div>
+<div class="facts" aria-label="Indicadores do estudo">
+<div class="fact"><strong>0,583</strong><small>Macro-F1 do ensemble · teste oficial</small></div>
+<div class="fact"><strong>6.006</strong><small>Exemplos de treino após limpeza</small></div>
+<div class="fact"><strong>3</strong><small>Classes de classificação textual</small></div>
+<div class="fact"><strong>1º</strong><small>Lugar entre 31 equipes no desafio</small></div>
+</div>
+</div></section>
+
+<section class="section reveal" id="problema"><div class="container">
+<div class="section-head"><div><span class="number">01 / A QUESTÃO</span><h2>O problema que o artigo<br>buscou resolver.</h2></div><p>Uma tarefa de classificação de postagens em inglês, com três níveis de sinais textuais relacionados à depressão.</p></div>
+<div class="about">
+<div class="panel"><span class="pill">O QUE É CLASSIFICADO</span><h3>Um texto, não uma pessoa.</h3><p>O estudo recebe postagens do <strong>Reddit</strong> e tenta prever a classe atribuída pelos anotadores do desafio. Essa tarefa não estabelece diagnóstico clínico nem mede diretamente a gravidade real de um transtorno.</p><p>A hipótese técnica é que um modelo adaptado ao domínio de saúde mental pode complementar um modelo geral, melhorando a classificação quando ambos trabalham em conjunto.</p><div class="tag-row"><span class="tag">Idioma: inglês</span><span class="tag">Fonte: Reddit</span><span class="tag">Tarefa: classificação multiclasse</span><span class="tag">Métrica: Macro-F1</span></div></div>
+<div class="panel"><span class="pill">SAÍDAS ESPERADAS</span><div class="class-grid" style="grid-template-columns:1fr">
+<div class="class-card"><i class="circle"></i><strong>Não depressivo</strong><small>Postagem sem sinais identificados na anotação</small></div>
+<div class="class-card"><i class="circle"></i><strong>Moderado</strong><small>Sinais textuais classificados como moderados</small></div>
+<div class="class-card"><i class="circle"></i><strong>Grave</strong><small>Sinais textuais classificados como graves</small></div>
+</div></div></div>
+</div></section>
+
+<section class="section reveal" id="dados"><div class="container">
+<div class="section-head"><div><span class="number">02 / OS DADOS</span><h2>O que entra no<br>experimento?</h2></div><p>Compare a divisão original com o conjunto efetivamente usado pelos autores após remover duplicatas e redistribuir os exemplos.</p></div>
+<div class="dataset-grid">
+<div class="panel dataset-box">
+<div class="controls" role="group" aria-label="Versão do dataset"><button class="choice" data-dataset="original" aria-pressed="false">Original</button><button class="choice" data-dataset="final" aria-pressed="true">Após limpeza</button></div>
+<div id="datasetRows" aria-live="polite"></div>
+<div class="legend"><span><i style="background:#74decc"></i>Não depressivo</span><span><i style="background:#a99aff"></i>Moderado</span><span><i style="background:#fbc783"></i>Grave</span></div>
+<p class="note">Comprimento das barras proporcional ao total de cada partição; cores representam a composição dentro de cada partição. O teste oficial não tinha rótulos divulgados.</p>
+</div>
+<div class="panel dataset-box dataset-aside"><h3 id="datasetHeading">O que mudou?</h3><p id="datasetExplanation">Ao remover repetições e deslocar parte do desenvolvimento, o conjunto de treino passou a conter 6.006 textos únicos. Os 1.000 exemplos de desenvolvimento foram preservados para validação.</p><div class="statline"><span>Treino original</span><strong>8.891</strong></div><div class="statline"><span>Treino final</span><strong>6.006</strong></div><div class="statline"><span>Teste oficial</span><strong>3.245</strong></div><div class="disclaimer">A classe grave está sub-representada no conjunto final de desenvolvimento (90 de 1.000). Um bom resultado de acurácia, isoladamente, pode esconder erros nessa classe.</div></div>
+</div>
+<p class="note">Fonte: Figura 1 e seção 3 do artigo. Os arquivos de treino, desenvolvimento e teste estão no repositório dos autores, em <a href="https://github.com/rafalposwiata/depression-detection-lt-edi-2022/tree/main/data/preprocessed_dataset" target="_blank" rel="noopener noreferrer">data/preprocessed_dataset</a>.</p>
+</div></section>
+
+<section class="section reveal" id="metodo"><div class="container">
+<div class="section-head"><div><span class="number">03 / METODOLOGIA</span><h2>Quatro etapas.<br>Uma solução.</h2></div><p>Clique nas etapas para entender como os dados chegam ao ensemble. A última etapa combina as probabilidades dos dois modelos.</p></div>
+<div class="pipeline" role="tablist" aria-label="Etapas metodológicas">
+<button class="stage active" role="tab" aria-controls="stageDetail" data-stage="0" aria-selected="true"><b>01</b><span>Preparação do corpus</span></button>
+<button class="stage" role="tab" aria-controls="stageDetail" data-stage="1" aria-selected="false"><b>02</b><span>Baselines transformers</span></button>
+<button class="stage" role="tab" aria-controls="stageDetail" data-stage="2" aria-selected="false"><b>03</b><span>Adaptação DepRoBERTa</span></button>
+<button class="stage" role="tab" aria-controls="stageDetail" data-stage="3" aria-selected="false"><b>04</b><span>Ensemble por média</span></button>
+</div>
+<article class="panel stage-detail" id="stageDetail" role="tabpanel" aria-live="polite"><div><span class="eyebrow" id="stageKicker">ETAPA 01 / ENTRADA</span><h3 id="stageTitle">Remover duplicatas e preservar validação</h3><p id="stageText">O experimento parte de postagens anotadas do Reddit. Após retirar duplicatas de treino e desenvolvimento, os autores montam um conjunto de treino maior e reservam 1.000 exemplos para validação.</p></div><div class="side-note"><b id="stageAsideTitle">Saída da etapa</b><span id="stageAside">6.006 exemplos de treino + 1.000 de desenvolvimento.</span></div></article>
+<div class="equation">Ensemble oficial: <strong>argmax</strong> [ ½ × softmax(RoBERTa-large) + ½ × softmax(DepRoBERTa) ]</div>
+<p class="note">A arquitetura de adaptação ao domínio usa 396.968 postagens adicionais para o pré-treinamento do DepRoBERTa. Esse corpus <strong>não</strong> é o mesmo conjunto rotulado de 6.006 exemplos.</p>
+</div></section>
+
+<section class="section reveal" id="resultados"><div class="container">
+<div class="section-head"><div><span class="number">04 / RESULTADOS PUBLICADOS</span><h2>O ensemble realmente<br>melhorou?</h2></div><p>Explore as métricas de desenvolvimento ou teste. Os valores são transcritos das Tabelas 3 e 4 do artigo, não reproduzidos por este site.</p></div>
+<div class="panel results-box">
+<div class="results-top"><h3>Desempenho por modelo</h3><div class="controls" role="group" aria-label="Partição avaliada"><button class="choice" data-split="dev" aria-pressed="false">Desenvolvimento</button><button class="choice" data-split="test" aria-pressed="true">Teste oficial</button></div></div>
+<div class="results-top" style="padding-top:17px"><div class="metric-choices controls" role="group" aria-label="Métrica"><button class="choice" data-metric="f1" aria-pressed="true">Macro-F1</button><button class="choice" data-metric="acc" aria-pressed="false">Acurácia</button><button class="choice" data-metric="precision" aria-pressed="false">Precisão</button><button class="choice" data-metric="recall" aria-pressed="false">Recall</button></div><small id="metricCaption" style="color:#a6bfcd">Maior é melhor · valores do artigo</small></div>
+<div class="metrics-layout"><div id="chartRows" class="bars" role="img" aria-label="Gráfico de barras com resultados dos modelos"></div>
+<div class="results-aside"><span class="eyebrow">MELHOR RESULTADO</span><strong id="bestScore">0,583</strong><p id="bestLabel">Ensemble · Macro-F1 · teste oficial</p><div class="source-pill" id="resultNote">O desempenho no teste é menor do que no desenvolvimento; as duas partições não devem ser confundidas.</div></div></div>
+<p class="note">Os autores reportaram 5 repetições no ajuste dos modelos, utilizaram GPU Tesla V100 e otimizaram Macro-F1. No desenvolvimento, o ensemble alcançou 0,637; no teste oficial, 0,583.</p>
+</div>
+</div></section>
+
+<section class="section reveal" id="ensemble"><div class="container">
+<div class="section-head"><div><span class="number">05 / SIMULADOR DIDÁTICO</span><h2>Entenda a fusão<br>na prática.</h2></div><p>Movimente o peso dos modelos e veja a decisão mudar. Esta é apenas uma simulação matemática de probabilidades inventadas para ensino, sem executar IA.</p></div>
+<div class="demo-grid">
+<div class="panel"><span class="pill">EXEMPLO FICTÍCIO · SEM INFERÊNCIA</span><h3 style="margin-top:14px">Duas distribuições, uma escolha.</h3><p>RoBERTa-large tende à classe “não depressivo” nesta simulação. DepRoBERTa tende à classe “moderado”. Como o peso afeta o resultado combinado?</p>
+<label class="slider-label" for="blend"><span>Peso do DepRoBERTa</span><strong id="blendValue">50%</strong></label><input type="range" id="blend" min="0" max="100" value="50" step="5"><div class="controls" style="justify-content:space-between"><small style="color:#9cb9c5">0% · só RoBERTa</small><small style="color:#9cb9c5">100% · só DepRoBERTa</small></div>
+<div class="verdict"><span>Classe dominante do exemplo</span><strong id="blendWinner">Não depressivo</strong></div>
+</div>
+<div class="panel"><h3>Probabilidades combinadas</h3><p>O ensemble original usa 50% de cada modelo. Ao ajustar o controle, você explora cenários hipotéticos diferentes do artigo.</p><div id="blendBars" class="mini-dist" role="img" aria-label="Distribuição hipotética de probabilidades combinadas"></div>
+<div class="disclaimer" style="margin-top:22px">Este componente não avalia saúde mental, não interpreta textos reais e não demonstra o desempenho clínico dos modelos.</div>
+</div>
+</div></div></section>
+
+<section class="section reveal" id="proximos-passos"><div class="container">
+<div class="section-head"><div><span class="number">06 / PRÓXIMO PASSO ACADÊMICO</span><h2>Como reproduzir<br>depois?</h2></div><p>Um roteiro inicial para a futura reprodução. Hoje o objetivo é compreender o experimento e localizar os artefatos, não refazer o treinamento.</p></div>
+<div class="route">
+<div class="panel"><h3>Checklist de preparação</h3><div class="checklist" id="reproChecklist">
+<label class="checkrow"><input type="checkbox"><span><strong>Localizar os dados</strong><br>Conferir as partições CSV e documentar origem/licença.</span></label>
+<label class="checkrow"><input type="checkbox"><span><strong>Inspecionar o código</strong><br>Examinar scripts de pré-processamento, treinamento, avaliação e previsão.</span></label>
+<label class="checkrow"><input type="checkbox"><span><strong>Preparar o ambiente</strong><br>Reproduzir versões de dependências do README em ambiente isolado.</span></label>
+<label class="checkrow"><input type="checkbox"><span><strong>Definir o baseline</strong><br>Começar com um modelo já disponibilizado; depois considerar o treinamento completo.</span></label>
+<label class="checkrow"><input type="checkbox"><span><strong>Comparar resultados</strong><br>Medir Macro-F1 no desenvolvimento e registrar divergências e logs.</span></label>
+</div><div class="progress-wrap" aria-hidden="true"><span id="progressFill"></span></div><div class="progress-label" id="progressText">0 de 5 itens revisados · checklist local</div></div>
+<aside class="panel"><h3>Primeiro acesso aos artefatos</h3><p style="color:#bdd1de;font-size:.87rem">Comando inicial para obter o código dos autores:</p>
+<div class="command"><pre id="cloneCode">git clone https://github.com/rafalposwiata/depression-detection-lt-edi-2022.git
+cd depression-detection-lt-edi-2022</pre><button type="button" id="copyCode">Copiar comandos</button></div>
+<ul><li><strong>Dados:</strong> data/preprocessed_dataset/</li><li><strong>Treino:</strong> models/finetune.py</li><li><strong>Avaliação:</strong> models/eval.py</li><li><strong>Modelo pronto:</strong> Hugging Face</li></ul>
+<p class="note">A reprodução integral exige compatibilizar dependências históricas, acesso computacional apropriado e distinguir o teste oficial sem rótulos do conjunto de desenvolvimento. Nenhum experimento foi executado nesta página.</p></aside>
+</div></div></section>
+
+<section class="section reveal" id="fontes"><div class="container">
+<div class="section-head"><div><span class="number">07 / RASTREABILIDADE</span><h2>Fontes verificáveis.</h2></div><p>Todos os números dos gráficos e divisões de dados foram conferidos no artigo original. Os caminhos para código, dados e modelos pertencem aos autores.</p></div>
+<div class="sources">
+<a class="panel source" href="https://aclanthology.org/2022.ltedi-1.40/" target="_blank" rel="noopener noreferrer"><div><span class="name">Artigo científico</span><br><small>ACL Anthology · DOI 10.18653/v1/2022.ltedi-1.40</small></div><span class="arrow">↗</span></a>
+<a class="panel source" href="https://github.com/rafalposwiata/depression-detection-lt-edi-2022" target="_blank" rel="noopener noreferrer"><div><span class="name">Repositório oficial</span><br><small>Scripts, instruções e artefatos de pesquisa</small></div><span class="arrow">↗</span></a>
+<a class="panel source" href="https://github.com/rafalposwiata/depression-detection-lt-edi-2022/tree/main/data/preprocessed_dataset" target="_blank" rel="noopener noreferrer"><div><span class="name">Dataset pré-processado</span><br><small>Train · Dev · Test · arquivos CSV</small></div><span class="arrow">↗</span></a>
+<a class="panel source" href="https://huggingface.co/rafalposwiata/deproberta-large-depression" target="_blank" rel="noopener noreferrer"><div><span class="name">Modelo DepRoBERTa</span><br><small>Checkpoint fine-tuned para classificação</small></div><span class="arrow">↗</span></a>
+</div>
+</div></section>
+</main>
+<div class="presenter" id="presentation" role="dialog" aria-modal="true" aria-label="Modo apresentação do estudo DepRoBERTa" hidden>
+ <div class="deck-top"><span class="deck-brand">LAB / DEP-ROBERTA · APRESENTAÇÃO</span><div class="deck-top-actions"><button class="deck-btn" id="deckFullscreen" type="button" title="Alternar tela cheia">⛶ Tela cheia</button><button class="deck-btn deck-close" id="deckClose" type="button">✕ Sair</button></div></div>
+ <div class="deck-viewport" id="deckViewport" aria-live="polite">
+  <section class="deck-slide"><span class="deck-kicker">Estudo 03 / 33 · ACL 2022</span><h2>Por dentro do<br><em>DepRoBERTa.</em></h2><p class="deck-lead">Classificação de sinais textuais de depressão no Reddit com transformers e combinação de modelos.</p><div class="deck-cards"><div class="deck-card"><strong>0,583</strong><span>Macro-F1 no teste oficial</span></div><div class="deck-card"><strong>3</strong><span>Classes de classificação</span></div><div class="deck-card"><strong>2022</strong><span>Poświata &amp; Perełkiewicz · LT-EDI</span></div></div><p class="deck-caption">Síntese didática de métricas publicadas, sem execução dos modelos nesta página.</p></section>
+  <section class="deck-slide" hidden><span class="deck-kicker">01 / Problema</span><h2>Classificar <em>postagens</em>,<br>não pessoas.</h2><p class="deck-lead">O desafio identifica padrões linguísticos em textos em inglês publicados no Reddit.</p><div class="deck-cards"><div class="deck-card"><b>Classe 1</b><strong>Não depressivo</strong><span>Sem sinais textuais anotados</span></div><div class="deck-card"><b>Classe 2</b><strong>Moderado</strong><span>Indicadores anotados como moderados</span></div><div class="deck-card"><b>Classe 3</b><strong>Grave</strong><span>Indicadores anotados como graves</span></div></div><p class="deck-note">A saída do classificador não equivale a diagnóstico clínico.</p></section>
+  <section class="deck-slide" hidden><span class="deck-kicker">02 / Dados</span><h2>Os dados exigem<br><em>preparação.</em></h2><div class="deck-cards"><div class="deck-card"><strong>8.891</strong><span>Postagens de treino na divisão inicial</span></div><div class="deck-card"><strong>6.006</strong><span>Exemplos no treino após limpeza e reorganização</span></div><div class="deck-card"><strong>1.000</strong><span>Exemplos reservados à validação final</span></div></div><p class="deck-lead">Remoção de duplicatas e redistribuição das partições reduzem o risco de avaliações enviesadas.</p><p class="deck-caption">Seção 3 e Figura 1 do artigo original.</p></section>
+  <section class="deck-slide" hidden><span class="deck-kicker">03 / Pipeline</span><h2>Da postagem<br>à <em>previsão.</em></h2><div class="deck-flow"><span>Corpus limpo</span><i>→</i><span>Tokenização</span><i>→</i><span>Modelos ajustados</span><i>→</i><span>Probabilidades</span></div><p class="deck-lead">Os autores comparam transformers e usam a avaliação de desenvolvimento para escolher a combinação final.</p><p class="deck-note">A métrica-alvo é Macro-F1: ela considera as classes de modo equilibrado, importante quando sua frequência difere.</p></section>
+  <section class="deck-slide" hidden><span class="deck-kicker">04 / Modelo adaptado</span><h2>Por que criar<br><em>DepRoBERTa?</em></h2><p class="deck-lead">Além do RoBERTa-large geral, a pesquisa adapta um modelo ao vocabulário do domínio antes do ajuste supervisionado.</p><div class="deck-cards"><div class="deck-card"><strong>396.968</strong><span>Postagens adicionais para adaptação ao domínio</span></div><div class="deck-card"><strong>RoBERTa</strong><span>Modelo geral de linguagem</span></div><div class="deck-card"><strong>DepRoBERTa</strong><span>Modelo adaptado ao domínio estudado</span></div></div><p class="deck-note">O corpus de adaptação não é o mesmo conjunto rotulado de 6.006 exemplos.</p></section>
+  <section class="deck-slide" hidden><span class="deck-kicker">05 / Ensemble</span><h2>Duas perspectivas,<br><em>uma decisão.</em></h2><div class="deck-flow"><span>RoBERTa-large · 50%</span><i>+</i><span>DepRoBERTa · 50%</span><i>→</i><span>Classe com maior probabilidade média</span></div><p class="deck-lead">O ensemble combina a média das distribuições softmax dos dois modelos.</p><p class="deck-caption">A simulação interativa disponível na página explora outros pesos apenas como exercício didático.</p></section>
+  <section class="deck-slide" hidden><span class="deck-kicker">06 / Resultados publicados</span><h2>O que o estudo<br><em>encontrou?</em></h2><div class="deck-cards"><div class="deck-card"><strong>0,637</strong><span>Macro-F1 · ensemble · desenvolvimento</span></div><div class="deck-card"><strong>0,583</strong><span>Macro-F1 · ensemble · teste oficial</span></div><div class="deck-card"><strong>1º / 31</strong><span>Posição da equipe na tarefa relatada</span></div></div><p class="deck-note">Resultados publicados pelos autores, não uma reprodução. O teste oficial tem desempenho inferior ao desenvolvimento.</p><p class="deck-caption">Tabelas 3 e 4 do artigo.</p></section>
+  <section class="deck-slide" hidden><span class="deck-kicker">07 / Limitações</span><h2>O que os números<br><em>não demonstram?</em></h2><div class="deck-cards"><div class="deck-card"><b>Generalização</b><span>Os textos são em inglês e provenientes do Reddit.</span></div><div class="deck-card"><b>Desequilíbrio</b><span>O conjunto de desenvolvimento final tem apenas 90 exemplos da classe grave.</span></div><div class="deck-card"><b>Validade</b><span>Classificação textual não prova condição clínica individual.</span></div></div><p class="deck-lead">A avaliação precisa distinguir tarefas, partições, métricas e usos apropriados.</p></section>
+  <section class="deck-slide" hidden><span class="deck-kicker">08 / Próxima entrega</span><h2>Entender primeiro.<br><em>Reproduzir depois.</em></h2><div class="deck-flow"><span>Obter dataset e código</span><i>→</i><span>Fixar ambiente e baseline</span><i>→</i><span>Executar e registrar Macro-F1</span></div><p class="deck-lead">O artigo, o repositório, as partições e o checkpoint estão linkados na página para iniciar a futura reprodução.</p><p class="deck-note">O trabalho apresentado hoje é análise didática do experimento; não há logs nem resultados próprios de execução.</p></section>
+ </div>
+ <div class="deck-progress" aria-hidden="true"><span id="deckProgress" style="width:11.11%"></span></div>
+ <div class="deck-bottom"><span class="deck-count" id="deckCount">01 / 09</span><span class="deck-hint">← → navegar · Esc sair</span><div class="deck-controls"><button type="button" class="deck-btn" id="deckPrev" aria-label="Slide anterior">← Anterior</button><button type="button" class="deck-btn" id="deckNext">Próximo →</button></div></div>
+</div>
+<footer><div class="container"><div><strong style="color:#e1f3f5">LIA / FERNANDO · ATLAS.IA / LAB</strong><br>Estudo nº 03 · síntese didática para a disciplina de Laboratório de Artefatos de Software.</div><div>Dados, métricas e modelos: Poświata &amp; Perełkiewicz (2022).<br><a href="../atlas/">Voltar aos 33 estudos ↑</a></div></div></footer>
+<script>
+(function(){
+ "use strict";
+ var original={train:[1971,6019,901],dev:[1830,2306,360],test:[0,0,0]},final={train:[2255,3101,650],dev:[400,510,90],test:[0,0,0]};
+ var dset="final",split="test",metric="f1";
+ var results={
+ dev:[
+ {name:"BERT base",acc:.627,precision:.586,recall:.574,f1:.579},
+ {name:"BERT large",acc:.606,precision:.568,recall:.566,f1:.566},
+ {name:"RoBERTa base",acc:.622,precision:.567,recall:.573,f1:.570},
+ {name:"RoBERTa large",acc:.664,precision:.629,recall:.591,f1:.605},
+ {name:"XLNet base",acc:.654,precision:.632,recall:.576,f1:.590},
+ {name:"XLNet large",acc:.639,precision:.611,recall:.597,f1:.602},
+ {name:"DepRoBERTa",acc:.661,precision:.628,recall:.607,f1:.616},
+ {name:"Ensemble",acc:.695,precision:.663,recall:.621,f1:.637}
+ ],
+ test:[
+ {name:"RoBERTa large",acc:.614,precision:.583,recall:.564,f1:.552},
+ {name:"DepRoBERTa",acc:.626,precision:.575,recall:.588,f1:.571},
+ {name:"Ensemble",acc:.658,precision:.586,recall:.591,f1:.583}
+ ]};
+ var metrics={f1:"Macro-F1",acc:"Acurácia",precision:"Precisão macro",recall:"Recall macro"};
+ function $(s){return document.querySelector(s)}
+ function $all(s){return Array.from(document.querySelectorAll(s))}
+ function total(x){return x.reduce(function(a,b){return a+b},0)}
+ function fmt(x){return x.toLocaleString("pt-BR")}
+ function setPressed(selector,key,value){$all(selector).forEach(function(b){b.setAttribute("aria-pressed",String(b.dataset[key]===value))})}
+ function drawDataset(){
+  var dat=dset==="original"?original:final;
+  var max=dset==="original"?8891:6006;
+  var rows=["train","dev","test"];
+  var labels={train:"Treino",dev:"Validação",test:"Teste"};
+  var html=rows.map(function(key){
+   var n=key==="test"?3245:total(dat[key]),s=dat[key];var width=(100*n/max).toFixed(2);
+   var content=key==="test"?'<span class="seg" style="width:100%;background:#6c8598"></span>':s.map(function(v,i){return '<span class="seg '+["non","mod","sev"][i]+'" style="width:'+(100*v/n).toFixed(3)+'%"></span>'}).join("");
+   return '<div class="dataset-row"><strong>'+labels[key]+'</strong><div class="stack '+(key==="test"?"test":"")+'" style="width:'+width+'%" role="img" aria-label="'+labels[key]+': '+fmt(n)+' exemplos">'+content+'</div><output>'+fmt(n)+'</output></div>';
+  }).join("");
+  $("#datasetRows").innerHTML=html;
+  $("#datasetHeading").textContent=dset==="original"?"Divisão inicial do desafio":"O que mudou?";
+  $("#datasetExplanation").textContent=dset==="original"?
+   "Na partição original, 8.891 postagens compunham o treino e 4.496 o desenvolvimento. Muitas postagens de treino eram repetidas: somente 2.720 eram únicas.":
+   "Ao remover duplicatas e deslocar exemplos do desenvolvimento, o treino passou a conter 6.006 textos únicos. Os 1.000 exemplos de desenvolvimento foram preservados para avaliação.";
+  setPressed("[data-dataset]","dataset",dset);
+ }
+ $all("[data-dataset]").forEach(function(b){b.addEventListener("click",function(){dset=b.dataset.dataset;drawDataset()})});
+ var stages=[
+ {k:"ETAPA 01 / ENTRADA",t:"Remover duplicatas e preservar validação",p:"O experimento parte de postagens anotadas do Reddit. Após retirar duplicatas de treino e desenvolvimento, os autores montam um conjunto de treino maior e reservam 1.000 exemplos para validação.",a:"6.006 exemplos de treino + 1.000 de desenvolvimento."},
+ {k:"ETAPA 02 / BASELINES",t:"Comparar modelos de linguagem gerais",p:"Os autores ajustaram versões base e large de BERT, RoBERTa e XLNet. RoBERTa-large apresentou o melhor Macro-F1 entre os modelos gerais na validação: 0,605.",a:"Baselines comparáveis no mesmo conjunto de desenvolvimento."},
+ {k:"ETAPA 03 / DOMÍNIO",t:"Adaptar RoBERTa à linguagem do corpus",p:"A partir de RoBERTa-large, os autores realizaram pré-treinamento adicional sobre 396.968 postagens relacionadas a saúde mental. O modelo resultante, DepRoBERTa, foi ajustado à tarefa supervisionada.",a:"DepRoBERTa ajustado: Macro-F1 de 0,616 em desenvolvimento."},
+ {k:"ETAPA 04 / DECISÃO",t:"Combinar as probabilidades dos modelos",p:"O ensemble usa a média aritmética, classe a classe, das distribuições softmax de RoBERTa-large e DepRoBERTa. A classe de maior probabilidade média é escolhida.",a:"Macro-F1: 0,637 em desenvolvimento; 0,583 no teste oficial."}
+ ];
+ $all("[data-stage]").forEach(function(b){b.addEventListener("click",function(){
+  var i=Number(b.dataset.stage),s=stages[i];
+  $all("[data-stage]").forEach(function(x){x.classList.toggle("active",x===b);x.setAttribute("aria-selected",String(x===b))});
+  var panel=$("#stageDetail");panel.style.animation="none";void panel.offsetWidth;panel.style.animation="";
+  $("#stageKicker").textContent=s.k;$("#stageTitle").textContent=s.t;$("#stageText").textContent=s.p;$("#stageAside").textContent=s.a;
+ })});
+ function drawChart(){
+  setPressed("[data-split]","split",split);setPressed("[data-metric]","metric",metric);
+  var data=results[split],best=data.reduce(function(a,b){return b[metric]>a[metric]?b:a});
+  var rows=data.map(function(r){
+   return '<div class="chartrow"><label>'+r.name+'</label><div class="track"><div class="bar" style="width:'+(r[metric]*100).toFixed(1)+'%"></div></div><output>'+r[metric].toFixed(3).replace(".",",")+'</output></div>';
+  }).join("");
+  $("#chartRows").innerHTML=rows;
+  $("#chartRows").setAttribute("aria-label",metrics[metric]+" no conjunto de "+(split==="dev"?"desenvolvimento":"teste")+": "+data.map(function(r){return r.name+" "+r[metric].toFixed(3)}).join("; "));
+  $("#bestScore").textContent=best[metric].toFixed(3).replace(".",",");
+  $("#bestLabel").textContent=best.name+" · "+metrics[metric]+" · "+(split==="dev"?"desenvolvimento":"teste oficial");
+  $("#resultNote").textContent=split==="dev"?"Fonte: Tabela 3, conjunto de desenvolvimento. Modelos avaliados com a mesma partição.":"Fonte: Tabela 4, teste oficial. Apenas os três modelos submetidos aparecem neste gráfico.";
+ }
+ $all("[data-split]").forEach(function(b){b.addEventListener("click",function(){split=b.dataset.split;drawChart()})});
+ $all("[data-metric]").forEach(function(b){b.addEventListener("click",function(){metric=b.dataset.metric;drawChart()})});
+ var names=["Não depressivo","Moderado","Grave"],left=[.68,.24,.08],right=[.18,.61,.21];
+ function drawBlend(){
+  var weight=Number($("#blend").value)/100;
+  $("#blendValue").textContent=Math.round(weight*100)+"%";
+  var mix=left.map(function(v,i){return v*(1-weight)+right[i]*weight});
+  var highest=mix.indexOf(Math.max.apply(null,mix));
+  $("#blendWinner").textContent=names[highest];
+  $("#blendBars").innerHTML=mix.map(function(v,i){return '<div><span>'+names[i]+'</span><div class="track"><div class="bar" style="width:'+(v*100).toFixed(1)+'%"></div></div><strong>'+(v*100).toFixed(1).replace(".",",")+'%</strong></div>'}).join("");
+  $("#blendBars").setAttribute("aria-label",names.map(function(n,i){return n+" "+(mix[i]*100).toFixed(1)+" por cento"}).join("; "));
+ }
+ $("#blend").addEventListener("input",drawBlend);
+ function updateChecks(){var inputs=$all("#reproChecklist input"),count=inputs.filter(function(x){return x.checked}).length;$("#progressFill").style.width=(100*count/inputs.length)+"%";$("#progressText").textContent=count+" de "+inputs.length+" itens revisados · checklist local"}
+ $all("#reproChecklist input").forEach(function(x){x.addEventListener("change",updateChecks)});
+ $("#copyCode").addEventListener("click",function(){
+  var text=$("#cloneCode").textContent,button=this;
+  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(text).then(function(){button.textContent="Copiado ✓";setTimeout(function(){button.textContent="Copiar comandos"},1800)}).catch(function(){button.textContent="Selecione e copie o texto"})}
+  else{button.textContent="Selecione e copie o texto"}
+ });
+ if("IntersectionObserver" in window){
+  var ob=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add("visible");ob.unobserve(e.target)}})},{threshold:.08});
+  $all(".reveal").forEach(function(e){ob.observe(e)});
+ }else{$all(".reveal").forEach(function(e){e.classList.add("visible")})}
+ var deck=$("#presentation"),deckSlides=$all(".deck-slide"),deckIndex=0,deckOpener=$("#presentationOpen");
+ function showDeckSlide(n){
+  deckIndex=Math.max(0,Math.min(deckSlides.length-1,n));
+  deckSlides.forEach(function(slide,i){slide.hidden=i!==deckIndex});
+  $("#deckCount").textContent=String(deckIndex+1).padStart(2,"0")+" / "+String(deckSlides.length).padStart(2,"0");
+  $("#deckProgress").style.width=((deckIndex+1)*100/deckSlides.length)+"%";
+  $("#deckPrev").disabled=deckIndex===0;
+  $("#deckNext").textContent=deckIndex===deckSlides.length-1?"Recomeçar ↺":"Próximo →";
+  $("#deckViewport").scrollTop=0;
+ }
+ function openDeck(){deck.hidden=false;document.body.classList.add("deck-locked");showDeckSlide(0);$("#deckClose").focus()}
+ function closeDeck(){
+  if(document.fullscreenElement===deck&&document.exitFullscreen){document.exitFullscreen().catch(function(){})}
+  deck.hidden=true;document.body.classList.remove("deck-locked");deckOpener.focus();
+ }
+ deckOpener.addEventListener("click",openDeck);
+ $("#deckClose").addEventListener("click",closeDeck);
+ $("#deckPrev").addEventListener("click",function(){showDeckSlide(deckIndex-1)});
+ $("#deckNext").addEventListener("click",function(){showDeckSlide(deckIndex===deckSlides.length-1?0:deckIndex+1)});
+ $("#deckFullscreen").addEventListener("click",function(){
+  if(document.fullscreenElement&&document.exitFullscreen){document.exitFullscreen().catch(function(){})}
+  else if(deck.requestFullscreen){deck.requestFullscreen().catch(function(){})}
+ });
+ document.addEventListener("keydown",function(e){
+  if(deck.hidden)return;
+  if(["ArrowRight","PageDown"," "].indexOf(e.key)!==-1){e.preventDefault();showDeckSlide(deckIndex+1)}
+  else if(["ArrowLeft","PageUp"].indexOf(e.key)!==-1){e.preventDefault();showDeckSlide(deckIndex-1)}
+  else if(e.key==="Home"){e.preventDefault();showDeckSlide(0)}
+  else if(e.key==="End"){e.preventDefault();showDeckSlide(deckSlides.length-1)}
+  else if(e.key==="Escape"){e.preventDefault();closeDeck()}
+ });
+ var touchStart=0;
+ $("#deckViewport").addEventListener("touchstart",function(e){touchStart=e.changedTouches[0].clientX},{passive:true});
+ $("#deckViewport").addEventListener("touchend",function(e){var dx=e.changedTouches[0].clientX-touchStart;if(Math.abs(dx)>75)showDeckSlide(deckIndex+(dx<0?1:-1))},{passive:true});
+ showDeckSlide(0);
+ drawDataset();drawChart();drawBlend();updateChecks();
+})();
+</script>
+</body>
+</html>
