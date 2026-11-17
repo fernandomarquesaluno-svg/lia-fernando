@@ -15,7 +15,8 @@ Portal web multipágina, responsivo e interativo, inspirado no Atlas de Evidênc
 | `/atividades/levantamento/` | Trabalho 01 — revisão narrativa |
 | `/atividades/atlas/` | Trabalho 02 — Atlas científico interativo |
 | `/atividades/kallstenius/` | Trabalho 03 — análise científica de Kallstenius et al. (2026) |
-| `/atividades/experimentos/` | Trabalho 04 — proposta de experimento com LLMs |
+| `/atividades/deproberta/` | Trabalho 04 — análise e apresentação interativa do DepRoBERTa (ACL 2022) |
+| `/atividades/experimentos/` | Trabalho 05 — proposta de experimento com LLMs |
 | `/evolucao.html` | Diário de evolução e decisões |
 
 As antigas rotas `/atlas.html`, `/levantamento.html`, `/kallstenius.html` e `/experimentos.html` redirecionam às respectivas páginas da pasta `/atividades/`.
@@ -39,6 +40,7 @@ O comparador lado a lado dos dois estudos permanece disponível. A matriz técni
 - Revisão bibliográfica: narrativa, não sistemática PRISMA.
 - Estudos distintos podem compartilhar corpus e unidade amostral.
 - Rótulos de comunidades ou autorrelatos não são diagnósticos clínicos.
+- Estudo DepRoBERTa: **análise didática concluída** (dados, método, métricas, modo apresentação); **reprodução ainda não realizada**.
 - Experimento próprio com LLMs: **planejado**, sem resultados produzidos; seleção do artigo-base e corpus pendente.
 - Estudo analisado: Kallstenius et al. (2026), *JMIR Mental Health*, DOI [10.2196/98925](https://doi.org/10.2196/98925).
 
