@@ -114,3 +114,22 @@
 .research-reference a{color:var(--cyan);font-weight:800}
 @media(max-width:900px){.dataset-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:700px){.work-grid,.dataset-grid,.model-columns{grid-template-columns:1fr}.work-card{padding:22px;min-height:0}.work-symbol{font-size:3.8rem}.paper-hero{padding-bottom:45px}.article-jump-wrap{top:69px}.article-jump{gap:20px}.article-panel,.model-card,.result-stage{padding:20px}.research-bars .bar-item{grid-template-columns:110px minmax(0,1fr) 57px;font-size:.75rem}.result-heading{grid-template-columns:1fr}.work-stats>div{flex:1 1 120px;min-width:120px}}
+
+/* Guia compacto de navegação da página inicial */
+.explore-section{background:linear-gradient(180deg,#0a1827,#080f1d)}
+.explore-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.explore-card{display:flex;flex-direction:column;min-width:0;min-height:258px;padding:25px;border:1px solid #35556b;border-radius:19px;background:linear-gradient(145deg,#172c3e,#101d2f);transition:border-color .25s,transform .25s,box-shadow .25s;position:relative;overflow:hidden}
+.explore-card:after{content:"";position:absolute;right:-45px;top:-65px;width:150px;height:150px;border-radius:50%;background:radial-gradient(circle,#7df4db12,transparent 70%);pointer-events:none}
+.explore-card:hover{transform:translateY(-5px);border-color:#79d9cd;box-shadow:0 18px 42px #0004}
+.explore-card:focus-visible{outline-offset:4px}
+.explore-card-top{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.explore-symbol{display:grid;place-items:center;width:43px;height:43px;border:1px solid #4d918f;border-radius:12px;background:#173d44;color:var(--cyan);font:700 1.55rem "Space Grotesk",sans-serif}
+.explore-card:nth-child(3n+2) .explore-symbol{background:#292c4b;border-color:#7375ab;color:#c8c0ff}
+.explore-card:nth-child(3n) .explore-symbol{background:#403326;border-color:#9b7755;color:#ffcf8c}
+.explore-number{font-size:.69rem;letter-spacing:.16em;color:#8faabb;font-weight:800}
+.explore-card h3{font:700 1.4rem/1.2 "Space Grotesk",sans-serif;margin:22px 0 10px;letter-spacing:-.03em}
+.explore-card p{margin:0 0 22px;color:var(--muted);font-size:.9rem;line-height:1.65;flex:1}
+.explore-cta{border-top:1px solid #365168;padding-top:13px;display:flex;justify-content:space-between;color:var(--cyan);font-size:.84rem;font-weight:800}
+.explore-note{margin:22px 0 0;color:var(--muted);font-size:.88rem}.explore-note a{color:var(--cyan);text-decoration:underline;text-underline-offset:4px}
+@media(max-width:950px){.explore-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:640px){.explore-grid{grid-template-columns:1fr}.explore-card{min-height:0;padding:22px}.explore-card h3{margin-top:15px}}
