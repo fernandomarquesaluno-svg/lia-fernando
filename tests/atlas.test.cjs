@@ -37,6 +37,8 @@ test('R02: evidência desconhecida, zero confirmado e cobertura', () => {
   const rows = rank(studies, {publico:4, ptbr:1});
   const unknown = byId(rows, 19);
   const mismatch = byId(rows, 8);
+  assert.equal(mismatch.study.language, 'PT-BR');
+  assert.equal(mismatch.study.datasetAudit.accessStatus, 'restrito');
   assert.deepEqual([unknown.score, unknown.earned, unknown.known, unknown.total], [100, 1, 1, 5]);
   assert.deepEqual([mismatch.score, mismatch.earned, mismatch.known, mismatch.total], [20, 1, 5, 5]);
   assert.equal(unknown.breakdown.find(item => item.weight === 4).status, null);
