@@ -136,6 +136,7 @@
 .connect-side .c-studies{max-height:360px;overflow-y:auto;scrollbar-width:thin}
 </style>
 <link rel="stylesheet" href="../../assets/discovery.css">
+<link rel="stylesheet" href="../../assets/atlas-consolidacao.css">
 </head>
 <body>
 <a class="skip" href="#estudos">Pular para o explorador de estudos</a>
@@ -144,7 +145,8 @@
  <div class="wrap bar-inner">
   <a href="#inicio" class="logo" aria-label="Atlas: ir ao início"><span class="logo-mark" aria-hidden="true">✳</span> ATLAS<span style="color:var(--cyan)">.IA</span></a>
   <nav class="bar-nav" aria-label="Navegação principal">
-   <a href="#conexoes">Conexões</a><a href="#datasets">Datasets</a><a href="#mapa">Mapa</a><a href="#estudos">Estudos</a><a href="#comparar">Comparador</a>
+   <a href="#conexoes">Conexões</a><a href="#datasets">Datasets</a><a href="#mapa">Mapa</a><a href="#estudos">Estudos</a><a href="#resultados">Resultados</a>
+   <a href="#comparar">Comparador</a>
    <a class="bar-cta" href="../../trabalhos.html">Voltar aos trabalhos ↗</a>
   </nav>
  </div>
@@ -154,8 +156,8 @@
   <div class="decor" aria-hidden="true"></div>
   <div class="wrap">
    <span class="overline">VISUALIZAÇÃO DE EVIDÊNCIAS · 2020—2026</span>
-   <h1 id="heroTitle">A ciência<br>em <em>conexões.</em></h1>
-   <p class="hero-sub">Como a inteligência artificial identifica sinais textuais relacionados à depressão, ansiedade e estresse? Explore os trabalhos, suas abordagens e lacunas — sem enfrentar uma parede de texto.</p>
+   <h1 id="heroTitle">Atlas de <em>Evidências.</em></h1>
+   <p class="hero-sub">Explore como as pesquisas usam IA para estudar indicadores textuais de saúde mental. O mapa conecta métodos e tarefas e o comparador permite investigar as diferenças entre publicações.</p>
    <div class="hero-actions">
     <a class="action" href="#conexoes">Explorar relações científicas <span aria-hidden="true">↗</span></a>
     <a class="action secondary" href="#comparar">Comparar métodos <span aria-hidden="true">⇄</span></a>
@@ -171,7 +173,7 @@
   </div>
  </section>
 
- <section class="verified-preview" aria-labelledby="previewTitle"><div class="wrap"><span class="kicker">BASE DE DADOS DISPONÍVEL NO HTML</span><h2 id="previewTitle">O que você pode explorar agora</h2><div class="preview-grid"><article class="preview-tile"><span class="kicker">Comparação de estudos nacionais</span><strong>Estudos em português</strong><p>Explore pesquisas em PT-BR, com classificação de sintomas, detecção precoce e abordagens específicas ao idioma.</p><a href="#estudos">Explorar seção ↗</a></article><article class="preview-tile"><span class="kicker">Mapa visual interativo</span><strong>Conexões entre métodos</strong><p>Relaciona modelos, tipos de publicação e condições investigadas, sem produzir rankings artificiais de F1.</p><a href="#conexoes">Explorar seção ↗</a></article><article class="preview-tile"><span class="kicker">Dados e limitações</span><strong>Resultados auditados</strong><p>As fichas identificam fontes, resultados por protocolo e três trabalhos com campos ainda pendentes.</p><a href="#auditoria">Explorar seção ↗</a></article></div></div></section>
+
  <section class="section" id="conexoes" aria-labelledby="connectTitle">
   <div class="wrap">
    <div class="section-head reveal">
@@ -184,12 +186,18 @@
       <h3>Métodos de IA ↔ tarefa-alvo principal</h3>
       <label for="showPtOnly"><input type="checkbox" id="showPtOnly"> Apenas PT-BR</label>
      </div>
-     <div class="connection-scroll" id="conexaoViz"><p class="loading">Preparando as conexões…</p></div>
+     <div class="network-tools" role="group" aria-label="Controles do mapa">
+      <label for="networkCategory">Método ou tarefa <select id="networkCategory"><option value="">Escolher categoria</option></select></label>
+      <button type="button" class="small-btn" id="clearConnectionSelection">Limpar destaque</button>
+      <button type="button" class="small-btn" id="networkZoomOut" aria-label="Reduzir ampliação">−</button>
+      <button type="button" class="small-btn" id="networkZoomIn" aria-label="Ampliar mapa">+</button>
+     </div>
+     <div class="connection-scroll" id="conexaoViz" tabindex="0" role="region" aria-label="Mapa rolável de métodos e tarefas"><p class="loading">Preparando as conexões…</p></div>
      <p class="connect-instruction">Clique em uma categoria (por exemplo, Depressão) para realçar todas as conexões e listar os estudos associados. Clique em uma ligação para examiná-la isoladamente, e use “Ver estudos relacionados” para filtrar as fichas. As ligações representam tarefas principais, não força de evidência.</p>
     </div>
     <aside class="panel connect-side" aria-label="Leitura da conexão selecionada">
      <span class="kicker">CONEXÃO SELECIONADA</span>
-     <h3 id="edgeTitle">Investigando relações</h3>
+     <h3 id="edgeTitle" aria-live="polite">Investigando relações</h3>
      <strong class="c-value" id="edgeCount">–</strong>
      <p class="c-desc" id="connectionDescription">Clique em uma categoria ou ligação para destacar as relações científicas.</p>
      <ul class="c-studies" id="edgeSources"></ul>
@@ -197,13 +205,39 @@
     </aside>
    </div>
    <div class="c-summary reveal" aria-label="Indicadores do mapa relacional">
-    <div><strong id="cStudiesCount">33</strong><span>estudos empíricos no fluxo</span></div>
+    <div><strong id="cStudiesCount">25</strong><span>estudos empíricos no fluxo</span></div>
     <div><strong id="cRelationsCount">–</strong><span>combinações método–tarefa</span></div>
     <div><strong id="cptCount">–</strong><span>estudos empíricos exclusivamente PT-BR no recorte</span></div>
    </div>
    <p class="section-copy" style="margin-top:14px;font-size:.78rem">Categorias geradas a partir das descrições bibliográficas. O gráfico não inclui revisões nem artigos que apenas apresentam corpora; eles continuam na biblioteca e no mapa de publicações. Uma pesquisa pode empregar métodos distintos, por isso o total de associações pode superar o número de estudos. A rede não é uma análise de citações, causalidade ou desempenho.</p>
   </div>
  </section>
+ <section class="section" id="comparar" aria-labelledby="compareTitle">
+  <div class="wrap">
+   <div class="section-head reveal"><div><span class="kicker">04 / LABORATÓRIO DE COMPARAÇÃO</span><h2 class="section-title" id="compareTitle">Escolha critérios.<br>Compare evidências.</h2></div><p class="section-copy">Primeiro classifique as referências por aderência aos seus interesses e pesos. Em seguida, escolha dois trabalhos para confrontar 18 dimensões técnicas. O ranking não determina vencedores por desempenho.</p></div>
+   <div class="panel weighted-lab reveal" id="weightedLab" aria-labelledby="weightedTitle">
+<div class="weighted-head"><div><span class="kicker">PREFERÊNCIAS DE COMPARAÇÃO</span><h3 id="weightedTitle">Encontre estudos alinhados aos seus critérios</h3><p>Marque características de interesse, ajuste seu peso de 0 a 5 e obtenha um ranking de <strong>aderência metodológica</strong> calculado sobre as 33 referências.</p></div><div class="weighted-formula"><strong>Aderência = 100 × peso atendido / peso avaliável</strong><span>Cobertura = peso avaliável / peso selecionado</span></div></div>
+<div class="weighted-actions"><a class="small-btn" href="#lado-a-lado">Ir à comparação lado a lado</a><button type="button" id="rankExample" class="small-btn">Exemplo com LLMs</button><button type="button" id="rankTransformers" class="small-btn">Exemplo com Transformers</button><button type="button" id="rankClear" class="small-btn">Limpar critérios</button><span id="rankSelectionCount" aria-live="polite">Exemplo inicial selecionado</span></div>
+<details class="rank-preferences"><summary>Ajustar critérios e pesos</summary><div id="rankCriteria" class="weighted-criteria" role="group" aria-label="Características e pesos de preferência"></div></details>
+<div class="weighted-results-head"><h4>Estudos ordenados por aderência</h4><span id="rankSummary" aria-live="polite">Exemplo inicial: empírico + LLMs + PT-BR. Altere os critérios e pesos.</span></div>
+<div id="rankResults" class="weighted-results"><p class="loading">Ajuste suas preferências para gerar o ranking.</p></div>
+<p class="weighted-caution">O percentual mede a aderência aos critérios com evidência disponível. Compare também a cobertura: dados sem confirmação ficam fora do denominador, enquanto uma característica incompatível soma zero. Peso zero desativa o critério. Empates seguem a maior cobertura e depois o ID da referência. Uma ficha sem peso avaliável fica sem pontuação. Métricas de protocolos diferentes permanecem nas fichas.</p>
+</div><div class="panel comparator reveal" id="lado-a-lado">
+    <div class="compare-head"><h3>Comparação lado a lado <span style="color:var(--cyan)">↔</span></h3><button type="button" class="small-btn" id="clearComparison">Limpar seleção</button></div>
+    <div class="compare-presets" id="comparePresets" role="group" aria-label="Exemplos de comparação com origem de dados relacionada">
+     <span>Comparações sugeridas</span>
+     <button type="button" data-a="8" data-b="31">Amive: corpus original × dados sintéticos</button>
+     <button type="button" data-a="9" data-b="13">IDEABot: LIWC × GPT-4o</button>
+     <button type="button" data-a="7" data-b="20">SetembroBR: prompts × mixture of experts</button>
+    </div>
+    <div class="slots"><div id="slotA" class="slot"></div><div id="slotB" class="slot"></div></div>
+    <p class="section-copy" style="margin-top:15px" id="comparePrompt">Escolha duas publicações nos cartões abaixo.</p>
+    <div class="compare-details" id="comparisonFields" aria-live="polite"></div>
+    <p id="compareNotice" class="compare-caution" hidden><strong>Leitura responsável:</strong> valores de F1, acurácia, AUC, correlação, ERDE e recuperação de informação não devem ser ranqueados entre tarefas, classes, corpora e partições diferentes. Esta ferramenta mostra diferenças metodológicas, não um vencedor universal.</p>
+   </div>
+  </div>
+ </section>
+ <section class="section" id="resultados" aria-labelledby="resultados-title"><div class="wrap"><div data-atlas-results><h2 id="resultados-title" class="section-title">Resultados do Atlas de Evidências</h2><p>A distribuição das referências está disponível nas fichas do Atlas.</p></div></div></section>
  <section class="section" id="mapa" aria-labelledby="mapTitle">
   <div class="wrap">
    <div class="section-head reveal">
@@ -223,10 +257,10 @@
   <div class="wrap">
    <div class="section-head reveal"><div><span class="kicker">02 / SÍNTESE CRÍTICA</span><h2 class="section-title" id="patternTitle">O que os estudos<br>revelam?</h2></div><p class="section-copy">Quatro leituras metodológicas do levantamento. Os detalhes e os resultados de cada trabalho permanecem nas fichas individuais.</p></div>
    <div class="insights-grid">
-    <article class="panel insight reveal"><span>01 · MODELOS</span><h3>Mais recente não significa melhor.</h3><p>Transformers especializados, classificadores clássicos e LLMs precisam de avaliação em tarefas e protocolos compatíveis.</p></article>
-    <article class="panel insight reveal"><span>02 · EVIDÊNCIA</span><h3>Rótulos não são diagnósticos.</h3><p>Autorrelato, anotação de sintomas e diagnóstico clínico possuem significados diferentes.</p></article>
-    <article class="panel insight reveal"><span>03 · IDIOMA</span><h3>O português exige atenção.</h3><p id="insightPt">O corpus bibliográfico inclui trabalhos em português brasileiro e fontes internacionais.</p></article>
-    <article class="panel insight reveal"><span>04 · VALIDAÇÃO</span><h3>Generalizar é o desafio.</h3><p>Transferência entre plataformas, vazamento de dados, validação externa e privacidade permanecem questões críticas.</p></article>
+    <article class="panel insight reveal"><span>01 · MODELOS</span><h3>Mais recente não significa melhor.</h3><p>Transformers especializados, classificadores clássicos e LLMs precisam de avaliação em tarefas e protocolos compatíveis.</p> <button class="study-link" type="button" data-insight-study="2">Ficha #2</button> <button class="study-link" type="button" data-insight-study="15">Ficha #15</button></article>
+    <article class="panel insight reveal"><span>02 · EVIDÊNCIA</span><h3>Rótulos não são diagnósticos.</h3><p>Autorrelato, anotação de sintomas e diagnóstico clínico possuem significados diferentes.</p> <button class="study-link" type="button" data-insight-study="3">Ficha #3</button> <button class="study-link" type="button" data-insight-study="6">Ficha #6</button></article>
+    <article class="panel insight reveal"><span>03 · IDIOMA</span><h3>O português exige atenção.</h3><p id="insightPt">O corpus bibliográfico inclui trabalhos em português brasileiro e fontes internacionais.</p> <button class="study-link" type="button" data-insight-study="6">Ficha #6</button> <button class="study-link" type="button" data-insight-study="8">Ficha #8</button></article>
+    <article class="panel insight reveal"><span>04 · VALIDAÇÃO</span><h3>Generalizar é o desafio.</h3><p>Transferência entre plataformas, vazamento de dados, validação externa e privacidade permanecem questões críticas.</p> <button class="study-link" type="button" data-insight-study="1">Ficha #1</button> <button class="study-link" type="button" data-insight-study="32">Ficha #32</button></article>
    </div>
   </div>
  </section>
@@ -265,31 +299,7 @@
    <div class="dataset-evidence reveal" id="accessEvidence"></div>
   </div>
  </section>
- <section class="section" id="comparar" aria-labelledby="compareTitle">
-  <div class="wrap">
-   <div class="section-head reveal"><div><span class="kicker">04 / LABORATÓRIO DE COMPARAÇÃO</span><h2 class="section-title" id="compareTitle">Escolha critérios.<br>Compare evidências.</h2></div><p class="section-copy">Primeiro classifique as referências por aderência aos seus interesses e pesos. Em seguida, escolha dois trabalhos para confrontar 18 dimensões técnicas. O ranking não determina vencedores por desempenho.</p></div>
-   <div class="panel weighted-lab reveal" id="weightedLab" aria-labelledby="weightedTitle">
-<div class="weighted-head"><div><span class="kicker">NOVA FERRAMENTA · RECOMENDAÇÃO DO PROFESSOR</span><h3 id="weightedTitle">Encontre estudos alinhados aos seus critérios</h3><p>Marque características de interesse, ajuste seu peso de 1 a 5 e obtenha um ranking de <strong>aderência metodológica</strong> calculado sobre as 33 referências.</p></div><div class="weighted-formula"><strong>Score = Σ pesos atendidos / Σ pesos escolhidos</strong><span>Escala de 0 a 100 · não mede qualidade científica</span></div></div>
-<div class="weighted-actions"><button type="button" id="rankExample" class="small-btn">Carregar exemplo</button><button type="button" id="rankClear" class="small-btn">Limpar critérios</button><span id="rankSelectionCount" aria-live="polite">Exemplo inicial selecionado</span></div>
-<div id="rankCriteria" class="weighted-criteria" role="group" aria-label="Características e pesos de preferência"></div>
-<div class="weighted-results-head"><h4>Estudos ordenados por aderência</h4><span id="rankSummary" aria-live="polite">Exemplo inicial: empírico + LLMs + PT-BR. Altere os critérios e pesos.</span></div>
-<div id="rankResults" class="weighted-results" aria-live="polite"><p class="loading">Ajuste suas preferências para gerar o ranking.</p></div>
-<p class="weighted-caution"><strong>Como interpretar:</strong> o score reflete apenas a correspondência com as características selecionadas. Não é um ranking de desempenho, qualidade metodológica ou validade clínica. Campos ausentes/não confirmados não pontuam e não devem ser tratados como evidência de ausência. Em empates, preserva-se a ordem de identificação dos estudos.</p>
-</div><div class="panel comparator reveal">
-    <div class="compare-head"><h3>Comparação lado a lado <span style="color:var(--cyan)">↔</span></h3><button type="button" class="small-btn" id="clearComparison">Limpar seleção</button></div>
-    <div class="compare-presets" id="comparePresets" role="group" aria-label="Exemplos de comparação com origem de dados relacionada">
-     <span>Comparações sugeridas</span>
-     <button type="button" data-a="8" data-b="31">Amive: corpus original × dados sintéticos</button>
-     <button type="button" data-a="9" data-b="13">IDEABot: LIWC × GPT-4o</button>
-     <button type="button" data-a="7" data-b="20">SetembroBR: prompts × mixture of experts</button>
-    </div>
-    <div class="slots"><div id="slotA" class="slot"></div><div id="slotB" class="slot"></div></div>
-    <p class="section-copy" style="margin-top:15px" id="comparePrompt">Escolha duas publicações nos cartões abaixo.</p>
-    <div class="compare-details" id="comparisonFields" aria-live="polite"></div>
-    <p id="compareNotice" class="compare-caution" hidden><strong>Leitura responsável:</strong> valores de F1, acurácia, AUC, correlação, ERDE e recuperação de informação não devem ser ranqueados entre tarefas, classes, corpora e partições diferentes. Esta ferramenta mostra diferenças metodológicas, não um vencedor universal.</p>
-   </div>
-  </div>
- </section>
+
  <section class="section" id="estudos" aria-labelledby="studiesTitle">
   <div class="wrap">
    <div class="section-head reveal"><div><span class="kicker">05 / BIBLIOTECA INTERATIVA</span><h2 class="section-title" id="studiesTitle">Explore as<br>33 referências.</h2></div><p class="section-copy">Menos texto na superfície. Mais profundidade ao clicar. Consulte as fichas com problema, dataset, rotulagem, métodos, métricas, resultados e limitações.</p></div>
@@ -298,6 +308,7 @@
     <div class="field"><label for="conditionFilter">Condição</label><select id="conditionFilter"><option>Todas as condições</option></select></div>
     <div class="field"><label for="groupFilter">Método utilizado</label><select id="groupFilter"><option>Todas as abordagens</option></select></div>
     <div class="field"><label for="langFilter">Idioma</label><select id="langFilter"><option>Todos os idiomas</option></select></div>
+    <div class="field"><label for="kindFilter">Tipo de publicação</label><select id="kindFilter"><option value="Todos">Todos os tipos</option><option>Pesquisa empírica</option><option>Dataset/recurso</option><option>Revisão/síntese</option></select></div>
     <div class="field"><label for="accessFilter">Disponibilidade</label><select id="accessFilter"><option value="Todos">Todos os tipos</option></select></div>
    </div>
    <div class="toolbar-row"><div><span id="countResults" class="count" aria-live="polite">33 referências mapeadas</span><span class="visually-hidden"><label for="yearFilter">Filtro de ano</label></span><select id="yearFilter" aria-label="Filtrar por ano" style="margin-left:13px;padding:6px 8px;color:#d4e8ed;background:#13283a;border:1px solid #3e586a;border-radius:7px"><option>Todos os anos</option></select></div><button class="small-btn" id="clearFilters">Limpar filtros</button></div>
@@ -372,22 +383,24 @@
 <script>
 
 "use strict";
-const STATE={all:[],filtered:[],selected:[],networkIds:null,filters:{query:"",language:"Todos",condition:"Todas",group:"Todos",year:"Todos",access:"Todos"}};
+const STATE={all:[],filtered:[],selected:[],networkIds:null,filters:{query:"",language:"Todos",condition:"Todas",group:"Todos",year:"Todos",access:"Todos",kind:"Todos"}};
 const $=(s,root=document)=>root.querySelector(s),$$=(s,root=document)=>[...root.querySelectorAll(s)];
 const escapeHTML=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const groupOrder=["Pesquisa empírica","Dataset/recurso","Revisão/síntese"];
 const methodOrder=["Análise lexical","ML clássico","Transformers","LLMs","Grafos/GNNs","Multimodal/fusão"];
-const researchKind=s=>({empirico:"Pesquisa empírica",recurso:"Dataset/recurso",sintese:"Revisão/síntese"}[s.analysisTaxonomy?.publicationKind]||"Pesquisa empírica");
+const researchKind=s=>({empirico:"Pesquisa empírica",recurso:"Dataset/recurso",sintese:"Revisão/síntese"}[s.analysisTaxonomy?.publicationKind]||"Não informado");
 const say=v=>v?String(v):"Não confirmado na ficha";
+const atlasScroll=()=>matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth";
 const colors={ "PT-BR":"#ffc785","Inglês":"#7df4db","Misto":"#b7adff","Coreano":"#b7adff","Diversos/NI":"#b7adff"};
 let previousFocus=null;
 function yearData(){return Array.from({length:7},(_,i)=>({year:2020+i,count:STATE.all.filter(s=>s.year===2020+i).length}));}
+const searchText=value=>value.toLocaleLowerCase("pt-BR").normalize("NFD").replace(/[\u0300-\u036f]/g,"").trim();
 function filterStudies(){
  const f=STATE.filters;
  STATE.filtered=STATE.all.filter(s=>{
-  const text=[s.title,s.condition,s.source,s.dataset,s.labeling,s.methods,s.results,s.limitations,s.datasetAudit?.name,s.datasetAudit?.platform,s.datasetAudit?.datasetFamily,s.datasetAudit?.sampleUnit,s.datasetAudit?.accessEvidence].join(" ").toLocaleLowerCase("pt-BR");
-  const q=!f.query||text.includes(f.query.toLocaleLowerCase("pt-BR"));
-  return q&&(f.language==="Todos"||s.language===f.language)&&(f.condition==="Todas"||s.conditions.includes(f.condition))&&(f.group==="Todos"||s.analysisTaxonomy?.methodFamilies?.includes(f.group))&&(f.year==="Todos"||s.year===Number(f.year))&&(f.access==="Todos"||s.datasetAudit?.accessStatus===f.access)&&(!STATE.networkIds||STATE.networkIds.includes(s.id));
+  const text=[s.title,s.condition,s.source,s.dataset,s.labeling,s.methods,s.results,s.limitations,s.datasetAudit?.name,s.datasetAudit?.platform,s.datasetAudit?.datasetFamily,s.datasetAudit?.sampleUnit,s.datasetAudit?.accessEvidence].join(" ");
+  const q=!f.query||searchText(text).includes(searchText(f.query));
+  return q&&(f.language==="Todos"||s.language===f.language)&&(f.condition==="Todas"||s.conditions.includes(f.condition))&&(f.group==="Todos"||s.analysisTaxonomy?.methodFamilies?.includes(f.group))&&(f.year==="Todos"||s.year===Number(f.year))&&(f.kind==="Todos"||researchKind(s)===f.kind)&&(f.access==="Todos"||s.datasetAudit?.accessStatus===f.access)&&(!STATE.networkIds||STATE.networkIds.includes(s.id));
  });
  renderCards();renderMap();
  $("#countResults").textContent=STATE.filtered.length+" de "+STATE.all.length+" referências encontradas";
@@ -438,6 +451,7 @@ function showDetails(id){
 function closeModal(){
  $("#modal").classList.remove("open");$("#modal").setAttribute("aria-hidden","true");document.body.style.overflow="";
  if(previousFocus?.isConnected)previousFocus.focus();
+ else $("#studyCards button, #query")?.focus();
 }
 function toggleCompare(id){
  id=Number(id);if(STATE.selected.includes(id)){STATE.selected=STATE.selected.filter(x=>x!==id);}else{
@@ -446,6 +460,7 @@ function toggleCompare(id){
  renderComparison();renderCards();
 }
 function renderComparison(){
+ document.dispatchEvent(new Event("atlas-comparison"));
  const slots=STATE.selected.map(id=>STATE.all.find(x=>x.id===id));
  ["slotA","slotB"].forEach((key,i)=>{
   const s=slots[i],n=i===0?"REFERÊNCIA A":"REFERÊNCIA B";
@@ -514,17 +529,17 @@ function renderSummary(){
 function setup(){
  window.setAtlasStudySubset=ids=>{
   STATE.networkIds=[...new Set(ids.map(Number))].filter(Number.isFinite);
-  STATE.filters={query:"",language:"Todos",condition:"Todas",group:"Todos",year:"Todos",access:"Todos"};
-  $("#query").value="";["langFilter","groupFilter","conditionFilter","yearFilter","accessFilter"].forEach(key=>$("#"+key).value="Todos"===key?"Todos":$("#"+key).options?.[0]?.value||"Todos");
+  STATE.filters={query:"",language:"Todos",condition:"Todas",group:"Todos",year:"Todos",access:"Todos",kind:"Todos"};
+  $("#query").value="";["langFilter","groupFilter","conditionFilter","yearFilter","accessFilter","kindFilter"].forEach(key=>$("#"+key).selectedIndex=0);
   filterStudies();
  };
  $("#query").addEventListener("input",e=>{STATE.networkIds=null;STATE.filters.query=e.target.value;filterStudies()});
- [["langFilter","language"],["groupFilter","group"],["conditionFilter","condition"],["yearFilter","year"],["accessFilter","access"]].forEach(([key,prop])=>{
+ [["langFilter","language"],["groupFilter","group"],["conditionFilter","condition"],["yearFilter","year"],["accessFilter","access"],["kindFilter","kind"]].forEach(([key,prop])=>{
   $("#"+key).addEventListener("change",e=>{STATE.networkIds=null;STATE.filters[prop]=e.target.value;filterStudies()});
  });
  $("#clearFilters").addEventListener("click",()=>{
-  STATE.networkIds=null;STATE.filters={query:"",language:"Todos",condition:"Todas",group:"Todos",year:"Todos",access:"Todos"};
-  $("#query").value="";["langFilter","groupFilter","conditionFilter","yearFilter","accessFilter"].forEach(key=>$("#"+key).selectedIndex=0);
+  STATE.networkIds=null;STATE.filters={query:"",language:"Todos",condition:"Todas",group:"Todos",year:"Todos",access:"Todos",kind:"Todos"};
+  $("#query").value="";["langFilter","groupFilter","conditionFilter","yearFilter","accessFilter","kindFilter"].forEach(key=>$("#"+key).selectedIndex=0);
   filterStudies();
  });
  $("#studyCards").addEventListener("click",e=>{
@@ -544,10 +559,21 @@ function setup(){
   t.innerHTML='<b>'+escapeHTML(s.title)+'</b> · '+s.year+' · '+escapeHTML(s.language)+'<br><small>Clique no ponto para explorar os dados técnicos.</small>';t.classList.add("visible");
  });
  $("#map").addEventListener("mouseout",e=>{if(e.target.closest(".node"))$("#mapTooltip").classList.remove("visible")});
- $("#comparePresets").addEventListener("click",e=>{const b=e.target.closest("button[data-a][data-b]");if(!b)return;STATE.selected=[Number(b.dataset.a),Number(b.dataset.b)];renderComparison();renderCards();$("#comparar").scrollIntoView({behavior:"smooth",block:"start"});});
+ $("#comparePresets").addEventListener("click",e=>{const b=e.target.closest("button[data-a][data-b]");if(!b)return;STATE.selected=[Number(b.dataset.a),Number(b.dataset.b)];renderComparison();renderCards();$("#comparar").scrollIntoView({behavior:atlasScroll(),block:"start"});});
  $("#clearComparison").addEventListener("click",()=>{STATE.selected=[];renderComparison();renderCards()});
  $("#modal").addEventListener("click",e=>{if(e.target.id==="modal"||e.target.classList.contains("close"))closeModal();const b=e.target.closest('[data-action="compare"]');if(b){toggleCompare(b.dataset.id);closeModal()}});
- document.addEventListener("keydown",e=>{if(e.key==="Escape"&&$("#modal").classList.contains("open"))closeModal()});
+ document.addEventListener("keydown",event=>{
+  const modal=$("#modal");
+  if(!modal.classList.contains("open"))return;
+  if(event.key==="Escape")closeModal();
+  if(event.key!=="Tab")return;
+  const controls=$$("button,a[href]",modal);
+  const boundary=event.shiftKey?controls[0]:controls.at(-1);
+  if(document.activeElement===boundary){
+   event.preventDefault();
+   (event.shiftKey?controls.at(-1):controls[0]).focus();
+  }
+ });
  $("#downloadData").href="./estudos.json";
  const obs="IntersectionObserver" in window?new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add("visible");obs.unobserve(e.target)}})},{threshold:.08}):null;
  $$(".reveal").forEach(e=>obs?obs.observe(e):e.classList.add("visible"));
@@ -557,6 +583,10 @@ function setup(){
   const data=JSON.parse(document.getElementById("studiesEmbedded").textContent);
   if(!Array.isArray(data.studies)||data.studies.length!==33)throw new Error("Número de referências inesperado.");
   STATE.all=data.studies;
+  $("#padroes").addEventListener("click",event=>{
+   const button=event.target.closest("[data-insight-study]");
+   if(button)showDetails(button.dataset.insightStudy);
+  });
   setup();renderSummary();filterStudies();renderComparison();
   $("#appStatus").textContent="Base sincronizada: "+STATE.all.length+" referências com oito campos técnicos.";
   $("#appStatus").classList.add("visually-hidden");
@@ -576,11 +606,11 @@ const COLOR={"Análise lexical":"#ffc785","ML clássico":"#8cd2f0","Transformers
 const get=id=>document.getElementById(id);
 const esc=s=>String(s??"").replace(/[&<>"']/g,ch=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[ch]));
 let studies=[],filtered=[],edges=[],activeEdge=null,activeHub=null,tourIndex=0,tourOpener=null;
-const short=s=>s.length>67?s.slice(0,66)+"…":s;
+const studyLink=s=>'<li><button type="button" class="study-link" data-network-study="'+s.id+'">#'+s.id+' · '+esc(s.title)+'</button></li>';
 const eligible=s=>s.analysisTaxonomy?.publicationKind==="empirico";
 function setPageFilters(ids){
  if(typeof window.setAtlasStudySubset==="function")window.setAtlasStudySubset(ids);
- document.querySelector("#estudos")?.scrollIntoView({behavior:"smooth"});
+ document.querySelector("#estudos")?.scrollIntoView({behavior:atlasScroll()});
 }
 function renderNetwork(){
  const ptOnly=get("showPtOnly").checked;
@@ -607,43 +637,50 @@ function renderNetwork(){
  });
  svg.push('<text x="154" y="560" text-anchor="middle" class="c-cap">MÉTODOS UTILIZADOS</text><text x="955" y="560" text-anchor="middle" class="c-cap">TAREFA-ALVO PRINCIPAL</text></svg>');
  get("conexaoViz").innerHTML=svg.join("");
- const strongest=edges.reduce((a,b)=>!a||b.count>a.count?b:a,null);
- if(strongest)showEdge(strongest,true);else showNoEdge();
+ clearNetworkSelection();
  get("cptCount").textContent=filtered.filter(s=>s.language==="PT-BR").length;
  get("cStudiesCount").textContent=filtered.length;
  get("cRelationsCount").textContent=edges.length;
  const nAssoc=edges.reduce((n,e)=>n+e.count,0);
  const cap=get("connectAssociations");if(cap)cap.textContent=nAssoc;
 }
-function showNoEdge(){
- get("connectionDescription").textContent="Nenhuma associação técnica neste recorte.";
- get("edgeTitle").textContent="Sem associações";get("edgeCount").textContent="0";get("edgeSources").innerHTML="";
+function clearNetworkSelection(){
+ activeEdge=null;
+ activeHub=null;
+ get("networkCategory").value="";
+ get("conexaoViz").querySelectorAll(".active,.dim,.selected,.related,.dimmed").forEach(node=>
+  node.classList.remove("active","dim","selected","related","dimmed")
+ );
+ get("edgeTitle").textContent="Visão geral";
+ get("edgeCount").textContent=edges.length+" ligações";
+ get("connectionDescription").textContent="Selecione um método, uma tarefa ou uma ligação para consultar os estudos associados.";
+ get("edgeSources").innerHTML="";
  get("edgeJump").hidden=true;
 }
-function showEdge(e,quiet=false){
+function showEdge(e){
  activeEdge=e; activeHub=null;
+ get("networkCategory").value="";
  get("conexaoViz").querySelectorAll(".c-hub").forEach(n=>n.classList.remove("selected","related","dimmed"));
  get("conexaoViz").querySelectorAll(".c-link").forEach(n=>{
   const is=edges[Number(n.dataset.e)]===e;
-  n.classList.toggle("active",is);n.classList.toggle("dim",!quiet&&!is);
+  n.classList.toggle("active",is);n.classList.toggle("dim",!is);
  });
  const full=filtered.filter(s=>e.ids.includes(s.id));
  get("edgeTitle").textContent=e.group+" ↔ "+e.condition;
  get("edgeCount").textContent=e.count+(e.count===1?" estudo":" estudos");
  get("connectionDescription").textContent="Trabalhos que utilizaram esta família técnica para a tarefa principal indicada. Uma publicação pode comparar diversos métodos. A ligação não mede qualidade, causalidade, desempenho nem independência amostral.";
- get("edgeSources").innerHTML=full.slice(0,5).map(s=>'<li><span style="color:#9bc5d0">'+s.year+'</span> · '+esc(short(s.title))+'</li>').join("")+(full.length>5?'<li>+ '+(full.length-5)+' outros</li>':'');
+ get("edgeSources").innerHTML=full.map(studyLink).join("");
  get("edgeJump").hidden=false;
 }
 function showCategoryRelations(g,c){
  const box=get("conexaoViz");
  if(activeHub&&activeHub.g===g&&activeHub.c===c){
   activeHub=null;
-  const strongest=edges.reduce((a,b)=>!a||b.count>a.count?b:a,null);
-  box.querySelectorAll(".c-hub").forEach(n=>n.classList.remove("selected","related","dimmed"));
-  if(strongest)showEdge(strongest,true);else showNoEdge();
+  clearNetworkSelection();
   return;
  }
  activeHub={g,c};
+ get("networkCategory").value=(g?"g:":"c:")+(g||c);
  const relatedEdges=edges.filter(e=>(!g||e.group===g)&&(!c||e.condition===c));
  const relatedGroups=new Set(relatedEdges.map(e=>e.group));
  const relatedConditions=new Set(relatedEdges.map(e=>e.condition));
@@ -664,7 +701,7 @@ function showCategoryRelations(g,c){
  get("edgeTitle").textContent=(g?"Método: "+g:"Tarefa: "+c);
  get("edgeCount").textContent=relevant.length+(relevant.length===1?" estudo":" estudos");
  get("connectionDescription").textContent=relatedEdges.length+" conexões destacadas. A listagem contém apenas publicações empíricas com a família ou tarefa principal selecionada. Clique novamente na categoria para remover o destaque.";
- get("edgeSources").innerHTML=relevant.map(s=>'<li><span style="color:#9bc5d0">'+s.year+'</span> · '+esc(s.title)+'</li>').join("");
+ get("edgeSources").innerHTML=relevant.map(studyLink).join("");
  get("edgeJump").hidden=relevant.length===0;
 }
 function onNetworkActivate(target){
@@ -685,10 +722,6 @@ const paragraphs=[
  {tag:"05 / LIMITAÇÕES",title:"O desafio é <span>validade científica.</span>",sub:"Rótulos, generalização, sensibilidade à plataforma e transparência dos dados importam tanto quanto os resultados de classificação.",items:()=>[[""+countLang("PT-BR"),"fontes exclusivamente PT-BR"],[""+studies.filter(s=>s.pending.length).length,"fichas com campos sinalizados"],["01","pergunta: generaliza fora do corpus?"]],url:"#padroes",label:"Ver síntese crítica"},
  {tag:"06 / PRÓXIMO PASSO",title:"Do levantamento a um <span>experimento verificável.</span>",sub:"Selecionar uma tarefa e um baseline publicado, definir corpus e partições, aplicar LLMs em zero-shot e few-shot e avaliar desempenho, custo e latência.",items:()=>[["01","tarefa e baseline"],["02","experimento comparável"],["03","erro, custo e latência"]],url:"#comparar",label:"Escolher estudos"}
 ];
-function countGroup(g){return studies.filter(s=>s.group===g).length}
-function countCondition(c){return studies.filter(s=>s.conditions.includes(c)).length}
-function countLang(c){return studies.filter(s=>s.language===c).length}
-function countMention(k){const re=new RegExp(k,"i");return studies.filter(s=>re.test([s.title,s.dataset,s.source,s.results].join(" "))).length}
 function renderTour(){
  const s=paragraphs[tourIndex],panel=get("tourPanel");
  get("tourTag").textContent=s.tag;get("tourHeading").innerHTML=s.title;
@@ -710,7 +743,7 @@ function openTour(){
 function closeTour(section){
  get("tourLayer").classList.remove("show");get("tourLayer").setAttribute("aria-hidden","true");
  document.body.style.overflow="";
- if(section){document.querySelector(section)?.scrollIntoView({behavior:"smooth"});}
+ if(section){document.querySelector(section)?.scrollIntoView({behavior:atlasScroll()});}
  else if(tourOpener?.isConnected)tourOpener.focus();
 }
 function setupTour(){
@@ -742,7 +775,31 @@ async function init(){
   get("showPtOnly").addEventListener("change",renderNetwork);
   get("conexaoViz").addEventListener("click",ev=>onNetworkActivate(ev.target));
   get("conexaoViz").addEventListener("keydown",ev=>{if((ev.key==="Enter"||ev.key===" ")&&(ev.target.closest(".c-link,.c-hub"))){ev.preventDefault();onNetworkActivate(ev.target)}});
-  get("conexaoViz").addEventListener("mouseover",ev=>{if(activeHub)return;const path=ev.target.closest(".c-link");if(path)showEdge(edges[Number(path.dataset.e)],false)});
+  const category=get("networkCategory");
+  G.forEach(name=>category.add(new Option("Método · "+name,"g:"+name)));
+  C.forEach(name=>category.add(new Option("Tarefa · "+name,"c:"+name)));
+  category.addEventListener("change",()=>{
+   const name=category.value.slice(2);
+   if(!name)clearNetworkSelection();
+   else if(category.value.startsWith("g:"))showCategoryRelations(name,null);
+   else showCategoryRelations(null,name);
+  });
+  get("clearConnectionSelection").addEventListener("click",clearNetworkSelection);
+  get("edgeSources").addEventListener("click",event=>{
+   const button=event.target.closest("[data-network-study]");
+   if(button)showDetails(button.dataset.networkStudy);
+  });
+  let zoom=1;
+  const diagram=get("conexaoViz");
+  const zoomOut=get("networkZoomOut"),zoomIn=get("networkZoomIn");
+  function changeZoom(delta){
+   zoom=Math.max(.75,Math.min(2,zoom+delta));
+   diagram.style.setProperty("--network-zoom",zoom);
+   zoomOut.disabled=zoom===.75;
+   zoomIn.disabled=zoom===2;
+  }
+  zoomOut.addEventListener("click",()=>changeZoom(-.25));
+  zoomIn.addEventListener("click",()=>changeZoom(.25));
   get("edgeJump").addEventListener("click",()=>{if(activeEdge)setPageFilters(activeEdge.ids)});
  }catch(e){get("conexaoViz").innerHTML='<p class="loading">Não foi possível carregar as relações. Consulte as fichas dos estudos.</p>';get("connectionDescription").textContent="Mapa indisponível";get("openTour").hidden=true;console.error("Mapa de métodos:",e)}
 }
@@ -811,81 +868,8 @@ init();
 
 </script>
 
-<script>
-/* Ranking por aderência metodológica: pesos são preferências do usuário, nunca métricas de desempenho. */
-(()=>{
- "use strict";
- const catalog=JSON.parse(document.getElementById("studiesEmbedded").textContent).studies;
- const criteria=[
-  {id:"empirico",label:"Pesquisa empírica",match:s=>s.analysisTaxonomy?.publicationKind==="empirico"},
-  {id:"ptbr",label:"Textos em português brasileiro",match:s=>s.language==="PT-BR"},
-  {id:"llms",label:"Utiliza LLMs",match:s=>(s.analysisTaxonomy?.methodFamilies||[]).includes("LLMs")},
-  {id:"transformers",label:"Utiliza Transformers",match:s=>(s.analysisTaxonomy?.methodFamilies||[]).includes("Transformers")},
-  {id:"publico",label:"Dataset com acesso público documentado",match:s=>s.datasetAudit?.accessStatus==="publico"},
-  {id:"depressao",label:"Investiga depressão",match:s=>(s.conditions||[]).includes("Depressão")||/Depressão/i.test(s.analysisTaxonomy?.primaryTask||"")},
-  {id:"ansiedade",label:"Investiga ansiedade",match:s=>(s.conditions||[]).includes("Ansiedade")||/Ansiedade/i.test(s.analysisTaxonomy?.primaryTask||"")},
-  {id:"estresse",label:"Investiga estresse",match:s=>(s.conditions||[]).includes("Estresse")||/Estresse/i.test(s.analysisTaxonomy?.primaryTask||"")},
-  {id:"recente",label:"Publicação de 2024 a 2026",match:s=>s.year>=2024&&s.year<=2026},
-  {id:"reddit",label:"Textos originados no Reddit",match:s=>/reddit/i.test(s.datasetAudit?.platform||s.source||"")},
-  {id:"twitter",label:"Textos originados no Twitter/X",match:s=>/twitter|\bx\b/i.test(s.datasetAudit?.platform||"")},
-  {id:"f1",label:"Resultados com métrica F1",match:s=>/\bf1\b/i.test(s.results||"")}
- ];
- const weights=new Map(criteria.map(k=>[k.id,3]));
- const chosen=new Set(["empirico","llms","ptbr"]);
- weights.set("empirico",5); weights.set("llms",4); weights.set("ptbr",3);
- const el=id=>document.getElementById(id);
- const escape=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
- function drawCriteria(){
-  el("rankCriteria").innerHTML=criteria.map(k=>{
-   const checked=chosen.has(k.id),weight=weights.get(k.id);
-   return '<div class="rank-option"><div class="rank-option-top"><label for="criterion-'+k.id+'"><input type="checkbox" id="criterion-'+k.id+'" data-check="'+k.id+'" '+(checked?"checked":"")+'>'+escape(k.label)+'</label></div>'+
-    '<div class="rank-weight"><span>Peso</span><input type="range" min="1" max="5" step="1" id="weight-'+k.id+'" data-weight="'+k.id+'" aria-label="Peso: '+escape(k.label)+'" value="'+weight+'" '+(!checked?"disabled":"")+'><output for="weight-'+k.id+'">'+weight+'/5</output></div></div>';
-  }).join("");
- }
- function rank(){
-  const active=criteria.filter(k=>chosen.has(k.id));
-  el("rankSelectionCount").textContent=active.length+" critérios selecionados";
-  if(!active.length){
-   el("rankSummary").textContent="Selecione pelo menos uma característica.";
-   el("rankResults").innerHTML='<p class="loading">Marque as características que você prefere e atribua pesos de 1 a 5.</p>';
-   return;
-  }
-  const max=active.reduce((a,k)=>a+weights.get(k.id),0);
-  const scored=catalog.map(s=>{
-   const matches=active.filter(k=>k.match(s));
-   const earned=matches.reduce((a,k)=>a+weights.get(k.id),0);
-   return {s,score:Math.round(earned/max*100),earned,max,matches};
-  }).sort((a,b)=>b.earned-a.earned||a.s.id-b.s.id);
-  el("rankSummary").textContent=catalog.length+" referências · "+active.length+" preferências · máximo "+max+" pontos";
-  el("rankResults").innerHTML=scored.map((item,i)=>{
-   const s=item.s,kind=s.analysisTaxonomy?.publicationKind;
-   const kindLabel=kind==="empirico"?"Pesquisa empírica":kind==="recurso"?"Recurso / dataset":"Síntese / revisão";
-   return '<article class="rank-card"><div class="rank-score"><strong>'+item.score+'%</strong><span>'+item.earned+'/'+item.max+' pontos</span></div><div><h5>'+(i+1)+'. '+escape(s.title)+'</h5>'+
-    '<p>'+s.year+' · '+escape(kindLabel)+' · '+escape(s.language)+' · '+item.matches.length+'/'+active.length+' critérios atendidos</p>'+
-    '<div class="rank-evidence">'+(item.matches.length?item.matches.map(k=>'<span>'+escape(k.label)+'</span>').join(""):'<span class="rank-none">Nenhum critério confirmado neste perfil</span>')+'</div>'+
-    '<div class="rank-links"><a href="'+escape(s.url)+'" target="_blank" rel="noopener noreferrer">Artigo / fonte ↗</a><button type="button" data-rank-study="'+s.id+'">Ver ficha no Atlas ↗</button></div></div></article>';
-  }).join("");
- }
- el("rankCriteria").addEventListener("change",e=>{
-  const input=e.target.closest("[data-check]");if(!input)return;
-  if(input.checked)chosen.add(input.dataset.check);else chosen.delete(input.dataset.check);
-  drawCriteria();rank();
- });
- el("rankCriteria").addEventListener("input",e=>{
-  const input=e.target.closest("[data-weight]");if(!input)return;
-  weights.set(input.dataset.weight,Number(input.value));
-  input.parentElement.querySelector("output").textContent=input.value+"/5";
-  rank();
- });
- el("rankResults").addEventListener("click",e=>{
-  const button=e.target.closest("[data-rank-study]");if(!button)return;
-  if(typeof window.setAtlasStudySubset==="function")window.setAtlasStudySubset([Number(button.dataset.rankStudy)]);
-  document.getElementById("estudos")?.scrollIntoView({behavior:"smooth"});
- });
- el("rankClear").addEventListener("click",()=>{chosen.clear();drawCriteria();rank()});
- el("rankExample").addEventListener("click",()=>{chosen.clear();chosen.add("empirico");chosen.add("llms");chosen.add("ptbr");weights.set("empirico",5);weights.set("llms",4);weights.set("ptbr",3);drawCriteria();rank()});
- drawCriteria();rank();
-})();
-</script>
+<script src="ranking.js"></script>
+<script src="ranking-ui.js"></script>
+<script src="resultados.js" data-source="estudos.json"></script>
 <script src="../../assets/discovery.js" data-kind="atlas" data-source="estudos.json" data-atlas="./" data-home="../../index.html" data-counterpart="https://fernandomarquesaluno-svg.github.io/depression_poject/tabelas/comparativo/"></script>
 </body></html>
