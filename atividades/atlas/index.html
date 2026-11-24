@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="pt-BR">
+<html lang="pt-BR" class="atlas-page">
 <head>
  <meta charset="utf-8">
  <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -409,7 +409,7 @@ function renderMap(){
  const width=1100,height=370,ox=210,ex=1045,top=80,row=102;
  const x=year=>ox+(year-2020)*(ex-ox)/6;
  const y=group=>top+Math.max(0,groupOrder.indexOf(group))*row+12;
- let out='<svg class="constellation" viewBox="0 0 '+width+' '+height+'" role="img" aria-label="Mapa de publicações por ano e natureza da contribuição. A classificação por técnica aparece separadamente no mapa de métodos.">';
+ let out='<svg class="constellation" viewBox="0 0 '+width+' '+height+'" role="group" aria-label="Mapa de publicações por ano e natureza da contribuição. A classificação por técnica aparece separadamente no mapa de métodos.">';
  for(let i=0;i<7;i++){
   const year=2020+i;const xx=x(year);
   out+='<line class="grid-line" x1="'+xx+'" y1="36" x2="'+xx+'" y2="318"/><text x="'+xx+'" y="350" text-anchor="middle">'+year+'</text>';
@@ -619,7 +619,7 @@ function renderNetwork(){
  const gc=G.map(g=>filtered.filter(s=>s.analysisTaxonomy.methodFamilies.includes(g)).length);
  const cc=C.map(c=>filtered.filter(s=>s.analysisTaxonomy.primaryTask===c).length);
  const gl=i=>68+i*84,cl=i=>104+i*93;
- const svg=['<svg class="connection-viz" viewBox="0 0 1110 570" role="img" aria-label="Mapa das abordagens efetivamente utilizadas por 25 estudos empíricos e sua tarefa-alvo principal. Linhas medem quantidade de estudos por combinação, não qualidade da evidência.">'];
+ const svg=['<svg class="connection-viz" viewBox="0 0 1110 570" role="group" aria-label="Mapa das abordagens efetivamente utilizadas por 25 estudos empíricos e sua tarefa-alvo principal. Linhas medem quantidade de estudos por combinação, não qualidade da evidência.">'];
  svg.push('<defs><radialGradient id="hubGlow"><stop stop-color="#4accc3" stop-opacity=".3"/><stop offset="1" stop-color="#4accc3" stop-opacity="0"/></radialGradient></defs>');
  svg.push('<circle cx="540" cy="275" r="220" fill="url(#hubGlow)" opacity=".55"/><text x="550" y="33" text-anchor="middle" class="c-sub">ASSOCIAÇÃO ENTRE MÉTODO E TAREFA</text>');
  G.forEach((g,i)=>C.forEach((c,j)=>{

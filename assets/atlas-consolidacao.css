@@ -49,3 +49,19 @@
 @media (prefers-reduced-motion: reduce) {
   .rank-card:nth-child(-n+6) { animation: none; }
 }
+
+@media (max-width: 690px) {
+  html.atlas-page { scroll-padding-top: 116px; }
+  .atlas-page .bar-inner { display: grid; align-content: center; gap: 6px; padding-block: 8px; }
+  .atlas-page .bar-nav {
+    max-width: 100%;
+    min-width: 0;
+    margin-inline: 0;
+    padding: 3px 4px;
+    overflow-x: auto;
+    white-space: nowrap;
+    scrollbar-width: thin;
+  }
+  .atlas-page .bar-nav a { flex: 0 0 auto; min-height: 32px; padding-block: 6px; }
+  .atlas-page .bar-nav a:not(.bar-cta) { display: inline-flex; align-items: center; }
+}

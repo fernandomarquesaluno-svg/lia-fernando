@@ -49,6 +49,13 @@ test('I01: a página inicial apresenta objetivo, links diretos e contagens dinâ
     const d = dom.window.document;
     assert.match(d.querySelector('h1').textContent, /Atlas de Evidências/);
     assert.match(d.querySelector('.project-question').textContent, /Pergunta orientadora/);
+    const context = new JSDOM(fs.readFileSync(path.join(root, 'contexto.html'), 'utf8'));
+    try {
+      assert.equal(
+        d.querySelector('#pergunta-orientadora').textContent,
+        context.window.document.querySelector('#pergunta-orientadora').textContent
+      );
+    } finally { context.window.close(); }
     assert.deepEqual([...d.querySelectorAll('.result-metrics dd')].map(el => el.textContent), ['33', '25/33', '8', '16']);
     for (const href of ['atividades/atlas/#conexoes','atividades/atlas/#comparar','atividades/deproberta/#video','evolucao.html']) {
       assert(d.querySelector('a[href="' + href + '"]'));
