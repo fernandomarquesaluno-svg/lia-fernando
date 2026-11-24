@@ -70,6 +70,7 @@ body.deck-locked{overflow:hidden}
 @media(max-width:760px){.container{width:calc(100% - 34px)}.nav{min-height:62px}.navlinks a:not(.back){display:none}.hero{padding:64px 0 44px}.hero-layout,.about,.dataset-grid,.demo-grid,.route{grid-template-columns:1fr}.signal{max-width:310px;margin-top:15px}.facts{grid-template-columns:repeat(2,1fr);margin-top:30px}.section{padding:57px 0}.section-head{display:block}.section-head p{margin-top:15px}.class-grid{grid-template-columns:1fr}.pipeline{grid-template-columns:repeat(2,1fr)}.stage{min-height:108px}.stage-detail{grid-template-columns:1fr}.chartrow{grid-template-columns:112px 1fr 50px;gap:8px;font-size:.7rem}.dataset-row{grid-template-columns:69px 1fr 55px;gap:8px}.dataset-box,.results-box,.demo-grid .panel,.route .panel{padding:18px}.facts .fact{padding:15px}.sources{grid-template-columns:1fr}.source{min-height:105px}}
 @media(max-width:760px){.deck-top,.deck-bottom{padding:11px 15px}.deck-viewport{padding:20px 21px}.deck-cards{grid-template-columns:1fr;gap:10px;margin-top:20px}.deck-card{padding:13px 17px}.deck-card strong{font-size:1.8rem}.deck-card span{margin-top:5px}.deck-slide h2{margin:14px 0}.deck-flow{gap:6px;margin:18px 0}.deck-flow span{padding:11px;min-width:110px}.deck-flow i{display:none}.deck-hint{display:none}.deck-btn{padding:8px 11px}.deck-brand{font-size:.65rem}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
+.video-study{max-width:960px;margin-inline:auto}.video-study video{display:block;width:100%;aspect-ratio:16 / 9;background:#080f1d;border:1px solid var(--line);border-radius:16px}.video-study figcaption{margin-top:12px;color:var(--muted);font-size:.88rem}
 </style>
 </head>
 <body>
@@ -87,6 +88,7 @@ body.deck-locked{overflow:hidden}
 <p>Como dois modelos de linguagem foram combinados para classificar sinais de depressão em textos do Reddit? Explore os dados, a técnica, o experimento e os resultados <strong>publicados</strong>.</p>
 <p class="authors">Poświata &amp; Perełkiewicz · LT-EDI / ACL · 2022 · Pesquisa empírica</p>
 <div class="hero-actions">
+<a class="btn primary" href="#video">▶ Assistir ao vídeo</a>
 <button class="btn" type="button" id="presentationOpen">▶ Modo apresentação</button>
 <a class="btn" href="#metodo">Explorar o experimento ↓</a>
 <a class="btn secondary" href="https://aclanthology.org/2022.ltedi-1.40.pdf" target="_blank" rel="noopener noreferrer">Abrir artigo original ↗</a>
@@ -101,6 +103,16 @@ body.deck-locked{overflow:hidden}
 </div>
 </div></section>
 
+<section class="section" id="video" aria-labelledby="video-title"><div class="container">
+<div class="section-head"><div><span class="eyebrow">VÍDEO EXPLICATIVO</span><h2 id="video-title">Dentro do <em>DepRoBERTa.</em></h2></div></div>
+<figure class="video-study">
+<video controls playsinline preload="metadata" width="1280" height="720" aria-labelledby="video-title">
+<source src="DepRoBERTa.mp4" type="video/mp4">
+<a href="DepRoBERTa.mp4">Abrir vídeo em formato MP4</a>
+</video>
+<figcaption>Narração em português brasileiro e legendas no vídeo. <a href="DepRoBERTa-ptBR.srt" download>Baixar legendas (SRT)</a>.</figcaption>
+</figure>
+</div></section>
 <section class="section reveal" id="problema"><div class="container">
 <div class="section-head"><div><span class="number">01 / A QUESTÃO</span><h2>O problema que o artigo<br>buscou resolver.</h2></div><p>Uma tarefa de classificação de postagens em inglês, com três níveis de sinais textuais relacionados à depressão.</p></div>
 <div class="about">

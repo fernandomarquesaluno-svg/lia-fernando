@@ -1,0 +1,71 @@
+1
+00:00:00,200 --> 00:00:03,177
+Como dois modelos de linguagem podem trabalhar juntos
+
+2
+00:00:03,207 --> 00:00:06,247
+para classificar sinais textuais relacionados à depressão?
+
+3
+00:00:06,457 --> 00:00:10,755
+O DepRoBERTa foi desenvolvido para um desafio científico de 2022.
+
+4
+00:00:10,965 --> 00:00:14,156
+A tarefa era classificar postagens em inglês do Reddit
+
+5
+00:00:14,186 --> 00:00:17,910
+em três categorias anotadas: sem sinais, moderada ou grave.
+
+6
+00:00:18,120 --> 00:00:20,518
+Isso descreve o rótulo atribuído ao texto.
+
+7
+00:00:20,728 --> 00:00:22,529
+Não é diagnóstico de uma pessoa.
+
+8
+00:00:22,739 --> 00:00:25,505
+Depois de remover duplicatas, os autores usaram
+
+9
+00:00:25,535 --> 00:00:28,912
+6.006 exemplos para treino e 1.000 para validação.
+
+10
+00:00:29,122 --> 00:00:32,424
+Compararam modelos Transformer e adaptaram o RoBERTa-large
+
+11
+00:00:32,454 --> 00:00:35,217
+a textos de saúde mental, criando o DepRoBERTa.
+
+12
+00:00:35,427 --> 00:00:39,122
+A etapa final combinou as probabilidades dos dois modelos por média.
+
+13
+00:00:39,332 --> 00:00:44,624
+No teste oficial, o RoBERTa-large obteve Macro-F1 de 0,552.
+
+14
+00:00:44,834 --> 00:00:49,933
+O DepRoBERTa, 0,571, e o ensemble, 0,583,
+
+15
+00:00:49,963 --> 00:00:52,877
+o melhor resultado entre essas três configurações.
+
+16
+00:00:53,087 --> 00:00:57,278
+A ideia central é combinar modelos que podem captar padrões diferentes.
+
+17
+00:00:57,488 --> 00:01:00,259
+O resultado vale para aquele conjunto e desafio.
+
+18
+00:01:00,469 --> 00:01:04,514
+Não demonstra eficácia clínica nem capacidade de diagnosticar pessoas.
