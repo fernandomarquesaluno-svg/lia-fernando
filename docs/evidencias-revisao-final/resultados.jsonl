@@ -1,0 +1,6 @@
+{"source":"publicado","name":"desktop","width":1440,"height":900,"root":1440,"outside":[],"bar":73,"nav":7,"errors":[],"failed":[],"methods":14,"depression":16,"relatedEdges":6,"filteredPTBR":8,"r08":"20% / 100%"}
+{"source":"branch","name":"desktop","width":1440,"height":900,"root":1440,"outside":[],"bar":73,"nav":7,"errors":[],"failed":[],"methods":14,"depression":16,"relatedEdges":6,"filteredPTBR":8,"r08":"20% / 100%"}
+{"source":"publicado","name":"tablet","width":768,"height":1024,"root":822,"outside":[{"cls":"NAV::bar-nav","right":822},{"cls":"A::bar-cta","right":822}],"bar":99,"nav":7,"errors":[],"failed":[],"methods":14,"depression":16,"relatedEdges":6,"filteredPTBR":8,"r08":"20% / 100%"}
+{"source":"branch","name":"tablet","width":768,"height":1024,"root":768,"outside":[],"bar":128,"nav":7,"errors":[],"failed":[],"methods":14,"depression":16,"relatedEdges":6,"filteredPTBR":8,"r08":"20% / 100%"}
+{"source":"publicado","name":"celular","width":390,"height":844,"root":390,"outside":[],"bar":64,"nav":1,"errors":[],"failed":[],"methods":14,"depression":16,"relatedEdges":6,"filteredPTBR":8,"r08":"20% / 100%"}
+{"source":"branch","name":"celular","width":390,"height":844,"root":390,"outside":[],"bar":155,"nav":7,"errors":[],"failed":[],"methods":14,"depression":16,"relatedEdges":6,"filteredPTBR":8,"r08":"20% / 100%"}
