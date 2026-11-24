@@ -121,14 +121,16 @@ test('I02: mapa, fichas, filtros, ranking, comparação e gráfico no DOM', asyn
 test('I03: rotas do portal, âncoras e filtro da evolução', async () => {
   const pages = ['index.html','contexto.html','metodologia.html','trabalhos.html','evolucao.html','apresentacao.html',
     'atividades/atlas/index.html','atividades/deproberta/index.html','atividades/kallstenius/index.html',
-    'atividades/levantamento/index.html','atividades/experimentos/index.html'];
+    'atividades/levantamento/index.html'];
+  assert(!fs.existsSync(path.join(root, 'atividades/experimentos/index.html')));
+  assert(!fs.existsSync(path.join(root, 'experimentos.html')));
   const markup = new Map(pages.map(page => [page, new JSDOM(fs.readFileSync(path.join(root, page), 'utf8')).window]));
   try {
-    for (const page of ['index.html', 'metodologia.html', 'evolucao.html', 'atividades/atlas/index.html']) {
+    for (const page of pages) {
       const d = markup.get(page).document;
       const ids = [...d.querySelectorAll('[id]')].map(el => el.id);
       assert.equal(new Set(ids).size, ids.length);
-      const internal = [...d.querySelectorAll('a[href]')].filter(el => !/^(https?:|mailto:)/.test(el.getAttribute('href')));
+      const internal = [...d.querySelectorAll('a[href]')].filter(el => !/^(https?:|mailto:|tel:|javascript:)/.test(el.getAttribute('href')));
       for (const a of internal) {
         const url = new URL(a.getAttribute('href'), new URL(page, origin));
         if (!url.href.startsWith(origin)) continue;

@@ -111,3 +111,7 @@ Os sete testes existentes passaram com `NODE_PATH=<pasta-com-jsdom> node --test 
 - A página inicial na raiz reúne frase-síntese, contexto, problema, pergunta, proposta e acesso à evolução. O professor solicitou destaque para mapa e comparador. Ambos vêm antes da biblioteca, com as fichas completas sob demanda.
 - Os números apresentados vêm do levantamento e dos testes da ferramenta. Os resultados dos artigos continuam atribuídos às fontes. A proposta experimental está identificada como atividade complementar planejada.
 - O vídeo do DepRoBERTa atende à apresentação do estudo de caso. A atividade pede um vídeo animado de até três minutos sobre o projeto como um todo. Restam a aprovação e publicação desta revisão, a incorporação e conferência desse vídeo geral e a entrega do link atualizado na atividade do LIA.
+
+## Atualização de escopo — 24/11/2026
+
+Por decisão do autor, a página de proposta experimental e a rota legada foram retiradas do portal. O escopo público concentra-se no levantamento e na comparação de pesquisas; as observações anteriores deste relatório são registros históricos. Não foram produzidos resultados próprios de treinamento de modelos. A eventual obrigatoriedade de um experimento deve ser esclarecida com o professor. O conteúdo anterior permanece recuperável no histórico Git.
