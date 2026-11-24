@@ -1,71 +1,71 @@
 1
-00:00:00,200 --> 00:00:03,177
+00:00:00,450 --> 00:00:03,344
 Como dois modelos de linguagem podem trabalhar juntos
 
 2
-00:00:03,207 --> 00:00:06,247
+00:00:03,344 --> 00:00:07,276
 para classificar sinais textuais relacionados à depressão?
 
 3
-00:00:06,457 --> 00:00:10,755
+00:00:07,816 --> 00:00:12,358
 O DepRoBERTa foi desenvolvido para um desafio científico de 2022.
 
 4
-00:00:10,965 --> 00:00:14,156
+00:00:12,668 --> 00:00:15,738
 A tarefa era classificar postagens em inglês do Reddit
 
 5
-00:00:14,186 --> 00:00:17,910
+00:00:15,738 --> 00:00:20,277
 em três categorias anotadas: sem sinais, moderada ou grave.
 
 6
-00:00:18,120 --> 00:00:20,518
+00:00:20,587 --> 00:00:23,165
 Isso descreve o rótulo atribuído ao texto.
 
 7
-00:00:20,728 --> 00:00:22,529
+00:00:23,475 --> 00:00:25,473
 Não é diagnóstico de uma pessoa.
 
 8
-00:00:22,739 --> 00:00:25,505
+00:00:26,013 --> 00:00:28,759
 Depois de remover duplicatas, os autores usaram
 
 9
-00:00:25,535 --> 00:00:28,912
+00:00:28,759 --> 00:00:32,326
 6.006 exemplos para treino e 1.000 para validação.
 
 10
-00:00:29,122 --> 00:00:32,424
+00:00:32,866 --> 00:00:36,092
 Compararam modelos Transformer e adaptaram o RoBERTa-large
 
 11
-00:00:32,454 --> 00:00:35,217
+00:00:36,092 --> 00:00:39,265
 a textos de saúde mental, criando o DepRoBERTa.
 
 12
-00:00:35,427 --> 00:00:39,122
+00:00:39,805 --> 00:00:43,861
 A etapa final combinou as probabilidades dos dois modelos por média.
 
 13
-00:00:39,332 --> 00:00:44,624
+00:00:44,401 --> 00:00:50,175
 No teste oficial, o RoBERTa-large obteve Macro-F1 de 0,552.
 
 14
-00:00:44,834 --> 00:00:49,933
+00:00:50,485 --> 00:00:55,688
 O DepRoBERTa, 0,571, e o ensemble, 0,583,
 
 15
-00:00:49,963 --> 00:00:52,877
+00:00:55,688 --> 00:00:58,699
 o melhor resultado entre essas três configurações.
 
 16
-00:00:53,087 --> 00:00:57,278
+00:00:59,239 --> 00:01:03,740
 A ideia central é combinar modelos que podem captar padrões diferentes.
 
 17
-00:00:57,488 --> 00:01:00,259
+00:01:04,050 --> 00:01:07,138
 O resultado vale para aquele conjunto e desafio.
 
 18
-00:01:00,469 --> 00:01:04,514
+00:01:07,448 --> 00:01:12,043
 Não demonstra eficácia clínica nem capacidade de diagnosticar pessoas.
