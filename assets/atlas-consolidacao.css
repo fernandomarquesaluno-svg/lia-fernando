@@ -41,3 +41,11 @@
   html:focus-within { scroll-behavior: auto; }
   .result-track i { animation: none; }
 }
+#conexaoViz { max-height: min(67vh, 600px); }
+#conexaoViz .connection-viz { height: auto; max-height: none; }
+.rank-card { overflow-wrap: anywhere; }
+.rank-card:nth-child(-n+6) { animation: atlas-ranking-in .2s ease-out both; }
+@keyframes atlas-ranking-in { from { opacity: .72; } to { opacity: 1; } }
+@media (prefers-reduced-motion: reduce) {
+  .rank-card:nth-child(-n+6) { animation: none; }
+}

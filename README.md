@@ -25,13 +25,15 @@ As antigas rotas `/atlas.html`, `/levantamento.html`, `/kallstenius.html` e `/ex
 
 1. **Sem apresentação em slides:** as atividades são publicadas e discutidas como páginas HTML dinâmicas.
 2. **Fluxograma interativo:** clicar em uma categoria de método ou tarefa (ex.: depressão) realça todas as suas ligações e exibe a lista completa de trabalhos correspondentes; a seleção pode ser enviada às fichas.
-3. **Comparador com pontuação ponderada:** o usuário seleciona características (natureza empírica, idioma, modelos, disponibilidade dos dados, condições, fonte textual e outros), atribui pesos de 1 a 5 e ordena as 33 referências por **aderência aos critérios**, de 0 a 100.
+3. **Comparador com pontuação ponderada:** o usuário seleciona características (natureza empírica, idioma, modelos, disponibilidade dos dados, condições, fonte textual e outros), atribui pesos de 0 a 5 e ordena as 33 referências por **aderência aos critérios**, de 0 a 100.
 4. **Um site para todas as atividades:** cada entrega tem diretório próprio sob `/atividades/`, com publicação incremental.
 5. **Natureza da literatura:** conforme o inventário auditado de 33 referências, são 25 pesquisas empíricas (75,8%), 3 recursos/datasets e 5 sínteses ou revisões.
 
 ### Nota sobre o comparador
 
-A pontuação é `100 × (soma dos pesos das características atendidas) / (soma dos pesos selecionados)`. **Não mede** precisão, F1, desempenho, qualidade científica nem validade clínica. A falta de confirmação de um campo não comprova ausência da característica. Em caso de empate no escore, a ordem segue o identificador bibliográfico.
+A aderência é `100 × peso atendido / peso avaliável`. A cobertura é a fração `peso avaliável / peso selecionado`. Um critério sem confirmação fica fora do peso avaliável. Uma incompatibilidade documentada vale zero e permanece no denominador. Peso zero desativa o critério. Em empates, vem primeiro a maior cobertura e depois o menor ID. Uma referência sem critérios avaliáveis fica sem pontuação.
+
+Os perfis prontos usam pesos 5 (estudo empírico), 4 (LLMs ou Transformers) e 3 (PT-BR). Com LLMs, as fichas #7 e #13 lideram com 12/12. Com Transformers, as fichas #8 e #19 lideram com 12/12. A pontuação descreve preferências de consulta. As fichas documentam as métricas e seus protocolos.
 
 O comparador lado a lado dos dois estudos permanece disponível. A matriz técnica e o JSON foram copiados para este repositório, enquanto o Atlas original segue preservado em [depression_poject](https://github.com/fernandomarquesaluno-svg/depression_poject).
 
@@ -46,7 +48,17 @@ O comparador lado a lado dos dois estudos permanece disponível. A matriz técni
 
 ## Execução
 
-Abra `index.html` no navegador ou execute `python3 -m http.server 8000` na raiz do projeto. O site é estático, sem etapa de build. Publique via **Settings → Pages → Deploy from a branch → main / (root)**.
+Execute `python3 -m http.server 8000` na raiz e acesse `http://localhost:8000/`. O site é estático e mantém os caminhos relativos usados no GitHub Pages.
+
+A base de consulta é `atividades/atlas/estudos.json`. O Atlas mantém uma cópia embutida para abertura do acervo sem requisição adicional e uma matriz HTML para leitura sem JavaScript. O teste de integridade confere as duas cópias JSON. `ranking.js` contém a lógica de pontuação, `ranking-ui.js` conecta os controles da página e `resultados.js` calcula as distribuições da página inicial e do Atlas.
+
+```sh
+node --test tests/atlas.test.cjs
+npm install --prefix /tmp/lia-atlas-tests jsdom@26.1.0 --no-audit --no-fund
+NODE_PATH=/tmp/lia-atlas-tests/node_modules node --test tests/*.test.cjs
+```
+
+Veja o [relatório de consolidação e validação](docs/consolidacao-atlas.md).
 
 ## Preservação
 
