@@ -1,4 +1,4 @@
-name: Produção neural da retrospectiva
+name: Produção neural da retrospectiva V2
 on:
   push:
     branches: [producao-retrospectiva-neural]
@@ -22,12 +22,12 @@ jobs:
           python -m pip install 'kokoro==0.9.4' 'misaki==0.9.4' 'transformers==4.49.0' 'huggingface-hub==0.30.2' 'numpy<2.3' soundfile scipy
           python -m pip check
       - name: Sintetizar e montar
-        run: python tools/retrospectiva_neural.py
+        run: python tools/retrospectiva_neural_v2.py
       - name: Arquivos produzidos
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: retrospectiva-neural
-          path: saida-neural/
-          retention-days: 14
+          name: retrospectiva-neural-v2
+          path: saida-neural-v2/
+          retention-days: 30
           if-no-files-found: warn
