@@ -1,0 +1,34 @@
+name: Atlas - vídeo curto de evolução
+on:
+  push:
+    branches: [video-curto-evolucao-atlas]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  produzir:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Instalar ambiente validado e ferramentas de captura
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y ffmpeg espeak-ng libsndfile1 fonts-dejavu-core
+          python -m pip install torch==2.6.0 --index-url https://download.pytorch.org/whl/cpu
+          python -m pip install 'kokoro==0.9.4' 'misaki==0.9.4' 'transformers==4.49.0' 'huggingface-hub==0.30.2' 'numpy<2.3' soundfile scipy pillow playwright
+          python -m pip check
+          if ! command -v google-chrome && ! command -v chromium; then python -m playwright install --with-deps chromium; fi
+      - name: Produzir vídeo
+        run: python tools/atlas_video_curto.py
+      - name: Disponibilizar arquivos
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: atlas-video-curto
+          path: saida-video-curto/
+          retention-days: 30
+          if-no-files-found: warn
