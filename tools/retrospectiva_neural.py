@@ -14,6 +14,7 @@ MODEL='hexgrad/Kokoro-82M'
 torch.manual_seed(42)
 torch.set_num_threads(2)
 p=KPipeline(lang_code='p',repo_id=MODEL,device='cpu')
+print('Modelo neural carregado', flush=True)
 configs={'A':('pm_alex',1.0),'B':('pm_alex',0.95),'C':('pm_santa',1.0)}
 sample='Como comparar pesquisas sobre inteligência artificial e saúde mental? Foi assim que nasceu o Atlas de Evidências.'
 scenes=[
@@ -27,6 +28,17 @@ scenes=[
 (84,96,['Transformei o artigo em uma página interativa, com gráficos e um simulador da combinação dos modelos.','O portal recebeu vídeos explicativos.']),
 (96,107,['O próximo passo científico é tentar uma reprodução parcial, com uma referência de comparação e resultados próprios.']),
 (107,115,['Assim, o levantamento tornou-se um Atlas de Evidências.','Documentar, comparar e evoluir.'])]
+shorter={
+0:['Como comparar pesquisas de inteligência artificial sobre saúde mental?'],
+8:['Reuni trinta e três referências de 2020 a 2026.','Vinte e cinco são estudos empíricos.'],
+18:['Criei um mapa de relações entre métodos e tarefas.','E um comparador com critérios e pesos.'],
+30:['Revisei a origem, a rotulagem e o acesso aos dados.','Nem todos estavam disponíveis.'],
+40:['Analisei modelos individuais e combinados no artigo de Kallstenius.','Os resultados são dos autores.'],
+52:['O DepRoBERTa usa textos do Reddit.','Os autores removeram duplicatas e reorganizaram os dados.','O treino reuniu seis mil e seis textos.'],
+68:['Os modelos combinam suas probabilidades pela média.','No teste oficial, o macro F um dos autores foi zero vírgula quinhentos e oitenta e três.'],
+84:['Transformei o estudo em uma página interativa, com gráficos e um simulador.','O portal ganhou vídeos explicativos.'],
+96:['O próximo passo é tentar uma reprodução parcial, com comparação e resultados próprios.'],
+107:['Assim nasceu o Atlas de Evidências.','Documentar, comparar e evoluir.']}
 def cmd(*args):
     return subprocess.run([str(x) for x in args],check=True,capture_output=True,text=True)
 def synth(text,cfg):
@@ -53,11 +65,12 @@ def norm(src,dst):
     measured=':'.join(f'{k}={x[v]}' for k,v in [('measured_I','input_i'),('measured_TP','input_tp'),('measured_LRA','input_lra'),('measured_thresh','input_thresh'),('offset','target_offset')])
     cmd('ffmpeg','-v','error','-y','-i',src,'-af',filt+':'+measured+':linear=true,aresample=48000','-c:a','pcm_s24le',dst)
     return x
-report={'model':MODEL,'python':sys.version,'packages':{k:md.version(k) for k in ['kokoro','torch','misaki','soundfile','numpy','scipy','huggingface-hub']},'ffmpeg':cmd('ffmpeg','-version').stdout.splitlines()[0],'sample_text':sample,'configs':configs,'sample_results':[],'selection':'B provisional; no subjective listening review performed','scenes':scenes,'seed':42,'synthesis_count':0,'status':'in progress'}
+report={'model':MODEL,'python':sys.version,'packages':{k:md.version(k) for k in ['kokoro','torch','misaki','soundfile','numpy','scipy','huggingface-hub','transformers']},'ffmpeg':cmd('ffmpeg','-version').stdout.splitlines()[0],'sample_text':sample,'configs':configs,'sample_results':[],'selection':'B provisional; no subjective listening review performed','scenes':scenes,'seed':42,'synthesis_count':0,'status':'in progress'}
 def save():
     (OUT/'relatorio.json').write_text(json.dumps(report,ensure_ascii=False,indent=2),encoding='utf-8')
 save()
 for key,cfg in configs.items():
+    print('Gerando amostra',key,flush=True)
     a=synth(sample,cfg);report['synthesis_count']+=1
     sf.write(OUT/f'amostra_{key}.wav',a,SR,subtype='PCM_24')
     report['sample_results'].append({'id':key,'seconds':len(a)/SR});save()
@@ -65,6 +78,7 @@ duration=float(cmd('ffprobe','-v','error','-show_entries','format=duration','-of
 timeline=np.zeros(round(duration*SR),np.float32)
 cues=[];records=[]
 for start,end,phrases in scenes:
+    print('Sintetizando cena',start,end,flush=True)
     chosen=configs['B']
     parts=[synth(t,chosen) for t in phrases];report['synthesis_count']+=len(parts)
     cursor=round((start+.1)*SR)
@@ -74,7 +88,12 @@ for start,end,phrases in scenes:
         chosen=configs['A']
         parts=[synth(t,chosen) for t in phrases];report['synthesis_count']+=len(parts)
         needed=sum(map(len,parts))+round(.13*SR)*(len(parts)-1)
-    records.append({'start':start,'end':end,'voice':chosen[0],'speed':chosen[1],'duration':needed/SR})
+    if cursor+needed>round((min(end,duration)-.06)*SR):
+        phrases=shorter[start]
+        chosen=configs['B']
+        parts=[synth(t,chosen) for t in phrases];report['synthesis_count']+=len(parts)
+        needed=sum(map(len,parts))+round(.13*SR)*(len(parts)-1)
+    records.append({'start':start,'end':end,'voice':chosen[0],'speed':chosen[1],'duration':needed/SR,'spoken_text':phrases})
     report['timings']=records;save()
     if cursor+needed>round((min(end,duration)-.06)*SR):
         raise RuntimeError(f'Scene {start} exceeds window; no truncated or stretched audio')
